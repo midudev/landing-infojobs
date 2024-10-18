@@ -1,0 +1,72 @@
+---
+import CoolJobCard from "@components/CoolJobCard.astro";
+import type { CoolJobs } from "@types";
+import CoolJobBackground from "@components/CoolJobBackground.astro";
+import CoolJobBrand from "@components/CoolJobBrand.astro";
+
+const coolJobs: CoolJobs[] = [
+  {
+    image: "/img/cool-jobs/port-aventura.webp",
+    title: "Probador de montañas rusas",
+    brand: "Port Aventura World",
+  },
+  {
+    image: "/img/cool-jobs/maxibon.webp",
+    title: "Catadora de helados",
+    brand: "Maxibon",
+  },
+  {
+    image: "/img/cool-jobs/wizink-center.webp",
+    title: "Probadora de conciertos",
+    brand: "WiZink Center",
+  },
+  {
+    image: "/img/cool-jobs/dominos.webp",
+    title: "Catadora de pizzas",
+    brand: "Domino's",
+  },
+  {
+    image: "/img/cool-jobs/btravel.webp",
+    title: "Probadora de viajes",
+    brand: "B travel",
+  },
+  {
+    image: "/img/cool-jobs/grefusa.webp",
+    title: "Probadora de snacks",
+    brand: "Grefusa",
+  },
+  {
+    image: "/img/cool-jobs/visa.webp",
+    title: "Probador de pagos con el móvil",
+    brand: "Visa",
+  },
+];
+---
+
+<section class="mx-auto w-full lg:max-w-7xl lg:px-4">
+  <article
+    class="p-4 pb-6 flex flex-col gap-6 bg-gradient-to-r from-[#FFDEDA] to-[#FCEDEB] lg:py-15 lg:px-10 lg:rounded-2xl lg:items-center lg:overflow-hidden lg:relative"
+  >
+    <CoolJobBackground />
+
+    <h2
+      class="text-ij-red font-semibold tracking-separated leading-[34px] text-[28px] lg:text-[34px] lg:leading-10 lg:tracking-[0.37px] lg:text-center lg:z-10"
+    >
+      Los trabajos más cool
+    </h2>
+
+    <div
+      class="flex items-center gap-6 overflow-x-auto -mx-4 px-4 lg:p-0 lg:m-0 lg:grid lg:grid-cols-4 lg:w-[1200px] lg:z-10"
+    >
+      {
+        coolJobs.map(({ image, title, brand }) => (
+          <CoolJobCard image={image} title={title} brand={brand} />
+        ))
+      }
+
+      <CoolJobBrand class="hidden lg:flex" />
+    </div>
+
+    <CoolJobBrand class="lg:hidden" />
+  </article>
+</section>
