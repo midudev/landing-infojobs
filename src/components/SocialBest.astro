@@ -21,7 +21,7 @@ const VIDEOS = [
                 <button class="opacity-65 hover:opacity-100 hover:scale-105 transition-all active:scale-100" id="left-button"><RightArrow size="38" /></button>
             </div>
         </div>
-        <div class="flex overflow-scroll custom-scrollbar px-2 snap-mandatory snap-x rounded-2xl" id="carousel">
+        <div class="flex overflow-scroll custom-scrollbar px-2 snap-mandatory snap-x xl:rounded-2xl" id="carousel">
             {
                 VIDEOS.map(({ videoId, title }) => (
                     <LiteYoutube videoId={videoId} title={title} />
