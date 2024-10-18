@@ -36,7 +36,7 @@ const studies = await getStudies()
     <form>
       <div>
         <select
-          class="w-full py-4 border-b border-gray-300 text-gray-600 bg-transparent cursor-pointer"
+          class="w-full py-4 border-b border-gray-300 text-gray-400 bg-transparent cursor-pointer"
         >
           {
             studies.map(({ id, value, key }) => {
@@ -44,7 +44,7 @@ const studies = await getStudies()
               const literal = isDefault ? "Nivel de estudios" : value
 
               return (
-                <option value={key} disabled={isDefault} selected={isDefault}>
+                <option class={isDefault ? '': 'text-gray-600'} value={key} disabled={isDefault} selected={isDefault}>
                   {literal}
                 </option>
               )
