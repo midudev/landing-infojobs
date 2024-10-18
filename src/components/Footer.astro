@@ -1,12 +1,13 @@
 ---
-import LinksColumns from '@components/LinksColumns.astro'
-import FollowUs from "./FollowUs.astro";
-import SectionContainer from "./SectionContainer.astro";
-import AdevintaInfo from "./AdevintaInfo.astro";
+import LinksColumns from "@components/LinksColumns.astro";
+import FollowUs from "@components/FollowUs.astro";
+import AdevintaInfo from "@components/AdevintaInfo.astro";
 ---
 
-<footer class="min-h-screen mt-96 block bg-[#F5F5F5]">
-  <LinksColumns />
-  <FollowUs />
-  <AdevintaInfo />
+<footer class="bg-[#F5F5F5] py-6 lg:py-10">
+  <section class="mx-auto max-w-7xl px-4 w-full">
+    <LinksColumns />
+    <FollowUs />
+    <AdevintaInfo />
+  </section>
 </footer>

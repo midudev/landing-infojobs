@@ -5,46 +5,62 @@ import GooglePlay from "@icons/GooglePlay.astro";
 import TikTok from "@icons/TikTok.astro";
 import Twitter from "@icons/Twitter.astro";
 import YouTube from "@icons/YouTube.astro";
-import FollowUsLink from "./FollowUsLink.astro";
+import FollowUsLink from "@components/FollowUsLink.astro";
+
+const hoverSocialNetworks = "lg:transition-transform lg:hover:scale-110";
+const hoverStoreApps = "lg:transition-[filter] lg:hover:saturate-150";
 ---
 
-<section
-  class="bg-[#F5F5F5] flex flex-col items-center justify-between py-4 lg:p-10 lg:flex-row"
->
+<section class="flex flex-col items-center justify-between lg:flex-row lg:p-10">
   <article
     class="w-full flex items-center justify-center gap-2 py-4 flex-wrap lg:justify-start"
   >
-    <h4 class="tracking-[0.38px] text-xl leading-6 font-semibold">
+    <h4 class="text-xl tracking-[0.38px] leading-6 font-semibold">
       ¡Síguenos!
     </h4>
 
     <span class="flex items-center gap-2">
-      <FollowUsLink href="https://www.tiktok.com/@infojobs">
+      <FollowUsLink
+        href="https://www.tiktok.com/@infojobs"
+        class={hoverSocialNetworks}
+      >
         <TikTok />
       </FollowUsLink>
 
-      <FollowUsLink href="https://www.youtube.com/InfoJobs">
+      <FollowUsLink
+        href="https://www.youtube.com/InfoJobs"
+        class={hoverSocialNetworks}
+      >
         <YouTube />
       </FollowUsLink>
 
-      <FollowUsLink href="https://x.com/InfoJobs">
+      <FollowUsLink href="https://x.com/InfoJobs" class={hoverSocialNetworks}>
         <Twitter />
       </FollowUsLink>
 
-      <FollowUsLink href="https://www.facebook.com/InfoJobs">
+      <FollowUsLink
+        href="https://www.facebook.com/InfoJobs"
+        class={hoverSocialNetworks}
+      >
         <Facebook />
       </FollowUsLink>
     </span>
   </article>
 
   <article
-    class="flex items-center justify-center gap-4 pb-4 flex-wrap lg:flex-nowrap lg:pb-0"
+    class="w-full flex items-center justify-center gap-4 pb-4 flex-wrap lg:flex-nowrap lg:pb-0 lg:gap-2 lg:justify-end"
   >
-    <FollowUsLink href="https://infojobs.go.link/?adj_t=1b8zxouv_1bnixj2z">
+    <FollowUsLink
+      href="https://infojobs.go.link/?adj_t=1b8zxouv_1bnixj2z"
+      class={hoverStoreApps}
+    >
       <GooglePlay />
     </FollowUsLink>
 
-    <FollowUsLink href="https://infojobs.onelink.me/2882600328/rjh2wn2f">
+    <FollowUsLink
+      href="https://infojobs.onelink.me/2882600328/rjh2wn2f"
+      class={hoverStoreApps}
+    >
       <AppStore />
     </FollowUsLink>
   </article>
