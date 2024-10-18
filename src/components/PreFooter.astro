@@ -1,11 +1,15 @@
 ---
 import KingsLeagueInfo from "./KingsLeagueInfo.astro"
 import SectionContainer from "./SectionContainer.astro"
+import OfertasEmpleo from "./OfertasEmpleo.astro"
+import OportunidadesTikTok from "./OportunidadesTikTok.astro"
 ---
 
 <SectionContainer>
   <h2 class="text-ij-black text-2xl pb-6">InfoJobs, ¿la de trabajar te la sabes?</h2>
-  <KingsLeagueInfo />
-  <!-- <OfertasEmpleo /> -->
-  <!-- <OportunidadesTikTok /> -->
+  <div class="sm:grid sm:grid-cols-2 sm:gap-4">
+    <KingsLeagueInfo />
+    <OfertasEmpleo />
+    <OportunidadesTikTok />
+  </div>
 </SectionContainer>
