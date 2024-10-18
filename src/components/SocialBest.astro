@@ -17,47 +17,60 @@ const VIDEOS = [
         <div class="flex justify-between pb-6 px-4">
             <h2 class="text-ij-black text-2xl">Trabaja con los mejores</h2>
             <div class="md:flex items-center justify-end opacity-80 hidden">
-                <button class="mr-2 opacity-65 hover:opacity-100 hover:scale-105 transition-all active:scale-100" id="right-button"><LeftArrow size="38" /></button>
-                <button class="opacity-65 hover:opacity-100 hover:scale-105 transition-all active:scale-100" id="left-button"><RightArrow size="38" /></button>
+                <button
+                    class="mr-2 opacity-65 hover:opacity-100 hover:scale-105 transition-all active:scale-100"
+                    id="right-button"
+                    aria-label="Ir al elemento anterior"
+                    ><LeftArrow size="38" /></button
+                >
+                <button
+                    class="opacity-65 hover:opacity-100 hover:scale-105 transition-all active:scale-100"
+                    id="left-button"
+                    aria-label="Ir al siguiente elemento"
+                    ><RightArrow size="38" /></button
+                >
             </div>
         </div>
-        <div class="flex overflow-scroll custom-scrollbar px-2 snap-mandatory snap-x rounded-2xl" id="carousel">
+        <div
+            class="flex overflow-scroll custom-scrollbar px-2 snap-mandatory snap-x rounded-2xl"
+            id="carousel"
+        >
             {
                 VIDEOS.map(({ videoId, title }) => (
                     <LiteYoutube videoId={videoId} title={title} />
                 ))
             }
         </div>
-</div>
+    </div>
 </section>
 
 <style>
-.custom-scrollbar::-webkit-scrollbar {
-    display: none;
-}
+    .custom-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
 
-.custom-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
+    .custom-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
 </style>
 
 <script>
-    const rightButton = document.querySelector('#right-button')
-    const leftButton = document.querySelector('#left-button')
-    const carousel = document.querySelector('#carousel')
+    const rightButton = document.querySelector("#right-button");
+    const leftButton = document.querySelector("#left-button");
+    const carousel = document.querySelector("#carousel");
 
-    rightButton?.addEventListener('click', () => {
+    rightButton?.addEventListener("click", () => {
         carousel?.scrollTo({
             left: carousel.scrollLeft - 300,
-            behavior: 'smooth'
+            behavior: "smooth",
         });
-    })
+    });
 
-    leftButton?.addEventListener('click', () => {
+    leftButton?.addEventListener("click", () => {
         carousel?.scrollTo({
             left: carousel.scrollLeft + 300,
-            behavior: 'smooth'
+            behavior: "smooth",
         });
-    })
+    });
 </script>
