@@ -23,6 +23,7 @@ const SHORTCUTS = [
 ] as const
 
 const studies = await getStudies()
+const sortedStudies = studies.sort((a, b) => a.order - b.order)
 ---
 
 <SectionContainer class="bg-hero-pattern rounded-3xl px-4 py-6">
@@ -39,7 +40,7 @@ const studies = await getStudies()
           class="w-full py-4 border-b border-gray-300 text-gray-600 bg-transparent cursor-pointer"
         >
           {
-            studies.map(({ id, value, key }) => {
+            sortedStudies.map(({ id, value, key }) => {
               const isDefault = id === 0
               const literal = isDefault ? "Nivel de estudios" : value
 
