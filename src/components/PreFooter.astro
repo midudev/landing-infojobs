@@ -1,15 +1,70 @@
 ---
-import KingsLeagueInfo from "./KingsLeagueInfo.astro"
 import SectionContainer from "./SectionContainer.astro"
-import OfertasEmpleo from "./OfertasEmpleo.astro"
-import OportunidadesTikTok from "./OportunidadesTikTok.astro"
+
+const ARTICLES = [
+  {
+    title: "Qué esperar de un proceso de selección",
+    preTitle: "Qué esperar de un proceso de selección",
+    href: "https://kingsleague.ofertas-trabajo.infojobs.net/",
+    class: "aspect-[9/16] sm:aspect-[16/9] sm:col-span-2",
+    bgColor: "bg-kings-league",
+    preTitleColor: "text-white/80",
+    titleColor: "text-white ",
+  },
+  {
+    title: "Miles de oportunidades",
+    preTitle: "Ofertas de empleo",
+    class: "aspect-[9/10] sm:aspect-[1/1] mt-4 sm:mt-0",
+    href: "https://kingsleague.ofertas-trabajo.infojobs.net/",
+    bgColor: "bg-green-100",
+    preTitleColor: "text-ij-black",
+    titleColor: "text-ij-green",
+  },
+  {
+    title: "Consejos para encontrar trabajo",
+    preTitle: "InfoJobs en TikTok",
+    class: "aspect-[9/10] sm:aspect-[1/1] mt-4 sm:mt-0",
+    href: "https://kingsleague.ofertas-trabajo.infojobs.net/",
+    bgColor: "bg-yellow-100",
+    preTitleColor: "text-ij-black",
+    titleColor: "text-ij-yellow",
+  },
+];
 ---
 
 <SectionContainer>
   <h2 class="text-ij-black text-2xl pb-6">InfoJobs, ¿la de trabajar te la sabes?</h2>
   <div class="sm:grid sm:grid-cols-2 sm:gap-4">
-    <KingsLeagueInfo />
-    <OfertasEmpleo />
-    <OportunidadesTikTok />
+    {
+      ARTICLES.map(({ class: className, title, preTitle, href, bgColor, preTitleColor, titleColor }) => (
+         <div class:list={[
+            "w-full  rounded-3xl overflow-hidden relative",
+            className,
+          ]}>
+            <a href={href} target="_blank">
+                <div class:list={[
+                  "absolute inset-0 w-full h-auto bg-cover bg-center origin-center",
+                  bgColor
+                ]}
+                >
+                    <div class="inset-0 p-4 sm:p-6 flex flex-col justify-end">
+                      <h3 class:list={[
+                        "text-2xl",
+                        preTitleColor
+                      ]}
+                      >{preTitle}</h3>
+                      <h2 class:list={[
+                        "text-5xl font-bold ",
+                        titleColor
+                      ]}
+                      >
+                        {title}
+                      </h2>
+                    </div>
+                </div>
+            </a>
+        </div>
+      ))
+    }
   </div>
 </SectionContainer>
