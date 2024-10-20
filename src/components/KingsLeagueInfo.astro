@@ -1,11 +1,12 @@
-<div class="w-full aspect-[9/16] sm:aspect-[16/9] sm:col-span-2 rounded-3xl overflow-hidden relative">
+---
+import PrefooterTitle from "./PrefooterTitle.astro"
+---
+
+<div class="w-full aspect-[9/16] sm:aspect-[16/9] sm:col-span-2 rounded-3xl overflow-hidden relative hover:scale-105 transition">
     <a href="https://kingsleague.ofertas-trabajo.infojobs.net/" target="_blank">
         <div class="absolute inset-0 w-full h-auto bg-kings-league bg-cover bg-center origin-center">
-              <div class="inset-0 p-4 sm:p-6 flex flex-col justify-end">
-                <h3 class="text-2xl text-white/80">Patrocinador oficial</h3>
-                <h2 class="text-5xl font-bold text-white ">
-                  Kings League InfoJobs
-                </h2>
+              <div class="inset-0 flex flex-col justify-end">
+                <PrefooterTitle title="Kings League InfoJobs" subtitle="Patrocinador oficial" colorTitle="white/80" colorSubtitle="white" />
               </div>
           </div>
     </a>

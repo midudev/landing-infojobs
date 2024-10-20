@@ -2,10 +2,12 @@
 import KingsLeagueInfo from "@components/KingsLeagueInfo.astro"
 import SectionContainer from "@components/SectionContainer.astro"
 import OportunidadesTikTok from "@components/OportunidadesTikTok.astro"
+import SectionText from "./SectionText.astro"
 ---
 
 <SectionContainer>
-  <div class="flex flex-col gap-10">
+  <SectionText title="Prepárate para ganar" />
+  <div class="flex flex-col gap-6">
     <KingsLeagueInfo />
     <OportunidadesTikTok />
   </div>
