@@ -1,60 +1,82 @@
 ---
-import LiteYoutube from "./LiteYoutube.astro"
 import SectionContainer from "./SectionContainer.astro"
+import TiktokVideo from "./TiktokVideo.astro"
 import Icon from "./ui/Icon.astro"
 
 const VIDEOS = [
-  { videoId: "TLkFJKdGYkA", title: "Video 1" },
-  { videoId: "ZQSea0oqOso", title: "Video 2" },
-  { videoId: "4oaOwHaL15Q", title: "Video 3" },
-  { videoId: "6Pi8IPGKQsY", title: "Video 3" },
-  { videoId: "UaDmVSoPONw", title: "Video 3" },
+  {
+    videoId: "7222709244125007109",
+    thumbnailUrl: "/img/thumbnails/ibai.webp",
+    title: "La relación de Ibai con Marcos",
+  },
+  {
+    videoId: "7258016065563807003",
+    thumbnailUrl: "/img/thumbnails/jijantes.webp",
+    title: "Fichaje del nuevo reportero de Jijantes",
+  },
+  {
+    videoId: "7343332399662533920",
+    thumbnailUrl: "/img/thumbnails/midudev.webp",
+    title: "Fichajes de la web de La Velada junto a Midudev",
+  },
+  {
+    videoId: "7265231719068880160",
+    thumbnailUrl: "/img/thumbnails/cristinini.webp",
+    title: "Ganadora de la Beca Infojobs Cristinini",
+  },
+  {
+    videoId: "7285448407756393761",
+    thumbnailUrl: "/img/thumbnails/marcos.webp",
+    title: "Entrevista a Marcos de Olañeta",
+  },
 ] as const
 ---
 
-<section class="mx-auto max-w-7xl md:px-4 w-full">
-  <div class="mx-auto w-full">
-    <div class="flex items-center justify-between pb-5">
-      <h2 class="px-4 md:px-0 text-ij-black text-2xl md:text-3xl font-semibold">
-        Trabaja con los mejores
-      </h2>
-      <div class="hidden md:flex items-center gap-x-4">
-        <button
-          class="bg-[#E2E2E5] text-[#636365] opacity-45 p-1 rounded-full enabled:hover:scale-110 transition-all enabled:active:scale-100"
-          id="left-button"
-          disabled="true"
-          aria-label="Ir al elemento anterior"
-        >
-          <Icon name="leftarrow" />
-        </button>
-        <button
-          class="bg-[#E2E2E5] text-[#636365] p-1 rounded-full enabled:hover:scale-110 transition-all enabled:active:scale-100"
-          id="right-button"
-          aria-label="Ir al siguiente elemento"
-        >
-          <Icon name="rightarrow" />
-        </button>
-      </div>
-    </div>
-
-    <div
-      class="relative carousel-container"
-      id="carousel-container"
-      style="--left-opacity: 0; --right-opacity: 1;"
-    >
-      <div
-        class="flex overflow-scroll custom-scrollbar gap-x-4 snap-mandatory snap-x px-4 md:px-0"
-        id="carousel"
+<SectionContainer>
+  <div class="flex items-center justify-between pb-6 md:pb-12">
+    <h2 class="text-ij-black text-2xl md:text-3xl font-semibold">
+      Trabaja con los mejores
+    </h2>
+    <div class="hidden md:flex items-center gap-x-4">
+      <button
+        class="bg-[#E2E2E5] text-[#636365] opacity-45 p-1 rounded-full enabled:hover:scale-110 transition-all enabled:active:scale-100"
+        id="left-button"
+        disabled="true"
+        aria-label="Ir al elemento anterior"
       >
-        {
-          VIDEOS.map(({ videoId, title }) => (
-            <LiteYoutube videoId={videoId} title={title} />
-          ))
-        }
-      </div>
+        <Icon name="leftarrow" />
+      </button>
+      <button
+        class="bg-[#E2E2E5] text-[#636365] p-1 rounded-full enabled:hover:scale-110 transition-all enabled:active:scale-100"
+        id="right-button"
+        aria-label="Ir al siguiente elemento"
+      >
+        <Icon name="rightarrow" />
+      </button>
     </div>
   </div>
-</section>
+
+  <div
+    class="relative carousel-container"
+    id="carousel-container"
+    style="--left-opacity: 0; --right-opacity: 1;"
+  >
+    <div
+      class="flex overflow-scroll custom-scrollbar gap-x-8 snap-mandatory snap-x"
+      id="carousel"
+    >
+      {
+        VIDEOS.map(({ videoId, thumbnailUrl, title }) => (
+          <TiktokVideo
+            videoId={videoId}
+            thumbnailUrl={thumbnailUrl}
+            title={title}
+          />
+        ))
+      }
+    </div>
+  </div>
+</SectionContainer>
 
 <style>
   .custom-scrollbar::-webkit-scrollbar {
@@ -114,7 +136,6 @@ const VIDEOS = [
   const carouselContainer = document.querySelector(
     "#carousel-container"
   ) as HTMLDivElement
-  const tolerance = 2 // 0 + 2px to account for floating point errors
 
   leftButton.addEventListener("click", () => {
     carousel.scrollTo({
@@ -131,6 +152,8 @@ const VIDEOS = [
   })
 
   carousel.addEventListener("scroll", () => {
+    const tolerance = 2 // 0 + 2px to account for floating point errors
+
     const updateButtonState = (button: HTMLButtonElement, disable: boolean) => {
       button.classList.toggle("opacity-45", disable)
       button.disabled = disable
