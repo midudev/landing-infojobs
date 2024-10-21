@@ -1,49 +1,51 @@
 ---
 const cardsOportunidades = [
   {
-    title1: "Oferta de empleo",
-    title2: "Miles de oportunidades",
-    img: "./images/ofertaEmpleo.png",
-    gradient: "bg-gradient-to-t from-[#8BCFAD] to-[#E6F6EE]",
-    colorTitle: "text-[#0E8247]",
-    marginBotton:"-mb-[20%]",
-    href: "https://www.infojobs.net/",
+    title1: 'Oferta de empleo',
+    title2: 'Miles de oportunidades',
+    img: './images/ofertaEmpleo.png',
+    gradient: 'bg-gradient-to-t from-[#8BCFAD] to-[#E6F6EE]',
+    colorTitle: 'text-[#0E8247]',
+    marginBotton: '-mb-[20%]',
+    href: 'https://www.infojobs.net/'
   },
   {
-    title1: "InfoJobs en TikTok",
-    title2: "Consejos para encontrar trabajo",
-    img: "./images/infoTikTok.png",
-    gradient: "bg-gradient-to-t from-[#FFE4A2] to-[#FEF6DB]",
-    colorTitle: "text-[#EFA500] ",
-    marginBotton:"-mb-[35%]",
-    href:"https://www.tiktok.com/@infojobs/playlist/Encontrar%20trabajo-7401023016819378977 "
-  },
-] as const;
+    title1: 'InfoJobs en TikTok',
+    title2: 'Consejos para encontrar trabajo',
+    img: './images/infoTikTok.png',
+    gradient: 'bg-gradient-to-t from-[#FFE4A2] to-[#FEF6DB]',
+    colorTitle: 'text-[#EFA500] ',
+    marginBotton: '-mb-[35%]',
+    href: 'https://www.tiktok.com/@infojobs/playlist/Encontrar%20trabajo-7401023016819378977 '
+  }
+] as const
 ---
-<div class="grid grid-cols-1 md:grid-cols-2 w-auto h-auto gap-6 md:gap-[40px] mt-6 mb-9">
+
+<div
+  class='grid grid-cols-1 md:grid-cols-2 w-auto h-auto gap-6 md:gap-[40px] mt-6 mb-9'>
   {
     cardsOportunidades.map((card) => (
       <a
-        class={`flex flex-col rounded-[16px] pt-4 px-4 md:px-[60px] md:pt-[40px] w-auto h-[436px] md:h-[628px] overflow-hidden ${card.gradient}`}
-        href={card.href} target="_blank"
-      >
-        <p class="mt-4 text-[24px] leading-7 font-semibold text-gray-900">
+        class={`flex flex-col rounded-[16px] pt-4 px-4 md:px-[60px] md:pt-[40px] w-auto h-[480px] md:h-[528px] lg:h-[578px] xl:h-[628px] overflow-hidden ${card.gradient}`}
+        href={card.href}
+        target='_blank'>
+        <p class='mt-4 text-[24px] leading-7 font-semibold text-gray-900'>
           {card.title1}
         </p>
         <p
-          class={`mt-2 text-[48px] font-semibold ${card.colorTitle} leading-[52px]`}
-        >
+          class={`mt-2 text-[48px] font-semibold ${card.colorTitle} leading-[52px]`}>
           {card.title2}
         </p>
-        <div class="flex justify-center mt-auto w-full h-auto">
-        <div class={`flex justify-center mt-auto w-full h-auto md:mb-0 ${card.marginBotton}`}>
-          <img
-            class="md:w-[500px] md:h-[396px] w-full h-full scale-125 md:scale-100 transition md:hover:scale-105 md:hover:z-10"
-            src={card.img}
-            alt="InfoJobs"
-          />
+        <div class='flex justify-center mt-auto w-full h-auto'>
+          <div
+            class={`flex justify-center mt-auto w-full h-auto md:mb-0 ${card.marginBotton}`}>
+            <img
+              class='md:w-[500px] w-full h-auto scale-125 md:scale-100 transition md:hover:scale-105 md:hover:z-10'
+              src={card.img}
+              alt='InfoJobs'
+            />
+          </div>
         </div>
-      </div>
       </a>
     ))
   }
