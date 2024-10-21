@@ -43,22 +43,25 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
     <form class="mx-5 lg:flex lg:justify-between">
       <div class="lg:w-full lg:pr-10">
         <select
-          class="w-full py-4 border-b border-gray-300 text-gray-400 bg-transparent cursor-pointer lg:border-none"
-          aria-label="Selecciona tu nivel de estudios"
-        >
-          {
-            sortedStudies.map(({ id, value, key }) => {
-              const isDefault = id === 0
-              const literal = isDefault ? "Nivel de estudios" : value
-
-              return (
-                <option class={isDefault ? '': 'text-gray-600'} value={key} disabled={isDefault} selected={isDefault}>
-                  {literal}
-                </option>
-              )
-            })
-          }
-        </select>
+        class="w-full py-4 border-b border-gray-300 text-gray-400 bg-transparent cursor-pointer lg:border-none"
+        aria-label="Selecciona tu nivel de estudios"
+      >
+        <option value="" disabled selected hidden>Nivel de estudios</option>
+        {
+          sortedStudies.map(({ id, value, key }) => {
+            const isDefault = id === 0; 
+            if (isDefault) {
+              return null;
+            }
+      
+            return (
+              <option class="text-gray-600" value={key}>
+                {value}
+              </option>
+            );
+          })
+        }
+      </select>
       </div>
 
       <div class="lg:w-full">
