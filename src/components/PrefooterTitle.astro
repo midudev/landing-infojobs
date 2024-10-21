@@ -1,0 +1,18 @@
+---
+interface Props {
+    title: string;
+    subtitle: string;
+    colorTitle: string;
+    colorSubtitle: string;
+}
+
+const {title, subtitle, colorTitle, colorSubtitle} = Astro.props;
+---
+<div class="w-full h-full p-2">
+    <h5 class={`text-2xl font-semibold md:text-xl lg:text-2xl ${colorSubtitle}`}>
+        {subtitle}
+    </h5>
+    <h4 class={`text-5xl font-semibold md:text-4xl lg:text-5xl ${colorTitle} leading-[52px]`}>
+        {title}
+    </h4>
+</div>

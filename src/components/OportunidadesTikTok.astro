@@ -1,4 +1,6 @@
 ---
+import PrefooterTitle from "@components/PrefooterTitle.astro";
+
 const cardsOportunidades = [
   {
     title1: "Oferta de empleo",
@@ -20,21 +22,14 @@ const cardsOportunidades = [
   },
 ] as const;
 ---
-<div class="grid grid-cols-1 md:grid-cols-2 w-auto h-auto gap-6 md:gap-[40px] mt-6 mb-9">
+<div class="grid grid-cols-1 md:grid-cols-2 w-auto h-auto gap-6">
   {
     cardsOportunidades.map((card) => (
       <a
-        class={`group flex flex-col rounded-[16px] pt-4 px-4 md:px-[60px] md:pt-[40px] w-auto h-[436px] md:h-[628px] overflow-hidden ${card.gradient}`}
+        class={`group flex flex-col rounded-[16px] pt-4 px-4 w-auto h-[436px] sm:h-auto md:aspect-square overflow-hidden ${card.gradient}`}
         href={card.href} target="_blank"
       >
-        <p class="mt-4 text-[24px] leading-7 font-semibold text-gray-900">
-          {card.title1}
-        </p>
-        <p
-          class={`mt-2 text-[48px] font-semibold ${card.colorTitle} leading-[52px]`}
-        >
-          {card.title2}
-        </p>
+        <PrefooterTitle title={card.title2} subtitle={card.title1} colorTitle={card.colorTitle} colorSubtitle="text-black" />
         <div class="flex justify-center mt-auto w-full h-auto">
         <div class={`flex justify-center mt-auto w-full h-auto md:mb-0 ${card.marginBotton}`}>
           <img
