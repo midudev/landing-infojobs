@@ -1,18 +1,19 @@
-<div
-  class:list={[
-    "flex flex-col items-center justify-around bg-[#fe52308f] w-auto h-[130px] rounded-2xl p-6 gap-4 lg:items-start lg:justify-center",
-    Astro.props.class,
-  ]}
+<a
+  href="https://cooljobs.infojobs.net/"
+  target="_blank"
+  rel="noopener noreferrer"
 >
-  <img
-    src="/img/cool-jobs/cool-jobs.webp"
-    alt="Logo Cool Jobs"
-    class="px-4 lg:px-0 hover:scale-105 transition-transform"
-  />
-  <a
-    class="text-center text-white text-sm leading-4 tracking-[0.1px] hover:text-yellow-100"
-    href="https://cooljobs.infojobs.net/"
-    target="_blank"
-    rel="noopener noreferrer">{"Ver todos >"}</a
+  <div
+    class:list={[
+      "bg-[#fe52308f] w-auto h-[130px] rounded-2xl p-6 gap-4 lg:flex-col lg:items-start lg:justify-center",
+      Astro.props.class,
+    ]}
   >
-</div>
+    <img
+      src="/img/cool-jobs/cool-jobs.webp"
+      alt="Logo Cool Jobs"
+      class="px-4 lg:px-0"
+    />
+    <p class="text-white text-sm leading-4 tracking-[0.1px]">{"Ver todos >"}</p>
+  </div>
+</a>
