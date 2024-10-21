@@ -99,36 +99,33 @@ const linksInfo = [
   },
 ];
 ---
-
-<div
-  class="items-center md:justify-between md:items-start flex flex-col md:flex-row"
->
-  {
-    linksInfo.map(({ title, links }, index) => {
-      return (
-        <div class={`${index === 0 ? "" : "hidden sm:block"}`}>
-          <h2 class="text-black font-semibold text-xl leading-8 tracking-[0.38px] hidden md:block p-0 m-0">
-            {title}
-          </h2>
-          <ul class="flex flex-row md:flex-col underline underline-offset-[3px] md:no-underline gap-4 md:gap-0">
-            {links.map(({ label, href }) => {
-              return (
-                <li
-                  class={`hover:underline ${
-                    label !== "Ayuda" && label !== "Condiciones legales"
-                      ? "hidden md:block hover:underline"
-                      : ""
-                  }`}
-                >
-                  <a href={href} class="text-sm leading-4 tracking-[0.1px]">
-                    {label}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      );
-    })
-  }
-</div>
+  <div class="px-[40px] items-center md:justify-between md:items-start flex flex-col md:flex-row ">
+    {
+      linksInfo.map(({ title, links }, index) => {
+        return (
+          <div class={`${index === 0 ? "" : "hidden sm:block"}`}>
+            <h2 class="text-black font-semibold text-[18px]  hidden md:block">
+              {title}
+            </h2>
+            <ul class="flex flex-row  md:flex-col underline md:no-underline gap-4 md:gap-0">
+              {links.map(({ label, href }) => {
+                return (
+                  <li
+                    class={`mb-2 ${
+                      label !== "Ayuda" && label !== "Condiciones legales"
+                        ? "hidden md:block hover:underline"
+                        : ""
+                    }`}
+                  >
+                    <a href={href} class="text-[14px] leading-6 ">
+                      {label}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        );
+      })
+    }
+  </div>
