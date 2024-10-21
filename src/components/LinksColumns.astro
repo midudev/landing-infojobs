@@ -107,15 +107,15 @@ const linksInfo = [
             <h2 class="text-black font-semibold text-[18px]  hidden md:block">
               {title}
             </h2>
-            <ul class="flex flex-row  md:flex-col underline md:no-underline gap-4 md:gap-0">
+            <ul class="flex flex-row md:mt-2 md:flex-col underline md:no-underline md:gap-2 gap-6">
               {links.map(({ label, href }) => {
                 return (
                   <li
-                    class={`mb-2 ${
+                    class={
                       label !== "Ayuda" && label !== "Condiciones legales"
                         ? "hidden md:block hover:underline"
-                        : ""
-                    }`}
+                        : "md:hover:underline"
+                    }
                   >
                     <a href={href} class="text-[14px] leading-6 ">
                       {label}
