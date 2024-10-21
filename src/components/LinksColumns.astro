@@ -113,11 +113,11 @@ const linksInfo = [
                   <li
                     class={
                       label !== "Ayuda" && label !== "Condiciones legales"
-                        ? "hidden md:block hover:underline"
-                        : "md:hover:underline"
+                        ? "hidden md:block"
+                        : ""
                     }
                   >
-                    <a href={href} class="text-[14px] leading-6 ">
+                    <a href={href} class="text-[14px] inline-block leading-6 relative after:absolute after:bottom-[2.5px] after:left-0 after:content-[''] after:h-px after:bg-black after:w-full md:after:w-0 md:hover:after:w-full after:transition-[width] after:duration-300">
                       {label}
                     </a>
                   </li>

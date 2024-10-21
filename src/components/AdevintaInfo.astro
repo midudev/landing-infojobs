@@ -28,13 +28,13 @@ const LINKS = [
 ];
 ---
 
-<div class="flex flex-col items-center px-10">
+<div class="flex flex-col items-center px-10 gap-10">
   <ul
-    class="hidden md:inline-flex gap-x-16 gap-y-4 flex-wrap justify-between text-sm w-full pb-10 underline-offset-[3px]"
+    class="hidden md:inline-flex gap-x-16 gap-y-4 flex-wrap justify-between text-sm w-full underline-offset-[3px]"
   >
     <li>
       <span>InfoJobs es parte de </span>
-      <a class="hover:underline" href={ADEVINTA_LINK} target="_blank"
+      <a class="relative after:absolute after:bottom-0 after:left-0 after:content-[''] after:h-px after:bg-black after:w-0 md:hover:after:w-full after:transition-[width] after:duration-300" href={ADEVINTA_LINK} target="_blank"
         >Adevinta</a
       >
     </li>
@@ -43,7 +43,7 @@ const LINKS = [
       LINKS.map(({ label, href }) => (
         <li class="flex-grow text-center">
           <a
-            class="hover:underline"
+            class="relative after:absolute after:bottom-0 after:left-0 after:content-[''] after:h-px after:bg-black after:w-0 md:hover:after:w-full after:transition-[width] after:duration-300 box-border"
             href={href}
             target="_blank"
             aria-label={`Visita ${label}`}
