@@ -26,12 +26,12 @@ const cardsOportunidades = [
   {
     cardsOportunidades.map((card) => (
       <a
-        class={`group flex flex-col rounded-[16px] pt-4 px-4 w-auto h-[436px] sm:h-auto md:aspect-square overflow-hidden ${card.gradient}`}
+        class={`group flex flex-col rounded-[16px] w-auto h-[436px] sm:h-auto md:aspect-square overflow-hidden ${card.gradient}`}
         href={card.href} target="_blank"
       >
         <PrefooterTitle title={card.title2} subtitle={card.title1} colorTitle={card.colorTitle} colorSubtitle="text-black" />
         <div class="flex justify-center mt-auto w-full h-auto">
-        <div class={`flex justify-center mt-auto w-full h-auto md:mb-0 ${card.marginBotton}`}>
+        <div class={`flex justify-center mt-auto w-full h-auto md:mb-0 pt-4 px-4 ${card.marginBotton}`}>
           <img
             class="md:w-[500px] md:h-[396px] w-full h-full scale-125 md:scale-100 transition md:group-hover:scale-105 md:group-hover:z-10"
             src={card.img}
