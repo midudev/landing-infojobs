@@ -1,7 +1,7 @@
 ---
-import LiteYoutube from "./LiteYoutube.astro"
-import SectionContainer from "./SectionContainer.astro"
-import Icon from "./ui/Icon.astro"
+import LiteYoutube from "@components/LiteYoutube.astro"
+import Subtitle from "@components/Subtitle.astro"
+import Icon from "@components/ui/Icon.astro"
 
 const VIDEOS = [
   { videoId: "TLkFJKdGYkA", title: "Video 1" },
@@ -15,9 +15,7 @@ const VIDEOS = [
 <section class="mx-auto max-w-7xl md:px-4 w-full">
   <div class="mx-auto w-full">
     <div class="flex items-center justify-between pb-5">
-      <h2 class="px-4 md:px-0 text-ij-black text-2xl md:text-3xl font-semibold">
-        Trabaja con los mejores
-      </h2>
+      <Subtitle>Trabaja con los mejores</Subtitle>
       <div class="hidden md:flex items-center gap-x-4">
         <button
           class="bg-[#E2E2E5] text-[#636365] opacity-45 p-1 rounded-full enabled:hover:scale-110 transition-all enabled:active:scale-100"
