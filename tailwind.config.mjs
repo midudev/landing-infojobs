@@ -14,7 +14,6 @@ export default {
       },
       backgroundImage: {
         "hero-pattern": "url(/hero-pattern.webp)",
-        "kings-league": "url(/kings-league-info.webp)",
       },
       borderRadius: {
         "4xl": "3rem",

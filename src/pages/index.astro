@@ -1,11 +1,13 @@
 ---
-import BentoInfo from "@components/BentoInfo.astro"
-import CoolJobs from "@components/CoolJobs.astro"
-import HeroSearch from "@components/HeroSearch.astro"
-import SocialBest from "@components/SocialBest.astro"
-import PreFooter from "@components/PreFooter.astro"
+import BentoInfo from "@components/BentoInfo.astro";
+import CoolJobs from "@components/CoolJobs.astro";
+import HeroSearch from "@components/HeroSearch.astro";
+import SocialBest from "@components/SocialBest.astro";
+import PreFooter from "@components/PreFooter.astro";
+import InfographicModal from "@components/InfographicModal.astro";
+import StandsInterviews from "@components/StandsInterviews.astro";
 
-import Layout from "@layouts/Layout.astro"
+import Layout from "@layouts/Layout.astro";
 ---
 
 <Layout title="InfoJobs - ¡Encuentra tu primer empleo!">
@@ -14,4 +16,8 @@ import Layout from "@layouts/Layout.astro"
   <SocialBest />
   <CoolJobs />
   <PreFooter />
+  <InfographicModal />
+
+  <!-- Infografías -->
+  <StandsInterviews infographicId="no-experience" />
 </Layout>

@@ -1,14 +1,34 @@
 ---
-import LiteYoutube from "@components/LiteYoutube.astro"
 import Subtitle from "@components/Subtitle.astro"
+import TiktokVideo from "@components/TiktokVideo.astro"
 import Icon from "@components/ui/Icon.astro"
 
 const VIDEOS = [
-  { videoId: "TLkFJKdGYkA", title: "Video 1" },
-  { videoId: "ZQSea0oqOso", title: "Video 2" },
-  { videoId: "4oaOwHaL15Q", title: "Video 3" },
-  { videoId: "6Pi8IPGKQsY", title: "Video 3" },
-  { videoId: "UaDmVSoPONw", title: "Video 3" },
+  {
+    videoId: "7222709244125007109",
+    thumbnailUrl: "/img/thumbnails/ibai.webp",
+    title: "La relación de Ibai con Marcos",
+  },
+  {
+    videoId: "7258016065563807003",
+    thumbnailUrl: "/img/thumbnails/jijantes.webp",
+    title: "Fichaje del nuevo reportero de Jijantes",
+  },
+  {
+    videoId: "7343332399662533920",
+    thumbnailUrl: "/img/thumbnails/midudev.webp",
+    title: "Fichajes de la web de La Velada junto a Midudev",
+  },
+  {
+    videoId: "7265231719068880160",
+    thumbnailUrl: "/img/thumbnails/cristinini.webp",
+    title: "Ganadora de la Beca Infojobs Cristinini",
+  },
+  {
+    videoId: "7285448407756393761",
+    thumbnailUrl: "/img/thumbnails/marcos.webp",
+    title: "Entrevista a Marcos de Olañeta",
+  },
 ] as const
 ---
 
@@ -34,25 +54,28 @@ const VIDEOS = [
         </button>
       </div>
     </div>
+  </div>
 
+  <div
+    class="relative carousel-container"
+    id="carousel-container"
+    style="--left-opacity: 0; --right-opacity: 1;">
     <div
-      class="relative carousel-container"
-      id="carousel-container"
-      style="--left-opacity: 0; --right-opacity: 1;"
+      class="flex overflow-scroll custom-scrollbar px-4 md:px-0 gap-x-8 snap-mandatory snap-x"
+      id="carousel"
     >
-      <div
-        class="flex overflow-scroll custom-scrollbar gap-x-4 snap-mandatory snap-x px-4 md:px-0"
-        id="carousel"
-      >
-        {
-          VIDEOS.map(({ videoId, title }) => (
-            <LiteYoutube videoId={videoId} title={title} />
-          ))
-        }
-      </div>
+      {
+        VIDEOS.map(({ videoId, thumbnailUrl, title }) => (
+          <TiktokVideo
+            videoId={videoId}
+            thumbnailUrl={thumbnailUrl}
+            title={title}
+          />
+        ))
+      }
     </div>
   </div>
-</section>
+</SectionContainer>
 
 <style>
   .custom-scrollbar::-webkit-scrollbar {
@@ -112,7 +135,6 @@ const VIDEOS = [
   const carouselContainer = document.querySelector(
     "#carousel-container"
   ) as HTMLDivElement
-  const tolerance = 2 // 0 + 2px to account for floating point errors
 
   leftButton.addEventListener("click", () => {
     carousel.scrollTo({
@@ -129,6 +151,8 @@ const VIDEOS = [
   })
 
   carousel.addEventListener("scroll", () => {
+    const tolerance = 2 // 0 + 2px to account for floating point errors
+
     const updateButtonState = (button: HTMLButtonElement, disable: boolean) => {
       button.classList.toggle("opacity-45", disable)
       button.disabled = disable
