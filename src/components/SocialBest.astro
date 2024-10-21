@@ -12,47 +12,49 @@ const VIDEOS = [
 ] as const
 ---
 
-<SectionContainer>
-  <div class="flex items-center justify-between pb-6 md:pb-12">
-    <h2 class="text-ij-black text-2xl md:text-3xl font-semibold">
-      Trabaja con los mejores
-    </h2>
-    <div class="hidden md:flex items-center gap-x-4">
-      <button
-        class="bg-[#E2E2E5] text-[#636365] opacity-45 p-1 rounded-full enabled:hover:scale-110 transition-all enabled:active:scale-100"
-        id="left-button"
-        disabled="true"
-        aria-label="Ir al elemento anterior"
-      >
-        <Icon name="leftarrow" />
-      </button>
-      <button
-        class="bg-[#E2E2E5] text-[#636365] p-1 rounded-full enabled:hover:scale-110 transition-all enabled:active:scale-100"
-        id="right-button"
-        aria-label="Ir al siguiente elemento"
-      >
-        <Icon name="rightarrow" />
-      </button>
+<section class="mx-auto max-w-7xl md:px-4 w-full">
+  <div class="mx-auto w-full">
+    <div class="flex items-center justify-between pb-5">
+      <h2 class="px-4 md:px-0 text-ij-black text-2xl md:text-3xl font-semibold">
+        Trabaja con los mejores
+      </h2>
+      <div class="hidden md:flex items-center gap-x-4">
+        <button
+          class="bg-[#E2E2E5] text-[#636365] opacity-45 p-1 rounded-full enabled:hover:scale-110 transition-all enabled:active:scale-100"
+          id="left-button"
+          disabled="true"
+          aria-label="Ir al elemento anterior"
+        >
+          <Icon name="leftarrow" />
+        </button>
+        <button
+          class="bg-[#E2E2E5] text-[#636365] p-1 rounded-full enabled:hover:scale-110 transition-all enabled:active:scale-100"
+          id="right-button"
+          aria-label="Ir al siguiente elemento"
+        >
+          <Icon name="rightarrow" />
+        </button>
+      </div>
     </div>
-  </div>
 
-  <div
-    class="relative carousel-container"
-    id="carousel-container"
-    style="--left-opacity: 0; --right-opacity: 1;"
-  >
     <div
-      class="flex overflow-scroll custom-scrollbar gap-x-8 snap-mandatory snap-x"
-      id="carousel"
+      class="relative carousel-container"
+      id="carousel-container"
+      style="--left-opacity: 0; --right-opacity: 1;"
     >
-      {
-        VIDEOS.map(({ videoId, title }) => (
-          <LiteYoutube videoId={videoId} title={title} />
-        ))
-      }
+      <div
+        class="flex overflow-scroll custom-scrollbar gap-x-4 snap-mandatory snap-x px-4 md:px-0"
+        id="carousel"
+      >
+        {
+          VIDEOS.map(({ videoId, title }) => (
+            <LiteYoutube videoId={videoId} title={title} />
+          ))
+        }
+      </div>
     </div>
   </div>
-</SectionContainer>
+</section>
 
 <style>
   .custom-scrollbar::-webkit-scrollbar {

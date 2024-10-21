@@ -102,3 +102,16 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
     </div>
   </footer>
 </SectionContainer>
+
+<script>
+  const select = document.querySelector('select')
+
+  function actualizarColor() {
+    if (select?.value !== 'indicar-nivel') {
+      select?.classList.add('text-gray-600');
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', actualizarColor)
+  select?.addEventListener('change', actualizarColor)
+</script>

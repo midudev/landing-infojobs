@@ -50,20 +50,20 @@ const coolJobs: CoolJobs[] = [
 ];
 ---
 
-<section class="mx-auto w-full lg:max-w-7xl lg:px-4">
+<section class="mx-auto w-full lg:max-w-7xl lg:px-4 ">
   <article
     class="p-4 pb-6 flex flex-col gap-6 bg-gradient-to-r from-[#FFDEDA] to-[#FCEDEB] lg:py-15 lg:px-10 lg:rounded-2xl lg:items-center lg:overflow-hidden lg:relative"
   >
     <CoolJobBackground />
 
     <h2
-      class="text-ij-red font-semibold tracking-separated leading-[34px] text-[28px] lg:text-[34px] lg:leading-10 lg:tracking-[0.37px] lg:text-center lg:z-10"
+      class="text-ij-red font-semibold tracking-separated leading-[34px] text-[28px] lg:text-[34px] lg:leading-10 lg:tracking-[0.37px] lg:text-center lg:z-10 text-center"
     >
       Los trabajos más cool
     </h2>
 
     <div
-      class="flex items-center gap-6 overflow-x-auto -mx-4 px-4 lg:p-0 lg:m-0 lg:grid lg:grid-cols-4 lg:w-[1200px] lg:z-10"
+      class="flex items-center gap-6 overflow-x-auto -mx-4 px-4 lg:p-0 lg:m-0 lg:grid lg:grid-cols-4 lg:w-[1200px] lg:z-10 pb-6"
     >
       {
         coolJobs.map(({ image, title, brand, section_id }) => (

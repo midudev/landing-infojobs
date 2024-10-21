@@ -1,6 +1,4 @@
-
 ---
-import SectionContainer from "@components/SectionContainer.astro";
 const cardsOportunidades = [
   {
     title1: "Oferta de empleo",
@@ -10,7 +8,6 @@ const cardsOportunidades = [
     colorTitle: "text-[#0E8247]",
     marginBotton:"-mb-[20%]",
     href: "https://www.infojobs.net/",
-
   },
   {
     title1: "InfoJobs en TikTok",
@@ -23,16 +20,13 @@ const cardsOportunidades = [
   },
 ] as const;
 ---
-
-<div class="grid grid-cols-1 md:grid-cols-2 w-auto h-auto gap-6 md:gap-[40px]">
+<div class="grid grid-cols-1 md:grid-cols-2 w-auto h-auto gap-6 md:gap-[40px] mt-6 mb-9">
   {
     cardsOportunidades.map((card) => (
       <a
-        class={`flex flex-col rounded-[16px] pt-4 px-4 md:px-[60px] md:pt-[40px] w-auto h-[436px] md:h-[628px] overflow-hidden ${card.gradient}`}
+        class={`group flex flex-col rounded-[16px] pt-4 px-4 md:px-[60px] md:pt-[40px] w-auto h-[436px] md:h-[628px] overflow-hidden ${card.gradient}`}
         href={card.href} target="_blank"
       >
-        <p class="mt-4 text-lg font-semibold text-gray-900">{card.title1}</p>
-        <p class="mt-2 text-[36px] font-semibold text-[#0E8247] l">
         <p class="mt-4 text-[24px] leading-7 font-semibold text-gray-900">
           {card.title1}
         </p>
@@ -44,8 +38,7 @@ const cardsOportunidades = [
         <div class="flex justify-center mt-auto w-full h-auto">
         <div class={`flex justify-center mt-auto w-full h-auto md:mb-0 ${card.marginBotton}`}>
           <img
-            class="md:w-[500px] md:h-[396px] w-full h-full secale-100"
-            class="md:w-[500px] md:h-[396px] w-full h-full scale-125 md:scale-100"
+            class="md:w-[500px] md:h-[396px] w-full h-full scale-125 md:scale-100 transition md:group-hover:scale-105 md:group-hover:z-10"
             src={card.img}
             alt="InfoJobs"
           />
@@ -55,4 +48,3 @@ const cardsOportunidades = [
     ))
   }
 </div>
-
