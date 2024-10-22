@@ -1,0 +1,11 @@
+---
+interface Props {
+    paddingButtom: string;
+}
+
+const { paddingButtom } = Astro.props;
+---
+
+<h2 class=`font-semibold text-4xl pb-${paddingButtom}`>
+    <slot />
+</h2>
