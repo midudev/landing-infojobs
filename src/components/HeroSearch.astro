@@ -40,19 +40,25 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
   </h1>
 
   <search class="bg-white rounded-3xl p-4 lg:mx-10">
-    <form class="mx-5 lg:flex lg:justify-between">
+    <form id="hero-form" class="mx-5 lg:flex lg:justify-between">
       <div class="lg:w-full lg:pr-10">
         <select
+          name="study-level"
           class="w-full py-4 border-b border-gray-300 text-gray-400 bg-transparent cursor-pointer lg:border-none"
           aria-label="Selecciona tu nivel de estudios"
         >
           {
-            sortedStudies.map(({ id, value, key }) => {
+            sortedStudies.map(({ id, value }) => {
               const isDefault = id === 0
               const literal = isDefault ? "Nivel de estudios" : value
 
               return (
-                <option class={isDefault ? '': 'text-gray-600'} value={key} disabled={isDefault} selected={isDefault}>
+                <option
+                  class={isDefault ? "" : "text-gray-600"}
+                  value={id}
+                  disabled={isDefault}
+                  selected={isDefault}
+                >
                   {literal}
                 </option>
               )
@@ -63,6 +69,7 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
 
       <div class="lg:w-full">
         <input
+          name="keywords"
           placeholder="Estudios, puesto, empresa..."
           class="w-full py-4 border-b border-gray-300 text-gray-600 focus:outline-none lg:border-none"
         />
@@ -70,6 +77,7 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
 
       <div class="mb-8 lg:mb-0 lg:w-full">
         <input
+          name="geolocation"
           placeholder="Provincia o población"
           class="w-full py-4 text-gray-600 focus:outline-none"
         />
@@ -79,9 +87,7 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
         class="rounded-full text-lg font-medium bg-accent hover:saturate-150 transition text-white px-4 py-2 inline-flex gap-x-2 justify-center items-center w-full lg:size-12 lg:mt-1 lg:hover:scale-105"
       >
         <SearchIcon />
-        <p class="lg:hidden">
-          Buscar ofertas
-        </p>
+        <p class="lg:hidden">Buscar ofertas</p>
       </button>
     </form>
   </search>
@@ -104,14 +110,36 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
 </SectionContainer>
 
 <script>
-  const select = document.querySelector('select')
+  const select = document.querySelector("select")
 
-  function actualizarColor() {
-    if (select?.value !== 'indicar-nivel') {
-      select?.classList.add('text-gray-600');
+  function updateColors() {
+    if (select?.value !== "indicar-nivel") {
+      select?.classList.add("text-gray-600")
     }
   }
 
-  document.addEventListener('DOMContentLoaded', actualizarColor)
-  select?.addEventListener('change', actualizarColor)
+  document.addEventListener("DOMContentLoaded", updateColors)
+  select?.addEventListener("change", updateColors)
+</script>
+
+<script>
+  import { generateInfoJobsURL } from "@lib/generate-infojobs-url"
+
+  const form = document.querySelector("#hero-form") as HTMLFormElement
+
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault()
+    const formData = new FormData(form)
+    const level = formData.get("study-level")?.toString() ?? ""
+    const keyword = formData.get("keywords")?.toString() ?? ""
+    const provinceIds = formData.get("geolocation")?.toString() ?? ""
+
+    const searchURL = generateInfoJobsURL({
+      keyword,
+      level,
+      provinceIds,
+    })
+
+    window.location.href = searchURL
+  })
 </script>

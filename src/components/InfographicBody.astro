@@ -1,18 +1,18 @@
 ---
 type Props = {
-  bentoInfoModalCards: readonly BentoInfoModalCard[];
-};
+  bentoInfoModalCards: readonly BentoInfoModalCard[]
+}
 
 type BentoInfoModalCard = {
-  image: string;
-  title: string;
-  description: string;
-  firstBgColor: string;
-  secondBgColor: string;
-  textColor: string;
-};
+  image: string
+  title: string
+  description: string
+  firstBgColor: string
+  secondBgColor: string
+  textColor: string
+}
 
-const { bentoInfoModalCards } = Astro.props as Props;
+const { bentoInfoModalCards } = Astro.props as Props
 ---
 
 <section
@@ -43,7 +43,7 @@ const { bentoInfoModalCards } = Astro.props as Props;
 
             <div class="py-10 px-15 flex flex-col gap-6 items-center">
               <h4
-                class="text-[26px] leading-[26px] md:text-5xl md:leading-[48x] text-center"
+                class="text-[26px] leading-[26px] md:text-5xl md:leading-[48px] text-center"
                 style={{ color: textColor }}
               >
                 {title}

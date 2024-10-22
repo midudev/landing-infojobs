@@ -1,6 +1,6 @@
 ---
-import InfographicBody from "./InfographicBody.astro";
-import InfographicHeader from "./InfographicHeader.astro";
+import InfographicBody from "./InfographicBody.astro"
+import InfographicHeader from "./InfographicHeader.astro"
 
 const standsInterviews = [
   {
@@ -57,9 +57,9 @@ const standsInterviews = [
     secondBgColor: "#FBE9E7",
     textColor: "#DF4D3A",
   },
-] as const;
+] as const
 
-const { infographicId } = Astro.props;
+const { infographicId } = Astro.props
 ---
 
 <section
@@ -69,7 +69,7 @@ const { infographicId } = Astro.props;
   <InfographicHeader
     title="Destaca en las entrevistas"
     description="¿Quieres triunfar en una entrevista aunque no tengas experiencia para ese trabajo?"
-    subtitle="!Sin problema!"
+    subtitle="¡Sin problema!"
   />
 
   <InfographicBody bentoInfoModalCards={standsInterviews} />

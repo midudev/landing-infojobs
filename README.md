@@ -32,17 +32,24 @@ Este proyecto es una landing page para InfoJobs, diseñada para proporcionar una
         </a>
     </td>
     <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
-        <a href=https://github.com/diego-dev018>
-            <img src=https://avatars.githubusercontent.com/u/175571311?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Diego Ronaldo Sanchez/>
-            <br />
-            <sub style="font-size:14px"><b>Diego Ronaldo Sanchez</b></sub>
-        </a>
-    </td>
-    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
         <a href=https://github.com/luchofseven>
             <img src=https://avatars.githubusercontent.com/u/82046975?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Luciano Fernández/>
             <br />
             <sub style="font-size:14px"><b>Luciano Fernández</b></sub>
+        </a>
+    </td>
+    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
+        <a href=https://github.com/andreasop01>
+            <img src=https://avatars.githubusercontent.com/u/124921019?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Andrea Llovera De Sousa/>
+            <br />
+            <sub style="font-size:14px"><b>Andrea Llovera De Sousa</b></sub>
+        </a>
+    </td>
+    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
+        <a href=https://github.com/diego-dev018>
+            <img src=https://avatars.githubusercontent.com/u/175571311?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Diego Ronaldo Sanchez/>
+            <br />
+            <sub style="font-size:14px"><b>Diego Ronaldo Sanchez</b></sub>
         </a>
     </td>
     <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
@@ -52,15 +59,6 @@ Este proyecto es una landing page para InfoJobs, diseñada para proporcionar una
             <sub style="font-size:14px"><b>Melissa Iman Noriega</b></sub>
         </a>
     </td>
-    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
-        <a href=https://github.com/jordigd20>
-            <img src=https://avatars.githubusercontent.com/u/60585963?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Jordi Gómez Devesa/>
-            <br />
-            <sub style="font-size:14px"><b>Jordi Gómez Devesa</b></sub>
-        </a>
-    </td>
-</tr>
-<tr>
     <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
         <a href=https://github.com/EduWTR>
             <img src=https://avatars.githubusercontent.com/u/139919492?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Edu/>
@@ -82,6 +80,8 @@ Este proyecto es una landing page para InfoJobs, diseñada para proporcionar una
             <sub style="font-size:14px"><b>alesdevux</b></sub>
         </a>
     </td>
+</tr>
+<tr>
     <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
         <a href=https://github.com/gusCreator>
             <img src=https://avatars.githubusercontent.com/u/147654561?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Luis Gustavo Sequeiros Condori/>
@@ -116,7 +116,7 @@ Este proyecto es una landing page para InfoJobs, diseñada para proporcionar una
         <a href=https://github.com/Anthonazo>
             <img src=https://avatars.githubusercontent.com/u/118082256?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Anthony Moya Ochoa/>
             <br />
-            <sub style="font-size:14px"><b>Anthony Moya Ochoa</b></sub>
+            <sub style="font-size:14px"><b>Andrea Llovera De Sousa</b></sub>
         </a>
     </td>
     <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
@@ -183,8 +183,11 @@ Inicia el servidor
 Para correr este proyecto, necesitarás agregar las siguientes variable de entorno `API_INFOJOBS_TOKEN` en tu archivo .env
 
 > [!NOTE]
-> Puedes conseguir el token en esta url [Developer Site InfoJobs](https://developer.infojobs.net/)
+> Puedes conseguir el token en esta url [Developer Site InfoJobs](https://developer.infojobs.net/).
+> Debes loguearte con tu cuenta infojobs, y al crear una app, te darán tus credenciales.
 
+> [!WARNING]
+> Deshabilitado en este momento.
 
 ## Contribuciones
 
