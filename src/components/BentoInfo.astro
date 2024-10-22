@@ -5,18 +5,21 @@ const ARTICLES = [
   {
     title: "Qué esperar de un proceso de selección",
     contentId: "selection-process",
-    class: "bg-gradient-to-r from-[#fef6db] to-[#fce197] text-ij-yellow md:aspect-[16/8] md:col-span-2 md:row-span-1 h-full",
+    class:
+      "bg-gradient-to-r from-[#fef6db] to-[#fce197] text-ij-yellow md:aspect-[16/8] md:col-span-2 md:row-span-1 h-full",
     image: "/bento-info/selection-process.webp",
-    imageClass: "w-full h-auto object-contain object-bottom md:h-auto md:w-auto md:object-right md:max-h-none",
-    action: "modal"
+    imageClass:
+      "w-full h-auto object-contain object-bottom md:h-auto md:w-auto md:object-right md:max-h-none",
+    action: "modal",
   },
   {
     title: "Los puestos emergentes que van a petarlo",
     contentId: "emergent-positions",
     class: "bg-red-100 text-ij-red md:col-start-3 md:row-span-2 md:h-full",
     image: "/bento-info/emergent-positions.webp",
-    imageClass: "w-full h-full object-cover object-center object-[center_30%] md:object-center",
-    action: "modal"
+    imageClass:
+      "w-full h-full object-cover object-center object-[center_30%] md:object-center",
+    action: "modal",
   },
   {
     title: "Las opinión de las empresas",
@@ -25,15 +28,16 @@ const ARTICLES = [
     image: "/bento-info/company-opinion.webp",
     imageClass: "w-full h-full object-cover",
     action: "link",
-    link: "https://www.tiktok.com/@infojobs/video/7291016517217520928?_r=1&amp%3B_t=8oUBsz4let7"
+    link: "https://www.tiktok.com/@infojobs/video/7291016517217520928?_r=1&amp%3B_t=8oUBsz4let7",
   },
   {
     title: "¿Sin experiencia? Destaca en las entrevistas",
     contentId: "no-experience",
-    class: "bg-gradient-to-r from-[#e6f6ee] to-[#8bcfad] text-ij-green md:h-row-span-1 md:h-full",
+    class:
+      "bg-gradient-to-r from-[#e6f6ee] to-[#8bcfad] text-ij-green md:h-row-span-1 md:h-full",
     image: "/bento-info/no-experience.webp",
     imageClass: "w-3/4 h-auto object-contain mb-4",
-    action: "modal"
+    action: "modal",
   },
 ];
 ---
@@ -42,83 +46,140 @@ const ARTICLES = [
   <h2 class="text-ij-black text-2xl pb-6">Prepárate para ganar</h2>
   <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 md:p-0">
     {
-      ARTICLES.map(({ class: className, title, contentId, image, imageClass, action, link }) => (
-        action === "link" ? (
-          <a
-            href={link}
-            target="_blank"
-            class:list={[
-              "aspect-square w-full h-full rounded-2xl overflow-hidden relative group",
-              className,
-            ]}
-          >
-            <div class:list={[
-              "absolute inset-0 flex overflow-hidden p-0",
-              "items-end justify-end",
-            ]}>
-              <img 
-                src={image} 
-                alt="" 
+      ARTICLES.map(
+        ({
+          class: className,
+          title,
+          contentId,
+          image,
+          imageClass,
+          action,
+          link,
+        }) =>
+          action === "link" ? (
+            <a
+              href={link}
+              target="_blank"
+              class:list={[
+                "aspect-square w-full h-full rounded-2xl overflow-hidden relative group",
+                className,
+              ]}
+            >
+              <div
                 class:list={[
-                  "transition-transform duration-300 ease-in-out group-hover:scale-110",
-                  imageClass,
+                  "absolute inset-0 flex overflow-hidden p-0",
+                  "items-end justify-end",
                 ]}
-              />
-            </div>
-            <div class="absolute inset-0 p-4 flex flex-col justify-start items-start z-10">
-              <span class="font-medium text-3xl text-left text-pretty tracking-separated pr-3 md:max-w-64">
-                {title}
-              </span>
-            </div>
-          </a>
-        ) : (
-          <button
-            class:list={[
-              "aspect-square w-full h-full rounded-2xl overflow-hidden relative group",
-              className,
-            ]}
-            data-content-id={contentId}
-          >
-            <div class:list={[
-              "absolute inset-0 flex overflow-hidden p-0",
-              contentId === "selection-process" ? "items-end justify-center md:items-stretch md:justify-end" : "",
-              contentId === "emergent-positions" ? "items-start md:items-center" : "",
-              contentId === "no-experience" ? "items-end justify-center" : "items-end justify-end",
-            ]}>
-              <img 
-                src={image} 
-                alt="" 
+              >
+                <img
+                  src={image}
+                  alt=""
+                  class:list={[
+                    "transition-transform duration-300 ease-in-out group-hover:scale-110",
+                    imageClass,
+                  ]}
+                />
+              </div>
+              <div class="absolute inset-0 p-4 flex flex-col justify-start items-start z-10">
+                <span class="font-medium text-3xl text-left text-pretty tracking-separated pr-3 md:max-w-64">
+                  {title}
+                </span>
+              </div>
+            </a>
+          ) : (
+            <button
+              class:list={[
+                "aspect-square w-full h-full rounded-2xl overflow-hidden relative group",
+                className,
+              ]}
+              data-content-id={contentId}
+            >
+              <div
                 class:list={[
-                  "transition-transform duration-300 ease-in-out group-hover:scale-110",
-                  imageClass,
-                  contentId === "selection-process" ? "max-h-[70%] md:max-h-none md:h-full md:w-auto md:pr-0" : "",
+                  "absolute inset-0 flex overflow-hidden p-0",
+                  contentId === "selection-process"
+                    ? "items-end justify-center md:items-stretch md:justify-end"
+                    : "",
+                  contentId === "emergent-positions"
+                    ? "items-start md:items-center"
+                    : "",
+                  contentId === "no-experience"
+                    ? "items-end justify-center"
+                    : "items-end justify-end",
                 ]}
-              />
-            </div>
-            <div class="absolute inset-0 p-4 flex flex-col justify-start items-start z-10">
-              <span class="font-medium text-3xl text-left text-pretty tracking-separated pr-3 md:max-w-64">
-                {title}
-              </span>
-            </div>
-          </button>
-        )
-      ))
+              >
+                <img
+                  src={image}
+                  alt=""
+                  class:list={[
+                    "transition-transform duration-300 ease-in-out group-hover:scale-110",
+                    imageClass,
+                    contentId === "selection-process"
+                      ? "max-h-[70%] md:max-h-none md:h-full md:w-auto md:pr-0"
+                      : "",
+                  ]}
+                />
+              </div>
+              <div class="absolute inset-0 p-4 flex flex-col justify-start items-start z-10">
+                <span class="font-medium text-3xl text-left text-pretty tracking-separated pr-3 md:max-w-64">
+                  {title}
+                </span>
+              </div>
+            </button>
+          )
+      )
     }
   </div>
 </SectionContainer>
 
 <script>
-  function openModal(contentId: string) {
-    console.log(`Clicked on: ${contentId}`);
-  }
-  //provisional para dejar la funcionalidad de abrir el modal
-  document.addEventListener('DOMContentLoaded', () => {
-    const buttons = document.querySelectorAll('button[data-content-id]');
-    buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        const contentId = button.getAttribute('data-content-id');
-        if (contentId) openModal(contentId);
+  document.addEventListener("DOMContentLoaded", () => {
+    //modal
+    const $modal = document.getElementById("infographic-modal");
+    const $modalBody = document.getElementById("infographic-modal-body");
+    const $btnModal = document.getElementById("btn-modal");
+
+    //buttons bento
+    const $buttons = document.querySelectorAll("button[data-content-id]");
+
+    const openModal = (id: string) => {
+      const contentId = `infographic-${id}`;
+      const content = document.getElementById(contentId);
+
+      if (content && $modalBody) {
+        $modal?.classList.add("modal-active");
+        $modalBody.replaceChildren(content.cloneNode(true));
+
+        $modalBody.firstElementChild?.classList.replace("hidden", "flex");
+      }
+    };
+
+    const closeModal = () => {
+      if ($modal?.classList.contains("modal-active")) {
+        $modal?.classList.remove("modal-active");
+      }
+
+      const currentContent = $modalBody?.firstChild;
+
+      if (currentContent) {
+        $modalBody?.removeChild(currentContent);
+      }
+    };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        closeModal();
+      }
+    };
+
+    $buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const id = button.getAttribute("data-content-id");
+        if (id) openModal(id);
       });
     });
+
+    $btnModal?.addEventListener("click", () => closeModal());
+    document.addEventListener("keydown", handleKeyDown);
   });
 </script>

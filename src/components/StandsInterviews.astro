@@ -1,0 +1,76 @@
+---
+import InfographicBody from "./InfographicBody.astro";
+import InfographicHeader from "./InfographicHeader.astro";
+
+const standsInterviews = [
+  {
+    image: "/img/bento-info-modal-cards/sincerity-and-trust.webp",
+    title: "Sinceridad y confianza",
+    description:
+      "¡Si te han llamado será por algo! Demuestra que lo que te falta de experiencia, te sobra de aptitud.",
+    firstBgColor: "#B4E5CD",
+    secondBgColor: "#E1F4EB",
+    textColor: "#008949",
+  },
+  {
+    image: "/img/bento-info-modal-cards/show-enthusiasm.webp",
+    title: "Demuestra entusiasmo",
+    description:
+      "Infórmate sobre la empresa y el puesto para explicar al entrevistador/a tu interés.",
+    firstBgColor: "#FDECBE",
+    secondBgColor: "#FFF7E4",
+    textColor: "#B08B2B",
+  },
+  {
+    image: "/img/bento-info-modal-cards/focus-on-your-skills.webp",
+    title: "Céntrate en tus habilidades",
+    description:
+      "Muestra iniciativa y remarca tus conocimientos: tecnologías, herramientas digitales, idiomas o deportes",
+    firstBgColor: "#FFBFB5",
+    secondBgColor: "#FBE9E7",
+    textColor: "#FF523C",
+  },
+  {
+    image: "/img/bento-info-modal-cards/learning-ability.webp",
+    title: "Capacidad de aprendizaje",
+    description:
+      "Si no tienes experiencia laboral, muestra tus ganas por seguir formándote, dentro y fuera de la compañía.",
+    firstBgColor: "#64C6F6",
+    secondBgColor: "#D2EEFA",
+    textColor: "#085C81",
+  },
+  {
+    image: "/img/bento-info-modal-cards/questions-and-answers.webp",
+    title: "Practica preguntas y respuestas",
+    description:
+      "Prepárate posibles respuestas y preguntas sobre la compañía y tu rol, ¡así verán que vas a por todas!",
+    firstBgColor: "#88DBFF",
+    secondBgColor: "#E1F8FF",
+    textColor: "#0073AA",
+  },
+  {
+    image: "/img/bento-info-modal-cards/double-authenticity.webp",
+    title: "La autenticidad puntúa doble",
+    description:
+      "Mira a los ojos, exprésate con las manos, tú tienes el control de la situación. ¡Y sonríe de forma natural!",
+    firstBgColor: "#FFBEBF",
+    secondBgColor: "#FBE9E7",
+    textColor: "#DF4D3A",
+  },
+] as const;
+
+const { infographicId } = Astro.props;
+---
+
+<section
+  id={`infographic-${infographicId}`}
+  class="mx-auto px-4 max-w-7xl w-full flex-col md:gap-[50px] py-[72px] hidden"
+>
+  <InfographicHeader
+    title="Destaca en las entrevistas"
+    description="¿Quieres triunfar en una entrevista aunque no tengas experiencia para ese trabajo?"
+    subtitle="!Sin problema!"
+  />
+
+  <InfographicBody bentoInfoModalCards={standsInterviews} />
+</section>
