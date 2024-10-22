@@ -32,8 +32,9 @@ const VIDEOS = [
 ] as const
 ---
 
-<SectionContainer>
-  <div class="flex items-center justify-between pb-6 md:pb-12">
+<section class="mx-auto max-w-7xl w-full md:px-4">
+  <div class="mx-auto w-full">
+  <div class="flex items-center justify-between px-4 md:px-0 pb-6 md:pb-12">
     <h2 class="text-ij-black text-2xl md:text-3xl font-semibold">
       Trabaja con los mejores
     </h2>
@@ -62,7 +63,7 @@ const VIDEOS = [
     style="--left-opacity: 0; --right-opacity: 1;"
   >
     <div
-      class="flex overflow-scroll custom-scrollbar gap-x-8 snap-mandatory snap-x"
+      class="flex overflow-scroll custom-scrollbar gap-x-4 md:gap-x-8 snap-mandatory snap-x px-4 md:px-0"
       id="carousel"
     >
       {
@@ -76,7 +77,8 @@ const VIDEOS = [
       }
     </div>
   </div>
-</SectionContainer>
+  </div>
+</section>
 
 <style>
   .custom-scrollbar::-webkit-scrollbar {
