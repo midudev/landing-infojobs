@@ -74,3 +74,16 @@ const { infographicId } = Astro.props;
 
   <InfographicBody bentoInfoModalCards={standsInterviews} />
 </section>
+
+<section
+  id={`infographic-${infographicId}`}
+  class="mx-auto px-4 max-w-7xl w-full flex-col md:gap-[50px] py-[72px] hidden"
+>
+  <InfographicHeader
+    title="Puestos Emergentes"
+    description="¿Quieres saber qué estudiar para lograr los trabajos del futuro?"
+    subtitle="¡Te lo explicamos!"
+  />
+
+  <InfographicBody bentoInfoModalCards={standsInterviews} />
+</section>

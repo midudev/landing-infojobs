@@ -1,0 +1,51 @@
+---
+import InfographicBody from "./InfographicBody.astro";
+import InfographicHeader from "./InfographicHeader.astro";
+
+const standsInterviewsBig = [
+  {
+    title: "Inteligencia Artificial",
+    description: "Ingeniero/a de Machine Learning",
+    requirements: [
+      {
+        label: "Estudios",
+        tag: ["Ciencia Computacional", "Matemáticas", "Estadística"],
+      },
+      {
+        label:"Condiciones",
+        tag: ["Contrato indefinido", "Salario de 35k-58k €/año"],
+      },
+      {
+        label: "Hard Skills",
+        tag: ["Python", "R", "TensorFlow", "PyTorch"],
+      },
+      {
+        label: "Soft Skills",
+        tag: ["Pensamiento critico", "Trabajo en equipo", "Analisis"],
+      },
+    ],
+    lugar1: "Madrid",
+    lugar2: "Barcelona",
+    image1: "/img/bento-info-modal-cards/madrid.png",
+    image2: "/img/bento-info-modal-cards/barcelona.png",
+    backgroundColor: "bg-[#EAE9FC]",
+    backgroundColor2: "bg-[#CCCCFA]",
+  },
+  // Agrega más objetos según sea necesario
+];
+
+const { infographicId } = Astro.props;
+---
+
+<section
+  id={`infographic-${infographicId}`}
+  class="mx-auto px-4 max-w-7xl w-full flex-col md:gap-[50px] py-[72px] hidden"
+>
+  <InfographicHeader
+    title="Puestos Emergentes"
+    description="¿Quieres saber qué estudiar para lograr los trabajos del futuro?"
+    subtitle="¡Te lo explicamos!"
+  />
+
+  <InfographicBody bentoInfoModalCardsBig={standsInterviewsBig} />
+</section>
