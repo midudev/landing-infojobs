@@ -69,6 +69,13 @@ Este proyecto es una landing page para InfoJobs, diseñada para proporcionar una
         </a>
     </td>
     <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
+        <a href=https://github.com/gusCreator>
+            <img src=https://avatars.githubusercontent.com/u/147654561?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Luis Gustavo Sequeiros Condori/>
+            <br />
+            <sub style="font-size:14px"><b>Luis Gustavo Sequeiros Condori</b></sub>
+        </a>
+    </td>
+    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
         <a href=https://github.com/OctaEDLP00>
             <img src=https://avatars.githubusercontent.com/u/42822581?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=DevMetal00/>
             <br />
@@ -90,13 +97,6 @@ Este proyecto es una landing page para InfoJobs, diseñada para proporcionar una
         </a>
     </td>
     <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
-        <a href=https://github.com/gusCreator>
-            <img src=https://avatars.githubusercontent.com/u/147654561?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Luis Gustavo Sequeiros Condori/>
-            <br />
-            <sub style="font-size:14px"><b>Luis Gustavo Sequeiros Condori</b></sub>
-        </a>
-    </td>
-    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
         <a href=https://github.com/javimata>
             <img src=https://avatars.githubusercontent.com/u/2237207?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Javi Mata/>
             <br />
@@ -105,6 +105,13 @@ Este proyecto es una landing page para InfoJobs, diseñada para proporcionar una
     </td>
 </tr>
 <tr>
+    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
+        <a href=https://github.com/Anthonazo>
+            <img src=https://avatars.githubusercontent.com/u/118082256?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Anthony Moya Ochoa/>
+            <br />
+            <sub style="font-size:14px"><b>Anthony Moya Ochoa</b></sub>
+        </a>
+    </td>
     <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
         <a href=https://github.com/IzanMen>
             <img src=https://avatars.githubusercontent.com/u/175528066?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Izan Sánchez Ginés/>
@@ -120,13 +127,6 @@ Este proyecto es una landing page para InfoJobs, diseñada para proporcionar una
         </a>
     </td>
     <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
-        <a href=https://github.com/Anthonazo>
-            <img src=https://avatars.githubusercontent.com/u/118082256?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Anthony Moya Ochoa/>
-            <br />
-            <sub style="font-size:14px"><b>Anthony Moya Ochoa</b></sub>
-        </a>
-    </td>
-    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
         <a href=https://github.com/MiguelVallina2002>
             <img src=https://avatars.githubusercontent.com/u/93439131?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Miguel Vallina Samaniego/>
             <br />
@@ -135,9 +135,9 @@ Este proyecto es una landing page para InfoJobs, diseñada para proporcionar una
     </td>
     <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
         <a href=https://github.com/KoenigDev>
-            <img src=https://avatars.githubusercontent.com/u/160176319?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Nunu/>
+            <img src=https://avatars.githubusercontent.com/u/160176319?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=BM/>
             <br />
-            <sub style="font-size:14px"><b>Nunu</b></sub>
+            <sub style="font-size:14px"><b>BM</b></sub>
         </a>
     </td>
     <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
