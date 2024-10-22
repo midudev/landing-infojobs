@@ -138,6 +138,7 @@ const ARTICLES = [
     const $modal = document.getElementById("infographic-modal");
     const $modalBody = document.getElementById("infographic-modal-body");
     const $btnModal = document.getElementById("btn-modal");
+    const $body = document.body
 
     //buttons bento
     const $buttons = document.querySelectorAll("button[data-content-id]");
@@ -151,6 +152,8 @@ const ARTICLES = [
         $modalBody.replaceChildren(content.cloneNode(true));
 
         $modalBody.firstElementChild?.classList.replace("hidden", "flex");
+
+        $body.style.overflow = 'hidden';
       }
     };
 
@@ -164,6 +167,8 @@ const ARTICLES = [
       if (currentContent) {
         $modalBody?.removeChild(currentContent);
       }
+
+      $body.style.overflow = "";
     };
 
     const handleKeyDown = (event: KeyboardEvent) => {
