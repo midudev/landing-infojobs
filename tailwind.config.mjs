@@ -30,6 +30,9 @@ export default {
       transitionDuration: {
         DEFAULT: "500ms",
       },
+      screens: {
+        xs: "480px",
+      }
     },
   },
   plugins: [],
