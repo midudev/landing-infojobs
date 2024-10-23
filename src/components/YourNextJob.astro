@@ -1,6 +1,8 @@
 ---
 import InfographicBody from "./InfographicBody.astro"
 import InfographicHeader from "./InfographicHeader.astro"
+import InfographicTips from "./InfographicTips.astro"
+
 const yourNextJobContent = [
     {
         image: "/img/bento-info-modal-cards/style-your-cv.webp",
@@ -44,10 +46,11 @@ const { infographicId } = Astro.props
   class="mx-auto px-4 max-w-7xl w-full flex-col md:gap-[50px] py-[72px] hidden"
 >
   <InfographicHeader
-    title="SÁCALE PARTIDO A INFOJOBS"
-    description="¿Quieres conseguir tu próximo empleo con InfoJobs?"
+    badgeText="Sácale partido a InfoJobs"
+    title="¿Quieres conseguir tu próximo empleo con InfoJobs?"
     subtitle="¡Vamos a ello!"
   />
 
   <InfographicBody bentoInfoModalCards={yourNextJobContent} />
+  <InfographicTips />
 </section>

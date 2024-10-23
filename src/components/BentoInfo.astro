@@ -1,5 +1,6 @@
 ---
 import SectionContainer from "@components/SectionContainer.astro";
+import Subtitle from "@components/Subtitle.astro";
 
 const ARTICLES = [
   {
@@ -43,7 +44,7 @@ const ARTICLES = [
 ---
 
 <SectionContainer>
-  <h2 class="text-ij-black text-2xl pb-6">Prepárate para ganar</h2>
+  <Subtitle>Prepárate para ganar</Subtitle>
   <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 md:p-0">
     {
       ARTICLES.map(
@@ -138,6 +139,7 @@ const ARTICLES = [
     const $modal = document.getElementById("infographic-modal");
     const $modalBody = document.getElementById("infographic-modal-body");
     const $btnModal = document.getElementById("btn-modal");
+    const $body = document.body
 
     //buttons bento
     const $buttons = document.querySelectorAll("button[data-content-id]");
@@ -151,6 +153,8 @@ const ARTICLES = [
         $modalBody.replaceChildren(content.cloneNode(true));
 
         $modalBody.firstElementChild?.classList.replace("hidden", "flex");
+
+        $body.style.overflow = 'hidden';
       }
     };
 
@@ -164,6 +168,8 @@ const ARTICLES = [
       if (currentContent) {
         $modalBody?.removeChild(currentContent);
       }
+
+      $body.style.overflow = "";
     };
 
     const handleKeyDown = (event: KeyboardEvent) => {

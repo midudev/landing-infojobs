@@ -21,7 +21,7 @@ const { videoId, thumbnailUrl, title } = Astro.props
 >
   <div
     class="p-4 pl-[18px] bg-white rounded-full absolute bottom-6 right-6 hover:scale-110 transition-transform"
-    id="play-button"
+    id=`Id${videoId}`
     title={title}
   >
     <Icon name="play" class="text-primary" />
@@ -45,7 +45,7 @@ const { videoId, thumbnailUrl, title } = Astro.props
     activateVideo() {
       this.style.backgroundImage = "unset"
 
-      this.querySelector("#play-button")?.remove()
+      this.querySelector(`#Id${this.videoId}`)?.remove()
 
       const iframeEl = this.createIframe()
       this.append(iframeEl)

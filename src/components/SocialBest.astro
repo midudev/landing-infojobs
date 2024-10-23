@@ -2,6 +2,7 @@
 import SectionContainer from "./SectionContainer.astro"
 import TiktokVideo from "./TiktokVideo.astro"
 import Icon from "./ui/Icon.astro"
+import Subtitle from "./Subtitle.astro"
 
 const VIDEOS = [
   {
@@ -32,11 +33,10 @@ const VIDEOS = [
 ] as const
 ---
 
-<SectionContainer>
-  <div class="flex items-center justify-between pb-6 md:pb-12">
-    <h2 class="text-ij-black text-2xl md:text-3xl font-semibold">
-      Trabaja con los mejores
-    </h2>
+<SectionContainer class="px-0">
+  <div class="flex items-center justify-between px-4 md:px-0 pb-6 md:pb-12">
+    <Subtitle class="!pb-0">Trabaja con los mejores</Subtitle>
+
     <div class="hidden md:flex items-center gap-x-4">
       <button
         class="bg-[#E2E2E5] text-[#636365] opacity-45 p-1 rounded-full enabled:hover:scale-110 transition-all enabled:active:scale-100"
@@ -62,7 +62,7 @@ const VIDEOS = [
     style="--left-opacity: 0; --right-opacity: 1;"
   >
     <div
-      class="flex overflow-scroll custom-scrollbar gap-x-8 snap-mandatory snap-x"
+      class="flex overflow-scroll custom-scrollbar gap-x-4 md:gap-x-8 snap-mandatory snap-x px-4 md:px-0"
       id="carousel"
     >
       {

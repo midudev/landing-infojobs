@@ -84,7 +84,8 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
       </div>
 
       <button
-        class="rounded-full text-lg font-medium bg-accent hover:saturate-150 transition text-white px-4 py-2 inline-flex gap-x-2 justify-center items-center w-full lg:size-12 lg:mt-1 lg:hover:scale-105"
+        class="shadow-md rounded-full text-lg font-medium bg-accent hover:saturate-150 transition text-white px-4 py-2 inline-flex gap-x-2 justify-center items-center w-full lg:size-12 lg:mt-1 lg:hover:scale-105"
+        aria-label="Buscar ofertas"
       >
         <SearchIcon />
         <p class="lg:hidden">Buscar ofertas</p>
@@ -94,7 +95,7 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
 
   <footer>
     <h5 class="text-center pt-8 pb-4">Explora trabajos que se adaptan a ti</h5>
-    <div class="flex flex-wrap gap-4 justify-around lg:justify-center">
+    <div class="flex flex-wrap gap-4 justify-center">
       {
         SHORTCUTS.map(({ label, href }) => (
           <a
