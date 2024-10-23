@@ -3,31 +3,29 @@ const cardsOportunidades = [
   {
     title1: "Oferta de empleo",
     title2: "Miles de oportunidades",
-    img: "./images/ofertaEmpleo.png",
+    img: "./img/pre-footer/oferta-empleo.webp",
     gradient: "bg-gradient-to-t from-[#8BCFAD] to-[#E6F6EE]",
     colorTitle: "text-[#0E8247]",
-    marginBotton: "",
+    imageClass: "p-4 sm:p-8 md:p-4 lg:p-8 !pb-0",
     href: "https://www.infojobs.net/",
   },
   {
     title1: "InfoJobs en TikTok",
     title2: "Consejos para encontrar trabajo",
-    img: "./images/infoTikTok.png",
+    img: "./img/pre-footer/info-tiktok.webp",
     gradient: "bg-gradient-to-t from-[#FFE4A2] to-[#FEF6DB]",
-    colorTitle: "text-[#EFA500] ",
-    marginBotton: "",
+    colorTitle: "text-[#EFA500]",
+    imageClass: "",
     href: "https://www.tiktok.com/@infojobs/playlist/Encontrar%20trabajo-7401023016819378977 ",
   },
 ] as const
 ---
 
-<div
-  class="grid grid-cols-1 md:grid-cols-2 w-auto h-auto gap-6 md:gap-[40px] mt-6 mb-9"
->
+<div class="grid grid-cols-1 md:grid-cols-2 w-auto h-auto gap-6 md:gap-[40px]">
   {
     cardsOportunidades.map((card) => (
       <a
-        class={`group flex flex-col rounded-[16px] pt-4 px-4 md:px-[60px] md:pt-[40px] aspect-[328/436] md:aspect-square w-full overflow-hidden ${card.gradient}`}
+        class={`group flex flex-col rounded-[16px] pt-4 px-4 md:px-12 lg:px-15 lg:pt-6 xl:pt-10 aspect-[328/436] md:aspect-square w-full overflow-hidden ${card.gradient}`}
         href={card.href}
         target="_blank"
       >
@@ -39,16 +37,14 @@ const cardsOportunidades = [
         >
           {card.title2}
         </p>
-        <div class="flex justify-center mt-auto w-full h-auto">
-          <div
-            class={`flex justify-center mt-auto w-full h-auto md:mb-0 ${card.marginBotton}`}
-          >
-            <img
-              class="md:w-[500px] md:h-[396px] w-full h-full scale-125 md:scale-100 transition md:group-hover:scale-105 md:group-hover:z-10 object-contain object-bottom"
-              src={card.img}
-              alt="InfoJobs"
-            />
-          </div>
+
+        <div class="flex justify-center mt-auto w-full h-auto md:mb-0">
+          <img
+            class="w-full h-full scale-100 transition group-hover:scale-105 group-hover:z-10 object-contain object-bottom"
+            class:list={card.imageClass}
+            src={card.img}
+            alt="InfoJobs"
+          />
         </div>
       </a>
     ))
