@@ -1,21 +1,21 @@
 ---
-const { title, description, subtitle } = Astro.props
+const { badgeText, title, subtitle } = Astro.props
 ---
 
 <div class="flex flex-col gap-[10px] md:gap-[35px]">
-  <h5
+  <span
     class="uppercase bg-[#499AC3] py-2 px-4 w-full md:w-fit rounded-lg text-white text-xl leading-5 text-center tracking-[2%]"
   >
-    {title}
-  </h5>
+    {badgeText}
+  </span>
 
   <div class="py-10 flex flex-col gap-6">
     <h2
       class="text-[32px] leading-[35.2px] md:text-[64px] md:leading-[70px] text-[#0073AA] max-w-5xl"
     >
-      {description}
+      {title}
     </h2>
 
-    <h6 class="text-3xl leading-[30px] text-[#499AC3]">{subtitle}</h6>
+    <h4 class="text-3xl leading-[30px] text-[#499AC3]">{subtitle}</h4>
   </div>
 </div>
