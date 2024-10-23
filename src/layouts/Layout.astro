@@ -1,12 +1,12 @@
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro"
+import Footer from "../components/Footer.astro"
 
 interface Props {
-  title: string;
+  title: string
 }
 
-const { title } = Astro.props;
+const { title } = Astro.props
 ---
 
 <!doctype html>
@@ -19,6 +19,7 @@ const { title } = Astro.props;
     />
     <meta name="viewport" content="width=device-width" />
     <title>{title}</title>
+    <link rel="preload" as="image" href="/hero-pattern.webp" />
   </head>
   <body>
     <Header />
@@ -30,7 +31,8 @@ const { title } = Astro.props;
 </html>
 
 <style is:global>
-  input:focus-visible, select:focus-visible {
+  input:focus-visible,
+  select:focus-visible {
     outline: 0;
   }
 </style>
