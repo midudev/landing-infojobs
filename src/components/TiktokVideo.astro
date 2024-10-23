@@ -45,7 +45,7 @@ const { videoId, thumbnailUrl, title } = Astro.props
     activateVideo() {
       this.style.backgroundImage = "unset"
 
-      this.querySelector(`Id${this.videoId}`)?.remove()
+      this.querySelector(`#Id${this.videoId}`)?.remove()
 
       const iframeEl = this.createIframe()
       this.append(iframeEl)
