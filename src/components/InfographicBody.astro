@@ -1,9 +1,8 @@
 ---
 type Props = {
-  bentoInfoModalCards?: readonly BentoInfoModalCard[];  // Ahora es opcional
+  bentoInfoModalCards?: readonly BentoInfoModalCard[]; // Ahora es opcional
   bentoInfoModalCardsBig?: BentoInfoModalCardBig[];
 };
-
 
 type BentoInfoModalCard = {
   image: string;
@@ -17,16 +16,17 @@ type BentoInfoModalCard = {
 type BentoInfoModalCardBig = {
   title: string;
   description: string;
-  requirements: { label: string; tag: string[]; }[];
-  lugar1: string;
-  lugar2: string;
+  requirements: { label: string; tag: string[] }[];
+  location: { label: string; tag1: string; tag2: string }[];
   image1: string;
   image2: string;
   backgroundColor: string;
   backgroundColor2: string;
+  backgroundColor3: string;
 };
 
-const { bentoInfoModalCards = [], bentoInfoModalCardsBig = [] } = Astro.props as Props;
+const { bentoInfoModalCards = [], bentoInfoModalCardsBig = [] } =
+  Astro.props as Props;
 ---
 
 <section
@@ -77,18 +77,59 @@ const { bentoInfoModalCards = [], bentoInfoModalCardsBig = [] } = Astro.props as
   }
 </section>
 
-<section class="grid gap-[48px] md:justify-between grid-cols-1 lg:grid-cols-2 overflow-hidden w-[1278px] h-[966px] ">
-  {bentoInfoModalCardsBig.map((card) =>(
-    <article class={`file-big-card ${card.backgroundColor} p-5`}>
-      <div class={`${card.backgroundColor2} w-max rounded-sm p-1`}>{card.title}</div>
-    </article>
- 
-  ))
+<section class="gap-[48px] w-[1278px] h-[966px]">
+  {
+    bentoInfoModalCardsBig.map((card) => (
+      <article class={`file-big-card ${card.backgroundColor} p-5`}>
+        <h5
+          class={` ${card.backgroundColor3} uppercase py-2 px-4 w-full md:w-fit rounded-lg text-white text-xl leading-5 text-center tracking-[2%] `}
+        >
+          {card.title}
+        </h5>
+        <p class="lg:text-[56px] lg:my-9">{card.description}</p>
 
+        <div class="grid grid-cols-2 gap-6 mb-6">
+          {card.requirements.map((requirement) => (
+            <div
+              class={`flex flex-col gap-2 ${card.backgroundColor2} rounded-[20px] px-5 py-6 `}
+            >
+              <h6 class="rounded-md text-[24px] bg-white text-black w-fit px-1">
+                {requirement.label}
+              </h6>
+              <div class=" flex flex-wrap gap-5">
+                {requirement.tag.map((tag) => (
+                  <span class="text-black text-3xl px-2 py-1 rounded-[32px] border-[1px] border-black w-fit">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div>
+          {card.location.map((location) => (
+            <div class={`flex flex-row gap-2 justify-between ${card.backgroundColor2} rounded-[20px] px-5 py-6 `}>
+              <h6 class="rounded-md text-[24px] bg-white text-black w-fit h-fit px-1">
+                {location.label}
+              </h6>
+              <div class={`rounded-md ${card.image1} `}>
+                <span class="text-black text-3xl  w-full">
+                  {location.tag1}
+                </span>
+              </div>
+              <div class={`rounded-md ${card.image2} `}>
+                <span class="text-black text-3xl w-full">
+                  {location.tag2}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </article>
+    ))
   }
 </section>
-
-
 
 <style>
   .file-card {
@@ -157,8 +198,7 @@ const { bentoInfoModalCards = [], bentoInfoModalCardsBig = [] } = Astro.props as
     );
   }
 
-  .file-big-card{
-    
+  .file-big-card {
     width: 1277.609px;
     height: 966.8340000000001px;
     clip-path: polygon(
