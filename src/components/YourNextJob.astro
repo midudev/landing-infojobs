@@ -1,6 +1,8 @@
 ---
 import InfographicBody from "./InfographicBody.astro"
 import InfographicHeader from "./InfographicHeader.astro"
+import InfographicTips from "./InfographicTips.astro"
+
 const yourNextJobContent = [
     {
         image: "/img/bento-info-modal-cards/style-your-cv.webp",
@@ -50,4 +52,5 @@ const { infographicId } = Astro.props
   />
 
   <InfographicBody bentoInfoModalCards={yourNextJobContent} />
+  <InfographicTips />
 </section>
