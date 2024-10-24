@@ -2,26 +2,38 @@
 const ADEVINTA_LINK = "https://adevinta.com/es/";
 const LINKS = [
   {
+    target: "_blank",
+    rel: "noopener noreferrer",
     label: "Fotocasa",
     href: "https://www.fotocasa.es/es",
   },
   {
+    target: "_blank",
+    rel: "noopener noreferrer",
     label: "habitaclia",
     href: "https://www.habitaclia.com/",
   },
   {
+    target: "_blank",
+    rel: "noopener noreferrer",
     label: "Coches.net",
     href: "https://www.coches.net/",
   },
   {
+    target: "_blank",
+    rel: "noopener noreferrer",
     label: "Motos.net",
     href: "https://motos.coches.net/",
   },
   {
+    target: "_blank",
+    rel: "noopener noreferrer",
     label: "Milanuncios",
     href: "https://www.milanuncios.com/",
   },
   {
+    target: "_blank",
+    rel: "noopener noreferrer",
     label: "JobisJob",
     href: "https://www.jobisjob.es/",
   },
@@ -40,12 +52,13 @@ const LINKS = [
     </li>
 
     {
-      LINKS.map(({ label, href }) => (
+      LINKS.map(({ label, href, target, rel }) => (
         <li class="flex-grow text-center">
           <a
             class="hover:underline"
             href={href}
-            target="_blank"
+            target={target}
+            rel={rel}
             aria-label={`Visita ${label}`}
           >
             {label}
