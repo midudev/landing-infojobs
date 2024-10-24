@@ -5,18 +5,26 @@ import SectionContainer from "@components/SectionContainer.astro"
 
 const SHORTCUTS = [
   {
+    target: "_blank",
+    rel: "noopener noreferrer",
     label: "🌱  Sin experiencia",
     href: "https://www.infojobs.net/jobsearch/search-results/list.xhtml?keyword=&segmentId=&page=1&sortBy=PUBLICATION_DATE&onlyForeignCountry=false&countryIds=17&sinceDate=ANY&experienceMin=_0_YEARS&experienceMax=_0_YEARS",
   },
   {
+    target: "_blank",
+    rel: "noopener noreferrer",
     label: "🗓️  Findes",
     href: "https://www.infojobs.net/ofertas-trabajo/fines-de-semana",
   },
   {
+    target: "_blank",
+    rel: "noopener noreferrer",
     label: "🕒  Media jornada",
     href: "https://www.infojobs.net/ofertas-trabajo/media-jornada",
   },
   {
+    target: "_blank",
+    rel: "noopener noreferrer",
     label: "💼  Prácticas",
     href: "https://www.infojobs.net/ofertas-trabajo/practicas",
   },
@@ -46,7 +54,7 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
         <div class="lg:w-full lg:pr-10">
           <select
             name="study-level"
-            class="w-full py-4 border-b border-gray-300 text-gray-400 bg-transparent cursor-pointer lg:border-none"
+            class="w-full py-4 border-b border-gray-300 text-gray-400 bg-transparent cursor-pointer"
             aria-label="Selecciona tu nivel de estudios"
           >
             {
@@ -81,12 +89,12 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
           <input
             name="geolocation"
             placeholder="Provincia o población"
-            class="w-full py-4 text-gray-600 focus:outline-none"
+            class="w-full py-4 border-b border-gray-300 text-gray-600 focus:outline-none lg:border-none"
           />
         </div>
 
         <button
-          class="shadow-md rounded-full text-lg font-medium bg-accent hover:saturate-150 transition text-white px-4 py-2 inline-flex gap-x-2 justify-center items-center w-full lg:size-12 lg:mt-1 lg:hover:scale-105"
+          class="shadow-md rounded-xl text-lg font-medium bg-accent hover:saturate-150 transition text-white px-4 py-2 inline-flex gap-x-2 justify-center items-center w-full lg:size-12 lg:mt-1 lg:hover:scale-105 lg:rounded-full"
           aria-label="Buscar ofertas"
         >
           <SearchIcon />
@@ -99,10 +107,12 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
       <h5 class="text-center pt-8 pb-4">Explora trabajos que se adaptan a ti</h5>
       <div class="flex flex-wrap gap-4 justify-center">
         {
-          SHORTCUTS.map(({ label, href }) => (
+          SHORTCUTS.map(({ label, href, target, rel }) => (
             <a
-              class="bg-white rounded-full p-4 lg:px-6 shadow-sm text-primary transition hover:scale-105 hover:text-white hover:bg-primary"
+              class="rounded-2xl p-4 lg:px-6 shadow-sm text-primary bg-sky-300 transition hover:scale-105 hover:text-white hover:bg-primary"
               href={href}
+              target={target}
+              rel={rel}
             >
               {label}
             </a>

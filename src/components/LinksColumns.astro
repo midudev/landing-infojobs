@@ -4,33 +4,47 @@ const linksInfo = [
     title: "Nosotros",
     links: [
       {
+        target: "_blank",
+        rel: "noopener noreferrer",
         label: "Ayuda",
         href: "https://ayuda.infojobs.net/hc/es",
         showOnMobile: true,
       },
       {
+        target: "_blank",
+        rel: "noopener noreferrer",
         label: "Seguridad",
         href: "https://nosotros.infojobs.net/infojobs-seguridad",
       },
       {
+        target: "_blank",
+        rel: "noopener noreferrer",
         label: "Condiciones legales",
         href: "https://www.infojobs.net/lex.xhtml",
         showOnMobile: true,
       },
       {
+        target: "_blank",
+        rel: "noopener noreferrer",
         label: "Política de privacidad",
         href: "https://www.infojobs.net/privacy-policy/extended.xhtml",
       },
 
       {
+        target: "_blank",
+        rel: "noopener noreferrer",
         label: "Uso del servicio",
         href: "https://www.infojobs.net/rules-and-services.xhtml",
       },
       {
+        target: "_blank",
+        rel: "noopener noreferrer",
         label: "Política de cookies",
         href: "https://www.infojobs.net/lex.xhtml#cookies-policy",
       },
       {
+        target: "_blank",
+        rel: "noopener noreferrer",
         label: "Gestión de cookies",
         href: "https://www.figma.com/exit?url=javascript%3Avoid(null)%3B",
       },
@@ -40,14 +54,20 @@ const linksInfo = [
     title: "Sobre InfoJobs",
     links: [
       {
+        target: "_blank",
+        rel: "noopener noreferrer",
         label: "InfoJobs hoy",
         href: "https://nosotros.infojobs.net/",
       },
       {
+        target: "_blank",
+        rel: "noopener noreferrer",
         label: "Trabaja con nosotros",
         href: "https://www.infojobs.net/candidate/candidate-login/candidate-login.xhtml?error=caducado&dgv=8615867714346349222",
       },
       {
+        target: "_blank",
+        rel: "noopener noreferrer",
         label: "Ofertas de empleo",
         href: "https://www.infojobs.net/ofertas-empleo",
       },
@@ -57,26 +77,38 @@ const linksInfo = [
     title: "+ InfoJobs",
     links: [
       {
+        target: "_blank",
+        rel: "noopener noreferrer",
         label: "InfoJobs Awards",
         href: "https://awards.infojobs.net/",
       },
       {
+        target: "_blank",
+        rel: "noopener noreferrer",
         label: "InfoJobs Academy",
         href: "https://infojobsacademy.com/",
       },
       {
+        target: "_blank",
+        rel: "noopener noreferrer",
         label: "Orientación laboral",
         href: "https://orientacion-laboral.infojobs.net/",
       },
       {
+        target: "_blank",
+        rel: "noopener noreferrer",
         label: "InfoJobs Formación",
         href: "https://formacion.infojobs.net/",
       },
       {
+        target: "_blank",
+        rel: "noopener noreferrer",
         label: "Blog empresas",
         href: "https://recursos-humanos.infojobs.net/",
       },
       {
+        target: "_blank",
+        rel: "noopener noreferrer",
         label: "Offerte di lavoro in Italia",
         href: "https://www.infojobs.it/",
       },
@@ -86,14 +118,20 @@ const linksInfo = [
     title: "Prensa",
     links: [
       {
+        target: "_blank",
+        rel: "noopener noreferrer",
         label: "Indicadores de InfoJobs",
         href: "https://nosotros.infojobs.net/indicadores-infojobs",
       },
       {
+        target: "_blank",
+        rel: "noopener noreferrer",
         label: "Notas de prensa",
         href: "https://nosotros.infojobs.net/prensa/notas-prensa",
       },
       {
+        target: "_blank",
+        rel: "noopener noreferrer",
         label: "Contacto de prensa",
         href: "https://nosotros.infojobs.net/contacto-prensa/contacto-de-prensa",
       },
@@ -114,7 +152,7 @@ const linksInfo = [
           </h2>
 
           <ul class="flex flex-row  md:flex-col underline md:no-underline gap-4 md:gap-0">
-            {links.map(({ label, href, showOnMobile }) => {
+            {links.map(({ target, rel, label, href, showOnMobile }) => {
               return (
                 <li
                   class:list={[
@@ -122,7 +160,7 @@ const linksInfo = [
                     showOnMobile ? "" : "hidden md:block",
                   ]}
                 >
-                  <a href={href} class="text-[14px] leading-6 ">
+                  <a target={target} rel={rel} href={href} class="text-[14px] leading-6 ">
                     {label}
                   </a>
                 </li>
