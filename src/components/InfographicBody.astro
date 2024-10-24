@@ -77,28 +77,28 @@ const { bentoInfoModalCards = [], bentoInfoModalCardsBig = [] } =
   }
 </section>
 
-<section class="gap-[48px] w-auto h-auto">
+<section class="w-auto h-auto">
   {
     bentoInfoModalCardsBig.map((card) => (
-      <article class={`${card.backgroundColor} p-5 mb-20 rounded-b-3xl`}>
+      <article class={`${card.backgroundColor} p-5 mb-20 rounded-3xl `}>
         <h5
-          class={` ${card.backgroundColor3} uppercase py-2 px-4 w-full md:w-fit rounded-lg text-white text-xl leading-5 text-center tracking-[2%] `}
+          class={` ${card.backgroundColor3} uppercase py-2 px-4 w-full md:w-fit rounded-lg text-white text-sm md:text-xl leading-5 text-center tracking-[2%] `}
         >
           {card.title}
         </h5>
-        <p class="lg:text-[3.5rem] lg:my-9">{card.description}</p>
+        <p class=" lg:text-[3.5rem] lg:my-9 text-2xl my-3">{card.description}</p>
 
-        <div class="grid grid-cols-2 gap-6 mb-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 sm:grid-cols-2 gap-6 mb-6">
           {card.requirements.map((requirement) => (
             <div
-              class={`flex flex-col gap-2 ${card.backgroundColor2} rounded-[20px] px-5 py-6 `}
+              class={`flex flex-col gap-2 ${card.backgroundColor2} rounded-[1.25rem] px-5 py-6 `}
             >
-              <h6 class="rounded-md text-[24px] bg-white text-black w-fit px-1">
+              <h6 class="rounded-md text-base md:text-[1.5rem] bg-white text-black w-fit px-1">
                 {requirement.label}
               </h6>
               <div class=" flex flex-wrap gap-5">
                 {requirement.tag.map((tag) => (
-                  <span class="text-black text-3xl px-2 py-1 rounded-[32px] border-[1px] border-black w-fit">
+                  <span class="text-black sm:text-base md:text-2xl lg:text-3xl px-2 py-1 rounded-[2rem] border-[1px] border-[#5B666C80]  w-auto">
                     {tag}
                   </span>
                 ))}
@@ -109,17 +109,17 @@ const { bentoInfoModalCards = [], bentoInfoModalCardsBig = [] } =
 
         <div>
           {card.location.map((location) => (
-            <div class={`flex flex-row gap-2 justify-between ${card.backgroundColor2} rounded-[20px] px-5 py-6 `}>
-              <h6 class="rounded-md text-[24px] bg-white text-black w-fit h-fit px-1">
+            <div class={`flex flex-col md:flex-row lg:flex-row gap-2 justify-between ${card.backgroundColor2} rounded-[20px] px-5 py-6 `}>
+              <h6 class="rounded-md sm:text-base lg:text-2xl md:text-xl  bg-white text-black w-fit md:w-[13%] h-fit px-2">
                 {location.label}
               </h6>
-              <div class={`rounded-md ${card.image1} `}>
-                <span class="text-black text-3xl  w-full">
+              <div class={`rounded-md ${card.image1} pl-4 pt-2 w-auto md:w-[43%]`}>
+                <span class="text-black text-xl  w-full uppercase">
                   {location.tag1}
                 </span>
               </div>
-              <div class={`rounded-md ${card.image2} `}>
-                <span class="text-black text-3xl w-full">
+              <div class={`rounded-md ${card.image2} pl-4 p-2 w-auto md:w-[43%] `}>
+                <span class="text-black text-xl w-full uppercase">
                   {location.tag2}
                 </span>
               </div>
@@ -198,83 +198,5 @@ const { bentoInfoModalCards = [], bentoInfoModalCardsBig = [] } =
     );
   }
 
-  .file-big-card {
-    width: 1277.609px;
-    height: 966.8340000000001px;
-    clip-path: polygon(
-      0.688px 30.398px,
-      0.688px 30.398px,
-      1.080637px 25.531976px,
-      2.217376px 20.915888px,
-      4.036459px 16.611512px,
-      6.476128px 12.680624px,
-      9.474625px 9.185px,
-      12.970192px 6.186416px,
-      16.901071px 3.746648px,
-      21.205504px 1.927472px,
-      25.821733px 0.790664px,
-      30.688px 0.398px,
-      319.8px 0.398px,
-      319.8px 0.398px,
-      323.694251px 0.650528px,
-      327.459208px 1.389824px,
-      331.057677px 2.588456px,
-      334.452464px 4.218992px,
-      337.606375px 6.254px,
-      340.482216px 8.666048px,
-      343.042793px 11.427704px,
-      345.250912px 14.511536px,
-      347.069379px 17.890112px,
-      348.461px 21.536px,
-      358.825px 55.053px,
-      358.825px 55.053px,
-      360.216621px 58.698888px,
-      362.035088px 62.077464px,
-      364.243207px 65.161296px,
-      366.803784px 67.922952px,
-      369.679625px 70.335px,
-      372.833536px 72.370008px,
-      376.228323px 74.000544px,
-      379.826792px 75.199176px,
-      383.591749px 75.938472px,
-      387.486px 76.191px,
-      calc(100% - 30px) 76.191px,
-      calc(100% - 30px) 76.191px,
-      calc(100% - 25.13592px) 76.583637px,
-      calc(100% - 20.52096px) 77.720376px,
-      calc(100% - 16.21704px) 79.539459px,
-      calc(100% - 12.28608px) 81.979128px,
-      calc(100% - 8.79px) 84.977625px,
-      calc(100% - 5.79072px) 88.473192px,
-      calc(100% - 3.35016px) 92.404071px,
-      calc(100% - 1.53024px) 96.708504px,
-      calc(100% - 0.39287999999988px) 101.324733px,
-      calc(100% - 2.2737367544323e-13px) 106.191px,
-      calc(100% - 0px) calc(100% - 30px),
-      calc(100% - 0px) calc(100% - 30px),
-      calc(100% - 0.3928800000001px) calc(100% - 25.133733px),
-      calc(100% - 1.5302399999996px) calc(100% - 20.517504px),
-      calc(100% - 3.35016px) calc(100% - 16.213071px),
-      calc(100% - 5.79072px) calc(100% - 12.282192px),
-      calc(100% - 8.79px) calc(100% - 8.7866250000001px),
-      calc(100% - 12.28608px) calc(100% - 5.7881279999999px),
-      calc(100% - 16.21704px) calc(100% - 3.3484589999999px),
-      calc(100% - 20.52096px) calc(100% - 1.529376px),
-      calc(100% - 25.13592px) calc(100% - 0.39263699999992px),
-      calc(100% - 30px) calc(100% - 0px),
-      30.688px calc(100% - 0px),
-      30.688px calc(100% - 0px),
-      25.82149px calc(100% - 0.39263699999981px),
-      21.20512px calc(100% - 1.5293759999996px),
-      16.90063px calc(100% - 3.348459px),
-      12.96976px calc(100% - 5.7881279999999px),
-      9.47425px calc(100% - 8.7866250000001px),
-      6.47584px calc(100% - 12.282192px),
-      4.03627px calc(100% - 16.213071px),
-      2.21728px calc(100% - 20.517504px),
-      1.08061px calc(100% - 25.133733px),
-      0.688px calc(100% - 30px),
-      0.688px 30.399px
-    );
-  }
+  
 </style>
