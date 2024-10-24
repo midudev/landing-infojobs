@@ -35,5 +35,8 @@ export default {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-animated'),
+    require('tailwindcss-intersect')
+  ],
 };
