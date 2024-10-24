@@ -114,9 +114,9 @@ Este proyecto es una landing page para InfoJobs, diseñada para proporcionar una
     </td>
     <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
         <a href=https://github.com/DavidxDl>
-            <img src=https://avatars.githubusercontent.com/u/112674521?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=David/>
+            <img src=https://avatars.githubusercontent.com/u/112674521?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=David Elich/>
             <br />
-            <sub style="font-size:14px"><b>David</b></sub>
+            <sub style="font-size:14px"><b>David Elich</b></sub>
         </a>
     </td>
     <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
