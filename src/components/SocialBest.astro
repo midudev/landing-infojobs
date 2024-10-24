@@ -33,9 +33,9 @@ const VIDEOS = [
 ] as const
 ---
 
-<SectionContainer class="px-0">
+<SectionContainer class="!px-0 md:!px-4">
   <div class="flex items-center justify-between pb-6 md:pb-12">
-    <Subtitle class="!pb-0">Trabaja con los mejores</Subtitle>
+    <Subtitle class="!pb-0 px-4 md:px-0">Trabaja con los mejores</Subtitle>
 
     <div class="hidden md:flex items-center gap-x-4">
       <button
@@ -62,7 +62,7 @@ const VIDEOS = [
     style="--left-opacity: 0; --right-opacity: 1;"
   >
     <div
-      class="flex overflow-scroll custom-scrollbar gap-x-4 md:gap-x-8 snap-mandatory snap-x"
+      class="flex overflow-scroll custom-scrollbar gap-x-4 px-4 md:px-0 md:gap-x-8 snap-mandatory snap-x"
       id="carousel"
     >
       {
