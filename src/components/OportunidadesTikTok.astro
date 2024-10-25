@@ -21,19 +21,20 @@ const cardsOportunidades = [
 ] as const
 ---
 
-<div class="grid grid-cols-1 md:grid-cols-2 w-auto h-auto gap-6 md:gap-[40px]">
+<div class="grid grid-cols-1 sm:grid-cols-2 w-auto h-auto gap-6 sm:gap-[40px]">
   {
     cardsOportunidades.map((card) => (
       <a
+
         class={`group flex flex-col rounded-[16px] pt-4 px-4 md:px-12 lg:px-15 lg:pt-6 xl:pt-10 aspect-[328/436] md:aspect-square w-full overflow-hidden ${card.gradient}`}
         href={card.href}
         target="_blank"
       >
-        <p class="mt-4 text-2xl sm:text-4xl md:text-2xl lg:text-2xl font-semibold text-gray-900">
+        <p class="mt-4 text-2xl font-semibold text-gray-900">
           {card.title1}
         </p>
         <p
-          class={`mt-2 text-3xl sm:text-4xl md:text-3xl lg:text-5xl font-semibold ${card.colorTitle}`}
+          class={`mt-2 text-3xl lg:text-5xl font-semibold ${card.colorTitle}`}
         >
           {card.title2}
         </p>

@@ -8,7 +8,7 @@ import YouTube from "@icons/YouTube.astro";
 import FollowUsLink from "@components/FollowUsLink.astro";
 
 const hoverSocialNetworks = "md:transition-transform md:hover:scale-110";
-const hoverStoreApps = "md:transition-[filter] md:hover:saturate-150";
+const hoverStoreApps = "md:transition-opacity md:duration-150 md:ease-in-out md:hover:opacity-90";
 ---
 
 
@@ -16,9 +16,9 @@ const hoverStoreApps = "md:transition-[filter] md:hover:saturate-150";
   <article
     class="w-full flex items-center justify-center gap-2 py-4 flex-wrap md:justify-start"
   >
-    <h4 class="text-xl tracking-[0.38px] leading-6 font-semibold">
+    <p class="text-xl tracking-[0.38px] leading-6 font-semibold">
       ¡Síguenos!
-    </h4>
+    </p>
 
     <span class="flex items-center gap-2">
       <FollowUsLink
@@ -56,7 +56,7 @@ const hoverStoreApps = "md:transition-[filter] md:hover:saturate-150";
   </article>
 
   <article
-    class="w-full flex items-center justify-center gap-4 pb-4 flex-wrap md:flex-nowrap md:pb-0 md:gap-2 md:justify-end"
+    class="w-full flex items-center justify-center gap-4 py-4 flex-wrap md:flex-nowrap md:p-0 md:gap-2 md:justify-end"
   >
     <FollowUsLink
       href="https://infojobs.go.link/?adj_t=1b8zxouv_1bnixj2z"

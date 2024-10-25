@@ -1,0 +1,282 @@
+---
+import InfographicBody from "./InfographicBody.astro";
+import InfographicHeader from "./InfographicHeader.astro";
+
+const standsInterviewsBig = [
+  {
+    title: "Inteligencia Artificial",
+    description: "Ingeniero/a de Machine Learning",
+    requirements: [
+      {
+        label: "📖 Estudios",
+        tag: ["Ciencia Computacional", "Matemáticas", "Estadística"],
+      },
+      {
+        label: "📝 Condiciones",
+        tag: ["Contrato indefinido", "Salario de 35k-58k €/año"],
+      },
+      {
+        label: "🦾 Hard Skills",
+        tag: ["Python", "R", "TensorFlow", "PyTorch"],
+      },
+      {
+        label: "👋 Soft Skills",
+        tag: ["Pensamiento critico", "Trabajo en equipo", "Analisis"],
+      },
+    ],
+    location: [
+      {
+        label: "📍 Dónde",
+        tag1: "Madrid",
+        tag2: "Barcelona",
+      },
+    ],
+    image1:
+      "bg-[url(/img/emergent-positions/madrid.webp)] w-[31.25rem] md:h-[11rem] h-[7rem] bg-cover bg-center ",
+    image2:
+      "bg-[url(/img/emergent-positions/barcelona.webp)] w-[31.25rem] md:h-[11rem] h-[7rem] bg-cover bg-center",
+    backgroundColor:
+      "bg-[url(/img/emergent-positions/bg2Img1.webp)] text-[#3C49F0] md:bg-cover md:bg-[url(/img/emergent-positions/bgImg1.webp)] ",
+    backgroundColor2: "bg-[#CCCCFA]",
+    backgroundColor3: "bg-[#9B9DF6]",
+  },
+  {
+    title: "Data/Analytics",
+    description: "Data Engineer",
+    requirements: [
+      {
+        label: "📖 Estudios",
+        tag: ["Ingeniería informática", "Telecomunicaciones"],
+      },
+      {
+        label: "📝 Condiciones",
+        tag: ["Contrato indefinido", "Salario de 33k-60k €/año"],
+      },
+      {
+        label: "🦾 Hard Skills",
+        tag: ["SQL", "Python", "Big Data", "Spark"],
+      },
+      {
+        label: "👋 Soft Skills",
+        tag: ["Resolución de problemas", "Adaptación al cambio"],
+      },
+    ],
+    location: [
+      {
+        label: "📍 Dónde",
+        tag1: "Barcelona",
+        tag2: "Valencia",
+      },
+    ],
+    image1:
+      "bg-[url(/img/emergent-positions/barcelona.webp)] w-[31.25rem] md:h-[11rem] h-[7rem] bg-cover bg-center",
+    image2:
+      "bg-[url(/img/emergent-positions/valencia.webp)] w-[31.25rem] md:h-[11rem] h-[7rem] bg-cover bg-center",
+    backgroundColor:
+      "  text-[#008949] bg-[url(/img/emergent-positions/bg2Img2.webp)] md:bg-cover md:bg-[url(/img/emergent-positions/bgImg2.webp)] ",
+    backgroundColor2: "bg-[#B4E5CD]",
+    backgroundColor3: "bg-[#3EB87E]",
+  },
+  {
+    title: " Building Information Modeling (BIM)",
+    description: "Arquitecto/a BIM",
+    requirements: [
+      {
+        label: "📖 Estudios",
+        tag: ["Arquitectura", "Ingeneiría de Edificación"],
+      },
+      {
+        label: "📝 Condiciones",
+        tag: ["Contrato indefinido", "Salario de 30k-50k €/año"],
+      },
+      {
+        label: "🦾 Hard Skills",
+        tag: ["Revit", "AutoCAD", "Gestión de proyectos"],
+      },
+      {
+        label: "👋 Soft Skills",
+        tag: ["Comunicación", "Liderazgo", "Autogestión"],
+      },
+    ],
+    location: [
+      {
+        label: "📍 Dónde",
+        tag1: "Barcelona",
+        tag2: "Sevilla",
+      },
+    ],
+    image1:
+      "bg-[url(/img/emergent-positions/barcelona.webp)] w-[31.25rem] md:h-[11rem] h-[7rem] bg-cover bg-center",
+    image2:
+      "bg-[url(/img/emergent-positions/sevilla.webp)] w-[31.25rem] md:h-[11rem] h-[7rem] bg-cover bg-center",
+    backgroundColor:
+      " text-[#D1A22E] bg-[url(/img/emergent-positions/bg2Img3.webp)] md:bg-cover md:bg-[url(/img/emergent-positions/bgImg3.webp)]",
+    backgroundColor2: "bg-[#FDECBE]",
+    backgroundColor3: "bg-[#F7CE5B] text-xs md:text-[0.7rem]",
+  },
+  {
+    title: " Ciberseguridad / Cloud",
+    description: "Cloud Security Engineer",
+    requirements: [
+      {
+        label: "📖 Estudios",
+        tag: ["Informática", "Ingeneiría en telecomunicaciones"],
+      },
+      {
+        label: "📝 Condiciones",
+        tag: ["Contrato indefinido", "Salario de 40k-60k €/año"],
+      },
+      {
+        label: "🦾 Hard Skills",
+        tag: ["AWS", "Azure", "Seguridad en la nube"],
+      },
+      {
+        label: "👋 Soft Skills",
+        tag: ["Atención al detalle", "Pensamiento analítico"],
+      },
+    ],
+    location: [
+      {
+        label: "📍 Dónde",
+        tag1: "Madrid",
+        tag2: "Málaga",
+      },
+    ],
+    image1:
+      "bg-[url(/img/emergent-positions/madrid.webp)] w-[31.25rem] md:h-[11rem] h-[7rem] bg-cover bg-center",
+    image2:
+      "bg-[url(/img/emergent-positions/malaga.webp)] w-[31.25rem] md:h-[11rem] h-[7rem] bg-cover bg-center",
+    backgroundColor:
+      "bg-[url(/img/emergent-positions/bg2Img4.webp)] md:bg-cover md:bg-[url(/img/emergent-positions/bgImg4.webp)] text-[#006895]",
+    backgroundColor2: "bg-[#C4DFEB]",
+    backgroundColor3: "bg-[#7BB6D3] text-xs",
+  },
+  {
+    title: "Quality Assurance (QA)",
+    description: "QA Automation Engineer",
+    requirements: [
+      {
+        label: "📖 Estudios",
+        tag: ["Ingeneiría Técnica o Superior "],
+      },
+      {
+        label: "📝 Condiciones",
+        tag: ["Contrato indefinido", "Salario de 30k-50k €/año"],
+      },
+      {
+        label: "🦾 Hard Skills",
+        tag: ["Selenium", "Jenkins", "Python"],
+      },
+      {
+        label: "👋 Soft Skills",
+        tag: ["Proactividad", "Resolución de problemas"],
+      },
+    ],
+    location: [
+      {
+        label: "📍 Dónde",
+        tag1: "Madrid",
+        tag2: "Bilbao",
+      },
+    ],
+    image1:
+      "bg-[url(/img/emergent-positions/madrid.webp)] w-[31.25rem] md:h-[11rem] h-[7rem] bg-cover bg-center",
+    image2:
+      "bg-[url(/img/emergent-positions/bilbao.webp)] w-[31.25rem] md:h-[11rem] h-[7rem] bg-cover bg-center",
+    backgroundColor:
+      "bg-[url(/img/emergent-positions/bg2Img5.webp)] md:bg-cover md:bg-[url(/img/emergent-positions/bgImg5.webp)] text-[#DF4D3A]",
+    backgroundColor2: "bg-[#FAC7C8]",
+    backgroundColor3: "bg-[#F1696E] text-xs",
+  },
+  {
+    title: "Eficiencia Energética",
+    description: "Ingeniero/a de Eficiencia Energética",
+    requirements: [
+      {
+        label: "📖 Estudios",
+        tag: ["Ingeniero/a de Eficiencia Energética"],
+      },
+      {
+        label: "📝 Condiciones",
+        tag: ["Contrato indefinido", "Salario de 30k-50k €/año"],
+      },
+      {
+        label: "🦾 Hard Skills",
+        tag: ["Presto", "DIALux", "Análisis de costes"],
+      },
+      {
+        label: "👋 Soft Skills",
+        tag: ["Organización", "Planificación"],
+      },
+    ],
+    location: [
+      {
+        label: "📍 Dónde",
+        tag1: "Valencia",
+        tag2: "Zaragoza",
+      },
+    ],
+    image1:
+      "bg-[url(/img/emergent-positions/valencia.webp)] w-[31.25rem] md:h-[11rem] h-[7rem] bg-cover bg-center",
+    image2:
+      "bg-[url(/img/emergent-positions/zaragoza.webp)] w-[31.25rem] md:h-[11rem] h-[7rem] bg-cover bg-center",
+    backgroundColor:
+      "bg-[url(/img/emergent-positions/bg2Img6.webp)] md:bg-cover md:bg-[url(/img/emergent-positions/bgImg6.webp)] text-[#009B4E]  ",
+    backgroundColor2: "bg-[#B4E5CD]",
+    backgroundColor3: "bg-[#008949] md:text-[0.6rem]",
+  },
+  {
+    title: "Vocación social",
+    description: "Psicólogo/a",
+    requirements: [
+      {
+        label: "📖 Estudios",
+        tag: ["Psicología", "Trabajo Social"],
+      },
+      {
+        label: "📝 Condiciones",
+        tag: ["Contrato indefinido", "Salario de 12k-24k €/año"],
+      },
+      {
+        label: "🦾 Hard Skills",
+        tag: ["Intervención psicológica", "Programas sociales"],
+      },
+      {
+        label: "👋 Soft Skills",
+        tag: ["Empatía", "Paciencia", "Comunicación asertiva"],
+      },
+    ],
+    location: [
+      {
+        label: "📍 Dónde",
+        tag1: "Madrid",
+        tag2: "Valencia",
+      },
+    ],
+    image1:
+      "bg-[url(/img/emergent-positions/madrid.webp)] w-[31.25rem] md:h-[11rem] h-[7rem] bg-cover bg-center",
+    image2:
+      "bg-[url(/img/emergent-positions/valencia.webp)] w-[31.25rem] md:h-[11rem] h-[7rem] bg-cover bg-center",
+    backgroundColor:
+      "bg-[url(/img/emergent-positions/bg2Img7.webp)] md:bg-cover md:bg-[url(/img/emergent-positions/bgImg7.webp)] text-[#006895]",
+    backgroundColor2: "bg-[#C4DFEB]",
+    backgroundColor3: "bg-[#7BB6D3] md:text-[0.6rem]",
+  },
+  // Agrega más objetos según sea necesario
+];
+
+const { infographicId } = Astro.props;
+---
+
+<section
+  id={`infographic-${infographicId}`}
+  class="mx-auto px-4 max-w-7xl w-full flex-col md:gap-[50px] py-[72px] hidden"
+>
+  <InfographicHeader
+    badgeText="Puestos Emergentes"
+    title="¿Quieres saber qué estudiar para lograr los trabajos del futuro?"
+    subtitle="¡Te lo explicamos!"
+  />
+
+  <InfographicBody bentoInfoModalCardsBig={standsInterviewsBig} />
+</section>

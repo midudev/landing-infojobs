@@ -186,25 +186,25 @@ Este proyecto es una landing page para InfoJobs, diseñada para proporcionar una
 Clona el proyecto
 
 ```bash
-  git clone https://github.com/midudev/landing-infojobs.git
+git clone https://github.com/midudev/landing-infojobs.git
 ```
 
 Dirigete al directorio del proyecto
 
 ```bash
-  cd landing-infojobs
+cd landing-infojobs
 ```
 
 Instala las dependencias
 
 ```bash
-  npm install
+npm install
 ```
 
 Inicia el servidor
 
 ```bash
-  npm run start
+npm run start
 ```
 
 
