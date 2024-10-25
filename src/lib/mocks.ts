@@ -19,7 +19,7 @@ export const dictionaries: Record<string, { id: number, value: string, order: nu
     },
     {
       id: 60,
-      value: 'Ciclo Formativo grado superior',
+      value: 'Ciclo formativo grado superior',
       order: 40,
       key: 'ciclo-formativo-grado-superior'
     },
