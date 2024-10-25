@@ -2,24 +2,24 @@ import type { DictionaryId } from '@types'
 
 export const dictionaries: Record<string, { id: number, value: string, order: number, key: string }[]> = {
   'study': [
-    { id: 0, value: '(Indicar Nivel)', order: 0, key: 'indicar-nivel' },
+    { id: 0, value: '(Indicar nivel)', order: 0, key: 'indicar-nivel' },
     { id: 10, value: 'Sin estudios', order: 5, key: 'sin-estudios' },
     {
       id: 20,
-      value: 'Educación Secundaria Obligatoria',
+      value: 'Educación secundaria obligatoria',
       order: 10,
       key: 'educacion-secundaria-obligatoria'
     },
     { id: 50, value: 'Bachillerato', order: 20, key: 'bachillerato' },
     {
       id: 35,
-      value: 'Ciclo Formativo Grado Medio',
+      value: 'Ciclo formativo grado medio',
       order: 30,
       key: 'ciclo-formativo-grado-medio'
     },
     {
       id: 60,
-      value: 'Ciclo Formativo Grado Superior',
+      value: 'Ciclo formativo grado superior',
       order: 40,
       key: 'ciclo-formativo-grado-superior'
     },
@@ -40,13 +40,13 @@ export const dictionaries: Record<string, { id: number, value: string, order: nu
     { id: 110, value: 'Diplomatura', order: 90, key: 'diplomado' },
     {
       id: 120,
-      value: 'Ingeniería Técnica',
+      value: 'Ingeniería técnica',
       order: 100,
       key: 'ingeniero-tecnico'
     },
     {
       id: 130,
-      value: 'Ingeniería Superior',
+      value: 'Ingeniería superior',
       order: 110,
       key: 'ingeniero-superior'
     },
@@ -67,13 +67,13 @@ export const dictionaries: Record<string, { id: number, value: string, order: nu
     },
     {
       id: 30,
-      value: 'Formación Profesional Grado Medio',
+      value: 'Formación profesional grado medio',
       order: 170,
       key: 'formacion-profesional-grado-medio'
     },
     {
       id: 55,
-      value: 'Formación Profesional Grado Superior',
+      value: 'Formación profesional grado superior',
       order: 180,
       key: 'formacion-profesional-grado-superior'
     }
