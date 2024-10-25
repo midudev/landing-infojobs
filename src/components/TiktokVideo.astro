@@ -31,6 +31,7 @@ const { videoId, thumbnailUrl, title } = Astro.props
 <script>
   class TiktokVideo extends HTMLElement {
     videoId?: string
+    iframeEl?: HTMLIFrameElement
 
     connectedCallback() {
       const thumbnailUrl = this.getAttribute("thumbnailurl")
@@ -38,6 +39,7 @@ const { videoId, thumbnailUrl, title } = Astro.props
 
       this.style.backgroundImage = `url(${thumbnailUrl})`
 
+      this.createIframe()
       this.addEventListener("click", this.activateVideo)
       this.addEventListener("keydown", this.handleKeyPress)
     }
@@ -47,11 +49,10 @@ const { videoId, thumbnailUrl, title } = Astro.props
 
       this.querySelector(`#Id${this.videoId}`)?.remove()
 
-      const iframeEl = this.createIframe()
-      this.append(iframeEl)
-      iframeEl.focus()
-
+      this.playTikTok()
       this.unMutePlayerByDefault()
+      this.iframeEl!.hidden = false;
+      this.iframeEl!.focus()
     }
 
     handleKeyPress(event: KeyboardEvent) {
@@ -69,27 +70,25 @@ const { videoId, thumbnailUrl, title } = Astro.props
       iframeEl.allow =
         "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; transparency"
       iframeEl.allowFullscreen = true
-      iframeEl.src = `https://www.tiktok.com/player/v1/${this.videoId}?autoplay=1`
+      iframeEl.src = `https://www.tiktok.com/player/v1/${this.videoId}`      
+      iframeEl.hidden = true;
 
-      return iframeEl
+      this.append(iframeEl)
+      this.iframeEl = iframeEl
+    }
+
+    playTikTok() {
+      this.iframeEl!.contentWindow!.postMessage(
+        { type: "play", "x-tiktok-player": true },
+        "*"
+      ); 
     }
 
     unMutePlayerByDefault() {
-      const messageHandler = (event: MessageEvent) => {
-        if (
-          event.origin === "https://www.tiktok.com" &&
-          event.data.type === "onPlayerReady"
-        ) {
-          this.querySelector("iframe")!.contentWindow!.postMessage(
-            { type: "unMute", "x-tiktok-player": true },
-            "*"
-          )
-
-          window.removeEventListener("message", messageHandler)
-        }
-      }
-
-      window.addEventListener("message", messageHandler)
+      this.iframeEl!.contentWindow!.postMessage(
+        { type: "unMute", "x-tiktok-player": true },
+        "*"
+      )
     }
   }
 
