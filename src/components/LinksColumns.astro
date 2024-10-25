@@ -140,6 +140,7 @@ const linksInfo = [
 ]
 ---
 
+  
 <div class="px-[40px] items-center md:justify-between md:items-start flex flex-col md:flex-row" >
   {
     linksInfo.map(({ title, links }, index) => {
@@ -157,8 +158,8 @@ const linksInfo = [
                     `mb-2 hover:underline hover:underline-offset-[3px]`,
                     showOnMobile ? "" : "hidden md:block",
                   ]}
-                >
                   <a target={target} rel={rel} href={href} class="text-[14px] leading-6 ">
+                  <a href={href} class="text-[14px] leading-6" target="_blank" rel="noopener noreferrer" aria-label={label}>
                     {label}
                   </a>
                 </li>
