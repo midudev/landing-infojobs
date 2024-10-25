@@ -1,0 +1,102 @@
+---
+const TIPS = [
+  {
+    title: "Favoritos",
+    description: "Marca como favoritas las empresas que te molen",
+    image: "/img/bento-info-modal-cards/heart-on-fire.webp",
+    firstBgColor: "#FFB3B6",
+    secondBgColor: "#FCD3D3",
+    titleColor: "#EA2E39",
+    descriptionColor: "#F1696E",
+  },
+  {
+    title: "Notificaciones",
+    description: "¡Recibirás un aviso cuando publiquen una oferta!",
+    image: "/img/bento-info-modal-cards/bell.webp",
+    firstBgColor: "#FFB3B6",
+    secondBgColor: "#FCD3D3",
+    titleColor: "#EA2E39",
+    descriptionColor: "#F1696E",
+  },
+  {
+    title: "Revisa tu CV",
+    description:
+      "Y tómate tu tiempo para contestar bien a las preguntas que hacen ",
+    image: "/img/bento-info-modal-cards/eyes.webp",
+    firstBgColor: "#FFB3B6",
+    secondBgColor: "#FCD3D3",
+    titleColor: "#EA2E39",
+    descriptionColor: "#F1696E",
+  },
+] as const
+---
+
+<section class="relative mt-8 md:mt-0">
+  <img
+    class="absolute top-0 left-1/2 -translate-x-1/2 h-auto [width:_clamp(2rem,6vw,6rem)] z-10"
+    src="/img/bento-info-modal-cards/fire.webp"
+    alt="Icono de fuego"
+  />
+
+  <div class="folder-shape w-full h-full bg-[#FDE8E8]">
+    <h3
+      class="pt-8 xs:pt-10 sm:pt-10 md:pt-14 lg:pt-20 text-center text-[#EA2E39] [font-size:_clamp(1rem,4vw,4rem)]"
+    >
+      Trucos para petarlo
+    </h3>
+    <div
+      class="grid grid-cols-3 gap-2 xs:gap-4 md:gap-6 xl:gap-8 p-2 xs:p-4 md:p-6 xl:p-8"
+    >
+      {
+        TIPS.map(
+          ({
+            image,
+            title,
+            description,
+            firstBgColor,
+            secondBgColor,
+            titleColor,
+            descriptionColor,
+          }) => (
+            <article
+              class="file-card w-full h-full p-2 md:p-4 lg:p-8 bg-[#FFB3B6] flex flex-col items-center justify-center"
+              style={{
+                background: `linear-gradient(to bottom right, ${firstBgColor} 0%, ${secondBgColor} 100%)`,
+              }}
+            >
+              <img
+                src={image}
+                alt={`${title} Card`}
+                class="pb-1 md:pb-4 h-auto [width:_clamp(2rem,6vw,6rem)]"
+              />
+              <h4
+                class="[font-size:_clamp(0.75rem,2vw+0.1rem,2.5rem)]"
+                style={{ color: titleColor }}
+              >
+                {title}
+              </h4>
+              <p
+                class="[font-size:_clamp(0.65rem,2vw,1.5rem)] text-center py-2"
+                style={{ color: descriptionColor }}
+              >
+                {description}
+              </p>
+            </article>
+          )
+        )
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  /* prettier-ignore */
+  .folder-shape {
+    clip-path: polygon( 0% 4.777%,0% 4.777%,0.031% 4.002%,0.119% 3.267%,0.262% 2.582%,0.452% 1.956%,0.686% 1.399%,0.96% 0.922%,1.267% 0.533%,1.603% 0.244%,1.964% 0.063%,2.344% 0%,26.37% 0%,26.37% 0%,26.548% 0.014%,26.724% 0.055%,26.898% 0.123%,27.068% 0.217%,27.234% 0.336%,27.395% 0.481%,27.55% 0.65%,27.699% 0.843%,27.841% 1.059%,27.976% 1.298%,30.538% 6.212%,30.538% 6.212%,30.673% 6.451%,30.815% 6.668%,30.964% 6.861%,31.119% 7.03%,31.28% 7.174%,31.446% 7.294%,31.616% 7.388%,31.79% 7.456%,31.966% 7.497%,32.144% 7.511%,97.641% 7.511%,97.641% 7.511%,98.022% 7.573%,98.382% 7.754%,98.719% 8.044%,99.026% 8.432%,99.299% 8.91%,99.533% 9.466%,99.724% 10.092%,99.866% 10.778%,99.954% 11.513%,99.985% 12.288%,99.985% 95.146%,99.985% 95.146%,99.954% 95.921%,99.866% 96.656%,99.724% 97.341%,99.533% 97.967%,99.299% 98.524%,99.026% 99.001%,98.719% 99.39%,98.382% 99.679%,98.022% 99.86%,97.641% 99.923%,2.344% 99.923%,2.344% 99.923%,1.964% 99.86%,1.603% 99.679%,1.267% 99.39%,0.96% 99.001%,0.686% 98.524%,0.452% 97.967%,0.262% 97.341%,0.119% 96.656%,0.031% 95.921%,0% 95.146%,0% 4.777% );
+  }
+
+  /* prettier-ignore */
+  .file-card {
+    clip-path: polygon( 0.057% 5.886%,0.057% 5.886%,0.133% 4.937%,0.355% 4.037%,0.71% 3.198%,1.186% 2.431%,1.77% 1.749%,2.452% 1.164%,3.218% 0.688%,4.058% 0.333%,4.958% 0.111%,5.907% 0.034%,81.659% 0.034%,81.659% 0.034%,82.118% 0.052%,82.571% 0.106%,83.016% 0.194%,83.452% 0.316%,83.877% 0.471%,84.289% 0.659%,84.685% 0.878%,85.064% 1.127%,85.424% 1.407%,85.764% 1.716%,97.843% 13.608%,97.843% 13.608%,98.164% 13.95%,98.454% 14.314%,98.714% 14.697%,98.941% 15.1%,99.136% 15.518%,99.298% 15.95%,99.425% 16.394%,99.516% 16.848%,99.572% 17.31%,99.591% 17.778%,99.591% 93.665%,99.591% 93.665%,99.514% 94.614%,99.293% 95.514%,98.938% 96.354%,98.462% 97.121%,97.877% 97.803%,97.195% 98.388%,96.428% 98.864%,95.588% 99.219%,94.688% 99.44%,93.739% 99.517%,5.908% 99.517%,5.908% 99.517%,4.959% 99.44%,4.058% 99.219%,3.219% 98.864%,2.452% 98.388%,1.77% 97.803%,1.185% 97.121%,0.709% 96.354%,0.354% 95.514%,0.132% 94.614%,0.056% 93.665%,0.056% 5.886% );
+  }
+</style>

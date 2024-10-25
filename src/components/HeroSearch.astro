@@ -25,93 +25,125 @@ const SHORTCUTS = [
 const studies = await getStudies()
 const sortedStudies = studies.sort((a, b) => a.order - b.order)
 ---
-
-<SectionContainer class="bg-hero-pattern rounded-3xl px-4 py-6">
-  <h1
-    class="text-black/80 font-semibold tracking-[0.35px] text-2xl text-center pb-4 sm:text-4xl lg:hidden"
+<SectionContainer>
+  <section
+    class="bg-hero-pattern rounded-3xl px-4 py-6 md:w-full md:max-w-7xl md:mx-auto"
   >
-    Tu carrera empieza aquí
-  </h1>
+    <h1
+      class="text-black/80 font-semibold tracking-[0.35px] text-2xl text-center pb-4 sm:text-4xl lg:hidden"
+    >
+      Tu carrera empieza aquí
+    </h1>
 
-  <h1
-    class="hidden text-black/80 font-semibold tracking-[0.35px] text-2xl text-center pb-4 sm:text-4xl lg:pb-8 lg:block"
-  >
-    Conecta tus estudios con el empleo ideal
-  </h1>
+    <h1
+      class="hidden text-black/80 font-semibold tracking-[0.35px] text-2xl text-center pb-4 sm:text-4xl lg:pb-8 lg:block"
+    >
+      Conecta tus estudios con el empleo ideal
+    </h1>
 
-  <search class="bg-white rounded-3xl p-4 lg:mx-10">
-    <form class="mx-5 lg:flex lg:justify-between">
-      <div class="lg:w-full lg:pr-10">
-        <select
-          class="w-full py-4 border-b border-gray-300 text-gray-400 bg-transparent cursor-pointer lg:border-none"
-          aria-label="Selecciona tu nivel de estudios"
-        >
-          {
-            sortedStudies.map(({ id, value, key }) => {
-              const isDefault = id === 0
-              const literal = isDefault ? "Nivel de estudios" : value
-
-              return (
-                <option class={isDefault ? '': 'text-gray-600'} value={key} disabled={isDefault} selected={isDefault}>
-                  {literal}
-                </option>
-              )
-            })
-          }
-        </select>
-      </div>
-
-      <div class="lg:w-full">
-        <input
-          placeholder="Estudios, puesto, empresa..."
-          class="w-full py-4 border-b border-gray-300 text-gray-600 focus:outline-none lg:border-none"
-        />
-      </div>
-
-      <div class="mb-8 lg:mb-0 lg:w-full">
-        <input
-          placeholder="Provincia o población"
-          class="w-full py-4 text-gray-600 focus:outline-none"
-        />
-      </div>
-
-      <button
-        class="rounded-full text-lg font-medium bg-accent hover:saturate-150 transition text-white px-4 py-2 inline-flex gap-x-2 justify-center items-center w-full lg:size-12 lg:mt-1 lg:hover:scale-105"
-      >
-        <SearchIcon />
-        <p class="lg:hidden">
-          Buscar ofertas
-        </p>
-      </button>
-    </form>
-  </search>
-
-  <footer>
-    <h5 class="text-center pt-8 pb-4">Explora trabajos que se adaptan a ti</h5>
-    <div class="flex flex-wrap gap-4 justify-around lg:justify-center">
-      {
-        SHORTCUTS.map(({ label, href }) => (
-          <a
-            class="bg-white rounded-full p-4 lg:px-6 shadow-sm text-primary transition hover:scale-105 hover:text-white hover:bg-primary"
-            href={href}
+    <search class="bg-white rounded-3xl p-4 lg:mx-10">
+      <form id="hero-form" class="mx-5 lg:flex lg:justify-between">
+        <div class="lg:w-full lg:pr-10">
+          <select
+            name="study-level"
+            class="w-full py-4 border-b border-gray-300 text-gray-400 bg-transparent cursor-pointer lg:border-none"
+            aria-label="Selecciona tu nivel de estudios"
           >
-            {label}
-          </a>
-        ))
-      }
-    </div>
-  </footer>
+            {
+              sortedStudies.map(({ id, value }) => {
+                const isDefault = id === 0
+                const literal = isDefault ? "Nivel de estudios" : value
+
+                return (
+                  <option
+                    class={isDefault ? "" : "text-gray-600"}
+                    value={id}
+                    disabled={isDefault}
+                    selected={isDefault}
+                  >
+                    {literal}
+                  </option>
+                )
+              })
+            }
+          </select>
+        </div>
+
+        <div class="lg:w-full">
+          <input
+            name="keywords"
+            placeholder="Estudios, puesto, empresa..."
+            class="w-full py-4 border-b border-gray-300 text-gray-600 focus:outline-none lg:border-none"
+          />
+        </div>
+
+        <div class="mb-8 lg:mb-0 lg:w-full">
+          <input
+            name="geolocation"
+            placeholder="Provincia o población"
+            class="w-full py-4 text-gray-600 focus:outline-none"
+          />
+        </div>
+
+        <button
+          class="shadow-md rounded-full text-lg font-medium bg-accent hover:saturate-150 transition text-white px-4 py-2 inline-flex gap-x-2 justify-center items-center w-full lg:size-12 lg:mt-1 lg:hover:scale-105"
+          aria-label="Buscar ofertas"
+        >
+          <SearchIcon />
+          <p class="lg:hidden">Buscar ofertas</p>
+        </button>
+      </form>
+    </search>
+
+    <footer>
+      <h5 class="text-center pt-8 pb-4">Explora trabajos que se adaptan a ti</h5>
+      <div class="flex flex-wrap gap-4 justify-center">
+        {
+          SHORTCUTS.map(({ label, href }) => (
+            <a
+              class="bg-white rounded-full p-4 lg:px-6 shadow-sm text-primary transition hover:scale-105 hover:text-white hover:bg-primary"
+              href={href}
+            >
+              {label}
+            </a>
+          ))
+        }
+      </div>
+    </footer>
+  </section>
 </SectionContainer>
 
 <script>
-  const select = document.querySelector('select')
+  const select = document.querySelector("select")
 
-  function actualizarColor() {
-    if (select?.value !== 'indicar-nivel') {
-      select?.classList.add('text-gray-600');
+  function updateColors() {
+    if (select?.value !== "indicar-nivel") {
+      select?.classList.add("text-gray-600")
     }
   }
 
-  document.addEventListener('DOMContentLoaded', actualizarColor)
-  select?.addEventListener('change', actualizarColor)
+  document.addEventListener("DOMContentLoaded", updateColors)
+  select?.addEventListener("change", updateColors)
+</script>
+
+<script>
+  import { generateInfoJobsURL } from "@lib/generate-infojobs-url"
+
+  const form = document.querySelector("#hero-form") as HTMLFormElement
+
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault()
+    const formData = new FormData(form)
+    const level = formData.get("study-level")?.toString() ?? ""
+    const keyword = formData.get("keywords")?.toString() ?? ""
+    const provinceIds = formData.get("geolocation")?.toString() ?? ""
+
+    const searchURL = generateInfoJobsURL({
+      keyword,
+      level,
+      provinceIds,
+    })
+
+    window.location.href = searchURL
+  })
 </script>

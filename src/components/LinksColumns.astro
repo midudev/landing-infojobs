@@ -6,6 +6,7 @@ const linksInfo = [
       {
         label: "Ayuda",
         href: "https://ayuda.infojobs.net/hc/es",
+        showOnMobile: true,
       },
       {
         label: "Seguridad",
@@ -14,6 +15,7 @@ const linksInfo = [
       {
         label: "Condiciones legales",
         href: "https://www.infojobs.net/lex.xhtml",
+        showOnMobile: true,
       },
       {
         label: "Política de privacidad",
@@ -97,35 +99,38 @@ const linksInfo = [
       },
     ],
   },
-];
+]
 ---
-  <div class="px-[40px] items-center md:justify-between md:items-start flex flex-col md:flex-row ">
-    {
-      linksInfo.map(({ title, links }, index) => {
-        return (
-          <div class={`${index === 0 ? "" : "hidden sm:block"}`}>
-            <h2 class="text-black font-semibold text-[18px]  hidden md:block">
-              {title}
-            </h2>
-            <ul class="flex flex-row  md:flex-col underline md:no-underline gap-4 md:gap-0">
-              {links.map(({ label, href }) => {
-                return (
-                  <li
-                    class={`mb-2 ${
-                      label !== "Ayuda" && label !== "Condiciones legales"
-                        ? "hidden md:block hover:underline"
-                        : ""
-                    }`}
-                  >
-                    <a href={href} class="text-[14px] leading-6 ">
-                      {label}
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        );
-      })
-    }
-  </div>
+
+<div
+  class="px-[40px] items-center md:justify-between md:items-start flex flex-col md:flex-row"
+>
+  {
+    linksInfo.map(({ title, links }, index) => {
+      return (
+        <div class={`${index === 0 ? "" : "hidden sm:block"}`}>
+          <h2 class="text-black font-semibold text-[18px]  hidden md:block">
+            {title}
+          </h2>
+
+          <ul class="flex flex-row  md:flex-col underline md:no-underline gap-4 md:gap-0">
+            {links.map(({ label, href, showOnMobile }) => {
+              return (
+                <li
+                  class:list={[
+                    `mb-2 hover:underline hover:underline-offset-[3px]`,
+                    showOnMobile ? "" : "hidden md:block",
+                  ]}
+                >
+                  <a href={href} class="text-[14px] leading-6 ">
+                    {label}
+                  </a>
+                </li>
+              )
+            })}
+          </ul>
+        </div>
+      )
+    })
+  }
+</div>

@@ -1,17 +1,18 @@
 ---
 type Props = {
+
   bentoInfoModalCards?: readonly BentoInfoModalCard[]; // Ahora es opcional
   bentoInfoModalCardsBig?: BentoInfoModalCardBig[];
 };
 
 type BentoInfoModalCard = {
-  image: string;
-  title: string;
-  description: string;
-  firstBgColor: string;
-  secondBgColor: string;
-  textColor: string;
-};
+  image: string
+  title: string
+  description: string
+  firstBgColor: string
+  secondBgColor: string
+  textColor: string
+}
 
 type BentoInfoModalCardBig = {
   title: string;
@@ -57,7 +58,7 @@ const { bentoInfoModalCards = [], bentoInfoModalCardsBig = [] } =
 
             <div class="py-10 px-15 flex flex-col gap-6 items-center">
               <h4
-                class="text-[26px] leading-[26px] md:text-5xl md:leading-[48x] text-center"
+                class="text-[26px] leading-[26px] md:text-5xl md:leading-[48px] text-center"
                 style={{ color: textColor }}
               >
                 {title}

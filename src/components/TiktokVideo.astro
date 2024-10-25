@@ -11,7 +11,7 @@ const { videoId, thumbnailUrl, title } = Astro.props
 ---
 
 <tiktok-video
-  class="rounded-2xl bg-cover h-[570px] w-80 snap-center bg-black relative shrink-0 cursor-pointer"
+  class="rounded-[32px] bg-cover h-[570px] w-80 snap-center bg-black relative shrink-0 cursor-pointer"
   videoid={videoId}
   thumbnailurl={thumbnailUrl}
   data-title={title}
@@ -21,7 +21,7 @@ const { videoId, thumbnailUrl, title } = Astro.props
 >
   <div
     class="p-4 pl-[18px] bg-white rounded-full absolute bottom-6 right-6 hover:scale-110 transition-transform"
-    id="play-button"
+    id=`Id${videoId}`
     title={title}
   >
     <Icon name="play" class="text-primary" />
@@ -45,7 +45,7 @@ const { videoId, thumbnailUrl, title } = Astro.props
     activateVideo() {
       this.style.backgroundImage = "unset"
 
-      this.querySelector("#play-button")?.remove()
+      this.querySelector(`#Id${this.videoId}`)?.remove()
 
       const iframeEl = this.createIframe()
       this.append(iframeEl)

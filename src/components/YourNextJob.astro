@@ -1,0 +1,56 @@
+---
+import InfographicBody from "./InfographicBody.astro"
+import InfographicHeader from "./InfographicHeader.astro"
+import InfographicTips from "./InfographicTips.astro"
+
+const yourNextJobContent = [
+    {
+        image: "/img/bento-info-modal-cards/style-your-cv.webp",
+        title: "Pon guapo tu CV",
+        description: "Actualízalo, sube una foto profesional ¡y rellena tus habilidades/skills! (sobre todo si te falta experiencia).",
+        firstBgColor: "#FDECBE",
+        secondBgColor: "#FFF7E4",
+        textColor: "#B08B2B",
+
+    },
+    {
+        image: "/img/bento-info-modal-cards/search-ideal-offer.webp",
+        title: "Busca tu oferta ideal",
+        description: "Utiliza las recomendaciones que te ofrece InfoJobs o busca a tu medida según el sector que más te interesa.",
+        firstBgColor: "#B4E5CD",
+        secondBgColor: "#E1F4EB",
+        textColor: "#008949",
+    },
+    {
+        image: "/img/bento-info-modal-cards/register.webp",
+        title: "¡Inscríbete!",
+        description: "Lee bien la oferta, ajusta tu CV y adjúntalo. Y no olvides añadir una carta de presentación personalizada a la oferta. ¡Todo suma!",
+        firstBgColor: "#BADAE8",
+        secondBgColor: "#E3EFF5",
+        textColor: "#006895",
+    },
+    {
+        image: "/img/bento-info-modal-cards/you-are-their-candidate.webp",
+        title: "Ya eres su candidato/a",
+        description: "Toca esperar y cruzar los dedos, pero valora inscribirte en otras ofertas que también te interesen",
+        firstBgColor: "#FFD1C8",
+        secondBgColor: "#FBE9E7",
+        textColor: "#FF523C",
+    }
+] as const
+const { infographicId } = Astro.props
+---
+
+<section
+  id={`infographic-${infographicId}`}
+  class="mx-auto px-4 max-w-7xl w-full flex-col md:gap-[50px] py-[72px] hidden"
+>
+  <InfographicHeader
+    badgeText="Sácale partido a InfoJobs"
+    title="¿Quieres conseguir tu próximo empleo con InfoJobs?"
+    subtitle="¡Vamos a ello!"
+  />
+
+  <InfographicBody bentoInfoModalCards={yourNextJobContent} />
+  <InfographicTips />
+</section>
