@@ -18,6 +18,7 @@ interface ButtonProps {
   iconOnly?: boolean;
   loading?: boolean;
   ariaLabel?: string;
+  disableSaturateHover?: boolean;
 }
 
 // Estilos por variante
@@ -121,6 +122,7 @@ const {
   iconOnly = false,
   loading = false,
   ariaLabel,
+  disableSaturateHover = false,
 } = Astro.props as ButtonProps;
 
 // Definición de clases
@@ -137,9 +139,11 @@ const baseClasses = [
   "focus-visible:z-10 focus-visible:outline-2 focus-visible:outline-double",
   "focus-visible:outline-primary focus-visible:outline-offset-2",
   "disabled:opacity-75 disabled:select-none disabled:cursor-not-allowed",
-  "disabled:active:scale-100 hover:saturate-150 active:scale-[0.99]",
+  "disabled:active:scale-100",
+  "active:scale-[0.99]",
+  disableSaturateHover ? '' : 'hover:saturate-150',
   "transition-transform-colors-opacity motion-reduce:transition-none"
-].join(' ');
+].filter(Boolean).join(' ');
 
 const buttonClasses = [
   baseClasses,
