@@ -91,7 +91,7 @@ const sizeClasses = {
   md: 'px-4 min-w-20 h-10 text-base gap-x-2',
   lg: 'px-6 min-w-24 h-12 text-lg gap-3 font-medium',
   full: 'px-6 w-full py-2.5 text-lg gap-x-3 font-medium',
-  icon: 'h-10 w-10',
+  icon: 'size-10',
 };
 
 // Clases por radio
@@ -127,7 +127,7 @@ const {
 const customRadiusClass = typeof radius === 'string' && radius.startsWith('rounded-')
   ? radius
   : radiusClasses[radius as keyof typeof radiusClasses] || '';
-  
+
 const variantClasses = getVariantClasses(variant, color);
 
 const baseClasses = [
@@ -165,7 +165,7 @@ const buttonClasses = [
   >
     {loading ? (
       <>
-        <Icon name="Spinner" class="animate-spin w-5 h-5" />
+        <Icon name="Spinner" class="animate-spin size-5" />
         <span>Processing...</span>
       </>
     ) : (

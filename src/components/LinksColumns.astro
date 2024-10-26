@@ -103,17 +103,17 @@ const linksInfo = [
 ---
 
 <div
-  class="px-[40px] items-center md:justify-between md:items-start flex flex-col md:flex-row"
+  class="px-10 items-center md:justify-between md:items-start flex flex-col md:flex-row"
 >
   {
     linksInfo.map(({ title, links }, index) => {
       return (
         <div class={`${index === 0 ? "" : "hidden sm:block"}`}>
-          <h2 class="text-black font-semibold text-[18px]  hidden md:block">
+          <h2 class="text-black font-semibold text-[18px] hidden md:block">
             {title}
           </h2>
 
-          <ul class="flex flex-row  md:flex-col underline md:no-underline gap-4 md:gap-0">
+          <ul class="flex flex-row md:flex-col underline md:no-underline gap-4 md:gap-0">
             {links.map(({ label, href, showOnMobile }) => {
               return (
                 <li

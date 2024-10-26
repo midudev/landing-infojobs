@@ -14,19 +14,19 @@ const cardsOportunidades = [
     title2: "Consejos para encontrar trabajo",
     img: "./img/pre-footer/info-tiktok.webp",
     gradient: "bg-gradient-to-t from-[#FFE4A2] to-[#FEF6DB]",
-    colorTitle: "text-[#EFA500]",
+    colorTitle: "text-ij-yellow",
     imageClass: "",
     href: "https://www.tiktok.com/@infojobs/playlist/Encontrar%20trabajo-7401023016819378977 ",
   },
 ] as const
 ---
 
-<div class="grid grid-cols-1 sm:grid-cols-2 w-auto h-auto gap-6 sm:gap-[40px]">
+<div class="grid grid-cols-1 sm:grid-cols-2 size-auto gap-6 sm:gap-[40px]">
   {
     cardsOportunidades.map((card) => (
       <a
 
-        class={`group flex flex-col rounded-[16px] pt-4 px-4 md:px-12 lg:px-15 lg:pt-6 xl:pt-10 aspect-[328/436] md:aspect-square w-full overflow-hidden ${card.gradient}`}
+        class={`group flex flex-col rounded-2xl pt-4 px-4 md:px-12 lg:px-15 lg:pt-6 xl:pt-10 aspect-[328/436] md:aspect-square w-full overflow-hidden ${card.gradient}`}
         href={card.href}
         target="_blank"
       >
@@ -41,7 +41,7 @@ const cardsOportunidades = [
 
         <div class="flex justify-center mt-auto w-full h-auto md:mb-0">
           <img
-            class="w-full h-full scale-100 transition group-hover:scale-105 group-hover:z-10 object-contain object-bottom"
+            class="size-full scale-100 transition group-hover:scale-105 group-hover:z-10 object-contain object-bottom"
             class:list={card.imageClass}
             src={card.img}
             alt="InfoJobs"

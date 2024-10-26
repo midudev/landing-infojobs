@@ -88,40 +88,33 @@ const VIDEOS = [
     scrollbar-width: none;
   }
 
+  .carousel-container:after,
   .carousel-container:before {
-    background-image: linear-gradient(to left, transparent, #fff);
     content: "";
     height: 570px;
-    left: 0;
-    opacity: var(--left-opacity);
     pointer-events: none;
     position: absolute;
     top: 0;
     transition: opacity cubic-bezier(0.4, 0, 0.2, 1) 150ms;
     width: 64px;
     z-index: 10;
+  }
+
+  .carousel-container:before {
+    background-image: linear-gradient(to left, transparent, #fff);
+    left: 0;
+    opacity: var(--left-opacity);
   }
 
   .carousel-container:after {
     background-image: linear-gradient(to right, transparent, #fff);
-    content: "";
-    height: 570px;
-    opacity: var(--right-opacity);
-    pointer-events: none;
-    position: absolute;
     right: 0;
-    top: 0;
-    transition: opacity cubic-bezier(0.4, 0, 0.2, 1) 150ms;
-    width: 64px;
-    z-index: 10;
+    opacity: var(--right-opacity);
   }
 
   @media (max-width: 768px) {
+    .carousel-container:after,
     .carousel-container:before {
-      opacity: 0 !important;
-    }
-
-    .carousel-container:after {
       opacity: 0 !important;
     }
   }
