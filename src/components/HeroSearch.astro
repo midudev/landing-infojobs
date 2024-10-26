@@ -152,7 +152,7 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
   import { getProvinceId } from "@lib/list-provinces-ids"
   const geolocationInput = document.querySelector('input[name="geolocation"]')
 
-  geolocationInput.addEventListener("change", function() {
+  geolocationInput.addEventListener("input", function() {
     getProvinceId(this)
   })
 </script>
