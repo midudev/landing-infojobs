@@ -168,7 +168,7 @@ cd landing-infojobs
 Instala las dependencias
 
 ```bash
-npm install
+npm ci
 ```
 
 Inicia el servidor
