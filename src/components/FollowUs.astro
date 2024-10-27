@@ -1,11 +1,6 @@
 ---
-import AppStore from "@icons/AppStore.astro";
-import Facebook from "@icons/Facebook.astro";
-import GooglePlay from "@icons/GooglePlay.astro";
-import TikTok from "@icons/TikTok.astro";
-import Twitter from "@icons/Twitter.astro";
-import YouTube from "@icons/YouTube.astro";
 import FollowUsLink from "@components/FollowUsLink.astro";
+import Icon from "./ui/Icon.astro";
 
 const hoverSocialNetworks = "md:transition-transform md:hover:scale-110";
 const hoverStoreApps = "md:transition-opacity md:duration-150 md:ease-in-out md:hover:opacity-90";
@@ -26,7 +21,7 @@ const hoverStoreApps = "md:transition-opacity md:duration-150 md:ease-in-out md:
         class={hoverSocialNetworks}
         socialPlatform="Visítanos en TikTok."
       >
-        <TikTok />
+        <Icon name="tiktok" />
       </FollowUsLink>
 
       <FollowUsLink
@@ -34,7 +29,7 @@ const hoverStoreApps = "md:transition-opacity md:duration-150 md:ease-in-out md:
         class={hoverSocialNetworks}
         socialPlatform="Visítanos en YouTube."
       >
-        <YouTube />
+        <Icon name="youtube" />
       </FollowUsLink>
 
       <FollowUsLink
@@ -42,7 +37,7 @@ const hoverStoreApps = "md:transition-opacity md:duration-150 md:ease-in-out md:
         class={hoverSocialNetworks}
         socialPlatform="Visítanos en X."
       >
-        <Twitter />
+        <Icon name="twitter" />
       </FollowUsLink>
 
       <FollowUsLink
@@ -50,7 +45,7 @@ const hoverStoreApps = "md:transition-opacity md:duration-150 md:ease-in-out md:
         class={hoverSocialNetworks}
         socialPlatform="Visítanos en Facebook."
       >
-        <Facebook />
+        <Icon name="facebook" />
       </FollowUsLink>
     </span>
   </article>
@@ -63,7 +58,7 @@ const hoverStoreApps = "md:transition-opacity md:duration-150 md:ease-in-out md:
       class={hoverStoreApps}
       socialPlatform="Visítanos en Google."
     >
-      <GooglePlay />
+     <Icon name="googleplay" />
     </FollowUsLink>
 
     <FollowUsLink
@@ -71,7 +66,7 @@ const hoverStoreApps = "md:transition-opacity md:duration-150 md:ease-in-out md:
       class={hoverStoreApps}
       socialPlatform="Visítanos en la AppStore."
     >
-      <AppStore />
+      <Icon name="appstore" />
     </FollowUsLink>
   </article>
 </section>
