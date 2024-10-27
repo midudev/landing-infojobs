@@ -33,14 +33,14 @@ const TIPS = [
 
 <section class="relative mt-8 md:mt-0">
   <img
-    class="absolute top-0 left-1/2 -translate-x-1/2 h-auto [width:_clamp(2rem,6vw,6rem)] z-10"
+    class="absolute top-0 left-1/2 -translate-x-1/2 h-auto w-8 xs:w-10 sm:w-14 md:w-16 lg:w-20 xl:w-24 z-10"
     src="/img/bento-info-modal-cards/fire.webp"
     alt="Icono de fuego"
   />
 
   <div class="folder-shape w-full h-full bg-[#FDE8E8]">
     <h3
-      class="pt-8 xs:pt-10 sm:pt-10 md:pt-14 lg:pt-20 text-center text-[#EA2E39] [font-size:_clamp(1rem,4vw,4rem)]"
+      class="pt-8 xs:pt-10 sm:pt-10 md:pt-14 lg:pt-20 xl:pt-24 text-center text-[#EA2E39] text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl"
     >
       Trucos para petarlo
     </h3>
@@ -67,16 +67,16 @@ const TIPS = [
               <img
                 src={image}
                 alt={`${title} Card`}
-                class="pb-1 md:pb-4 h-auto [width:_clamp(2rem,6vw,6rem)]"
+                class="pb-1 md:pb-4 h-auto w-8 xs:w-10 sm:w-14 md:w-16 lg:w-20 xl:w-24"
               />
               <h4
-                class="[font-size:_clamp(0.75rem,2vw+0.1rem,2.5rem)]"
+                class="text-xs xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl"
                 style={{ color: titleColor }}
               >
                 {title}
               </h4>
               <p
-                class="[font-size:_clamp(0.65rem,2vw,1.5rem)] text-center py-2"
+                class="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-center py-2"
                 style={{ color: descriptionColor }}
               >
                 {description}

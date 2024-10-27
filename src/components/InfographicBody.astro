@@ -97,12 +97,12 @@ const { bentoInfoModalCards = [], bentoInfoModalCardsBig = [] } =
         <div class="grid grid-cols-1 md:grid-cols-2 sm:grid-cols-2 gap-6 mb-6">
           {card.requirements.map((requirement) => (
             <div
-              class={`flex flex-col gap-2 ${card.backgroundColor2} rounded-[1.25rem] px-5 py-6 `}
+              class={`flex flex-col gap-3 ${card.backgroundColor2} rounded-[1.25rem] px-5 py-5 `}
             >
-              <h6 class="rounded-md text-base md:text-[1.5rem] bg-white text-black w-fit px-1">
+              <h6 class="rounded-md text-base md:text-2xl bg-white text-black w-fit py-2 px-3">
                 {requirement.label}
               </h6>
-              <div class=" flex flex-wrap gap-5">
+              <div class=" flex flex-wrap gap-2 md:gap-5">
                 {requirement.tag.map((tag) => (
                   <span class="text-black sm:text-base md:text-2xl lg:text-3xl px-2 py-1 rounded-[2rem] border-[1px] border-[#5B666C80]  w-auto">
                     {tag}
@@ -118,7 +118,7 @@ const { bentoInfoModalCards = [], bentoInfoModalCardsBig = [] } =
             <div
               class={`flex flex-col md:flex-row lg:flex-row gap-2 justify-between ${card.backgroundColor2} rounded-[20px] px-5 py-6 `}
             >
-              <h6 class="rounded-md sm:text-base lg:text-2xl md:text-xl  bg-white text-black w-fit md:w-[13%] h-fit px-2">
+              <h6 class="rounded-md sm:text-base lg:text-2xl md:text-xl  bg-white text-black w-fit md:min-w-32 h-fit px-2">
                 {location.label}
               </h6>
               <div

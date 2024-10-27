@@ -4,16 +4,17 @@ const { image, brand, title, id } = Astro.props;
 
 <a href=`https://cooljobs.infojobs.net/#${id}` target="_blank">
   <article
-    class="group min-w-[274px] aspect-[274_/_130] md:aspect-[282_/_130] md:max-w-[282px] rounded-2xl border border-[#FE523052] overflow-hidden bg-white"
+    class="flex items-center md:p-6 p-4 group min-w-[274px] md:max-w-[312px] h-24 rounded-2xl border border-[#FE523052] overflow-hidden bg-white"
   >
     <div
-      class="flex items-center justify-center gap-4 p-6 h-full w-full group-hover:scale-105 transition-transform"
+      class="flex items-center justify-center gap-4 group-hover:scale-105 transition-transform"
     >
+    <div class="flex items-center h-10">
       <img src={image} alt={brand} class="w-20 h-auto" />
-
-      <p class="font-semibold text-xl">
+    </div>
+      <p class="font-medium md:font-semibold">
         {title}
-      </h4>
+      </p>
     </div>
   </article>
 </a>
