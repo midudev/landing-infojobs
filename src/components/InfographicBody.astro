@@ -1,18 +1,17 @@
 ---
 type Props = {
-
   bentoInfoModalCards?: readonly BentoInfoModalCard[]; // Ahora es opcional
   bentoInfoModalCardsBig?: BentoInfoModalCardBig[];
 };
 
 type BentoInfoModalCard = {
-  image: string
-  title: string
-  description: string
-  firstBgColor: string
-  secondBgColor: string
-  textColor: string
-}
+  image: string;
+  title: string;
+  description: string;
+  firstBgColor: string;
+  secondBgColor: string;
+  textColor: string;
+};
 
 type BentoInfoModalCardBig = {
   title: string;
@@ -31,7 +30,7 @@ const { bentoInfoModalCards = [], bentoInfoModalCardsBig = [] } =
 ---
 
 <section
-  class="grid gap-[48px] md:justify-between grid-cols-1 lg:grid-cols-2 overflow-hidden"
+  class='grid gap-[48px] md:justify-between grid-cols-1 lg:grid-cols-2 overflow-hidden'
 >
   {
     bentoInfoModalCards.map(
@@ -44,28 +43,28 @@ const { bentoInfoModalCards = [], bentoInfoModalCardsBig = [] } =
         textColor,
       }) => (
         <article
-          class="file-card w-auto h-full mx-auto max-h-[456px] max-w-[330px] md:max-w-[600px] md:max-h-[630px] lg:min-h-[700px]"
+          class='file-card w-auto h-full mx-auto max-h-[456px] max-w-[330px] md:max-w-[600px] md:max-h-[630px] lg:min-h-[700px]'
           style={{
             background: `linear-gradient(to bottom right, ${firstBgColor}, ${secondBgColor})`,
           }}
         >
-          <div class="w-full h-full p-2 my-7">
+          <div class='w-full h-full p-2 my-7'>
             <img
               src={image}
               alt={`${title} Card`}
-              class="min-h-[115px] max-h-[115px] lg:min-h-[210px] lg:max-h-[210px] w-auto mx-auto my-7"
+              class='min-h-[115px] max-h-[115px] lg:min-h-[210px] lg:max-h-[210px] w-auto mx-auto my-7'
             />
 
-            <div class="py-10 px-15 flex flex-col gap-6 items-center">
+            <div class='py-10 px-15 flex flex-col gap-6 items-center'>
               <h4
-                class="text-[26px] leading-[26px] md:text-5xl md:leading-[48px] text-center"
+                class='text-[26px] leading-[26px] md:text-5xl md:leading-[48px] text-center'
                 style={{ color: textColor }}
               >
                 {title}
               </h4>
 
               <p
-                class="text-[15px] leading-[15px] md:text-[28px] md:leading-7 text-center"
+                class='text-[15px] leading-[15px] md:text-[28px] md:leading-7 text-center'
                 style={{ color: textColor }}
               >
                 {description}
@@ -78,33 +77,33 @@ const { bentoInfoModalCards = [], bentoInfoModalCardsBig = [] } =
   }
 </section>
 
-<section class="w-auto h-auto">
+<section class='w-auto h-auto'>
   {
     bentoInfoModalCardsBig.map((card) => (
       <article
         class={`${card.backgroundColor} p-5 mb-20 rounded-3xl `}
-        style="background-size: 100% 100%;"
+        style='background-size: 100% 100%;'
       >
         <h5
           class={` ${card.backgroundColor3} uppercase py-2 px-4 w-fit  md:w-fit rounded-lg text-white text-sm lg:text-xl md:text-xs leading-5 text-center tracking-[2%] `}
         >
           {card.title}
         </h5>
-        <p class=" lg:text-[3.5rem] lg:my-9 text-2xl my-3">
+        <p class=' lg:text-[3.5rem] lg:my-9 text-2xl my-3'>
           {card.description}
         </p>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 sm:grid-cols-2 gap-6 mb-6">
+        <div class='grid grid-cols-1 md:grid-cols-2 sm:grid-cols-2 gap-6 mb-6'>
           {card.requirements.map((requirement) => (
             <div
               class={`flex flex-col gap-3 ${card.backgroundColor2} rounded-[1.25rem] px-5 py-5 `}
             >
-              <h6 class="rounded-md text-base md:text-2xl bg-white text-black w-fit py-2 px-3">
+              <h6 class='rounded-xl text-base md:text-2xl bg-white text-black w-fit py-2 px-3'>
                 {requirement.label}
               </h6>
-              <div class=" flex flex-wrap gap-2 md:gap-5">
+              <div class=' flex flex-wrap gap-2 md:gap-5 mt-2'>
                 {requirement.tag.map((tag) => (
-                  <span class="text-black sm:text-base md:text-2xl lg:text-3xl px-2 py-1 rounded-[2rem] border-[1px] border-[#5B666C80]  w-auto">
+                  <span class='text-black sm:text-base md:text-2xl lg:text-3xl px-5 py-1 rounded-[2rem] border-[1px] border-[#5B666C80]  w-auto'>
                     {tag}
                   </span>
                 ))}
@@ -116,24 +115,26 @@ const { bentoInfoModalCards = [], bentoInfoModalCardsBig = [] } =
         <div>
           {card.location.map((location) => (
             <div
-              class={`flex flex-col md:flex-row lg:flex-row gap-2 justify-between ${card.backgroundColor2} rounded-[20px] px-5 py-6 `}
+              class={`flex flex-col gap-2 justify-between ${card.backgroundColor2} rounded-[20px] px-5 py-6 `}
             >
-              <h6 class="rounded-md sm:text-base lg:text-2xl md:text-xl  bg-white text-black w-fit md:min-w-32 h-fit px-2">
+              <h6 class='rounded-xl text-base md:text-2xl bg-white text-black w-fit py-2 px-3'>
                 {location.label}
               </h6>
-              <div
-                class={`rounded-md ${card.image1} pl-4 pt-2 w-auto md:w-[43%]`}
-              >
-                <span class="text-black text-base md:text-xl  w-full uppercase">
-                  {location.tag1}
-                </span>
-              </div>
-              <div
-                class={`rounded-md ${card.image2} pl-4 p-2 w-auto md:w-[43%] `}
-              >
-                <span class="text-black text-base md:text-xl w-full uppercase">
-                  {location.tag2}
-                </span>
+              <div class='flex flex-col md:flex-row justify-around gap-2 mt-2'>
+                <div
+                  class={`rounded-xl ${card.image1} pl-4 pt-2 w-auto md:w-[48%]`}
+                >
+                  <span class='text-black text-base md:text-xl  w-full uppercase'>
+                    {location.tag1}
+                  </span>
+                </div>
+                <div
+                  class={`rounded-xl ${card.image2} pl-4 p-2 w-auto md:w-[48%] `}
+                >
+                  <span class='text-black text-base md:text-xl w-full uppercase'>
+                    {location.tag2}
+                  </span>
+                </div>
               </div>
             </div>
           ))}
