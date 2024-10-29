@@ -1,23 +1,28 @@
 ---
-const icons = import.meta.glob('@icons/*.astro', { eager: true });
+const icons = import.meta.glob("@icons/*.astro", { eager: true })
 
 interface IconMap {
-  [key: string]: (_props: Record<string, any>) => any;
+  [key: string]: (_props: Record<string, any>) => any
 }
 
 const iconMap: IconMap = Object.fromEntries(
   Object.entries(icons).map(([path, module]) => [
-    path.split('/').pop()?.replace('.astro', '').toLowerCase() || '',
-    (module as any).default
+    path.split("/").pop()?.replace(".astro", "").toLowerCase() || "",
+    (module as any).default,
   ])
-);
+)
 
-const iconName = Astro.props.name?.toLowerCase();
-const IconComponent = iconMap[iconName];
-
+const iconName = Astro.props.name?.toLowerCase()
+const IconComponent = iconMap[iconName]
 ---
-{IconComponent ? (
-  <IconComponent {...Astro.props} class={Astro.props.class} />
-) : (
-  <div class="text-sm">Icon not found: <span class="font-bold text-base">{Astro.props.name}</span></div>
-)}
+
+{
+  IconComponent ? (
+    <IconComponent {...Astro.props} class={Astro.props.class} />
+  ) : (
+    <div class="text-sm">
+      Icon not found:{" "}
+      <span class="font-bold text-base">{Astro.props.name}</span>
+    </div>
+  )
+}

@@ -2,6 +2,7 @@
 import SearchIcon from "@icons/Search.astro"
 import { getStudies } from "@lib/get-ij-studies"
 import SectionContainer from "@components/SectionContainer.astro"
+import Button from "@ui/Button.astro"
 
 const SHORTCUTS = [
   {
@@ -43,7 +44,7 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
 
     <search class="bg-white rounded-3xl p-4 lg:mx-10">
       <form id="hero-form" class="mx-5 lg:flex lg:justify-between">
-        <div class="lg:w-full lg:pr-10">
+        <div class="lg:w-full lg:pr-10 flex items-center">
           <select
             name="study-level"
             class="w-full py-4 border-b border-gray-300 text-gray-400 bg-transparent cursor-pointer lg:border-none"
@@ -84,28 +85,38 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
             class="w-full py-4 text-gray-600 focus:outline-none"
           />
         </div>
-
-        <button
+        <Button
+          type="submit"
+          color="secondary"
+          variant="solid"
+          size="md"
+          radius="full"
           class="shadow-md rounded-full text-lg font-medium bg-accent hover:saturate-150 transition text-white px-4 py-2 inline-flex gap-x-2 justify-center items-center w-full lg:size-12 lg:mt-1 lg:hover:scale-105"
-          aria-label="Buscar ofertas"
+          ariaLabel="Buscar ofertas"
         >
           <SearchIcon />
           <p class="lg:hidden">Buscar ofertas</p>
-        </button>
+        </Button>
       </form>
     </search>
 
     <footer>
       <p class="text-center pt-8 pb-4">Explora trabajos que se adaptan a ti</h5>
-      <div class="flex flex-wrap gap-4 justify-center">
+      <div class="max-xs:grid-cols-1 max-sm:grid max-sm:grid-cols-2 flex flex-wrap gap-4 justify-center">
         {
           SHORTCUTS.map(({ label, href }) => (
-            <a
-              class="bg-white rounded-full p-4 lg:px-6 shadow-sm text-primary transition hover:scale-105 hover:text-white hover:bg-primary"
+            <Button
+              as="link"
               href={href}
+              color="default"
+              variant="solid"
+              radius="full"
+              size="lg"
+              class="bg-white whitespace-nowrap text-center rounded-full p-4 lg:px-6 shadow-sm text-primary transition hover:scale-105 hover:text-white hover:bg-primary !font-light"
+              disableSaturateHover={true}
             >
               {label}
-            </a>
+            </Button>
           ))
         }
       </div>
