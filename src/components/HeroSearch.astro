@@ -207,13 +207,14 @@ const onChangeKeywords = () => {
       renderedKeywords.clear();
 
       if (keywordsList.length > 0) {
-        keywordsList.forEach(({ value }) => {
-          if (!renderedKeywords.has(value)) {
-            renderedKeywords.add(value);
+        keywordsList.forEach(({ value: queryValue }) => {
+          if (!renderedKeywords.has(queryValue)) {
+            renderedKeywords.add(queryValue);
             const li = document.createElement("li");
+            
             const button = document.createElement("button");
             button.setAttribute("type", "button");
-            button.innerHTML = value;
+            button.innerHTML = getHighlightedKeyword(value, queryValue);
 
             li.appendChild(button);
             keywordsContainer.appendChild(li);
@@ -228,6 +229,19 @@ const onChangeKeywords = () => {
       console.log("error", error);
     }
   };
+
+  const getHighlightedKeyword = (
+    inputValue: string,
+    queryValue: string
+  ): string => {
+    const regex = new RegExp(inputValue, "gi");
+    const highlightedText = queryValue.replace(
+      regex,
+      (match) => `<span class="font-bold">${match}</span>`
+    );
+
+    return highlightedText;
+  }
 </script>
 
 <style>
