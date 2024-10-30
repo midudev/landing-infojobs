@@ -177,26 +177,32 @@ const onChangeKeywords = () => {
 <script>
   import { queryKeywords } from "@lib/queryKeywords";
 
-  const inputKeyword = document.querySelector(
-    "#hero-keywords"
-  ) as HTMLInputElement;
-  const keywordsContainer = document.querySelector(
-    "#hero-keywords-list"
-  ) as HTMLUListElement;
+  const inputKeyword = document.querySelector("#hero-keywords") as HTMLInputElement;
+  const keywordsContainer = document.querySelector("#hero-keywords-list") as HTMLUListElement;
 
   const renderedKeywords = new Set();
+
+  // debounce para retrasar el fetch hacia la API que devuelve las keywords.
+  const debounce = (func: Function, delay: number) => {
+    let timeoutId: ReturnType<typeof setTimeout>;
+    return (...args: any[]) => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => func(...args), delay);
+    };
+  };
+
+  const debouncedFetchKeywords = debounce((value: string) => {
+    fetchKeywords(value);
+  }, 300);
 
   inputKeyword?.addEventListener("input", (event) => {
     const value = (event.target as HTMLInputElement).value;
 
     if (value.length > 1) {
-      fetchKeywords(value);
-      addOutsideClickListener();
+      debouncedFetchKeywords(value);
       keywordsContainer.classList.add("list-active");
     } else {
       closeListElement();
-      keywordsContainer.innerHTML = "";
-      renderedKeywords.clear();
     }
   });
 
@@ -211,10 +217,17 @@ const onChangeKeywords = () => {
         keywordsList.forEach(({ value: queryValue }) => {
           if (!renderedKeywords.has(queryValue)) {
             renderedKeywords.add(queryValue);
+
             const li = document.createElement("li");
             const button = document.createElement("button");
+
             button.setAttribute("type", "button");
             button.innerHTML = getHighlightedKeyword(value, queryValue);
+
+            button.addEventListener("click", () => {
+              inputKeyword.value = button.textContent!;
+              closeListElement();
+            });
 
             li.appendChild(button);
             keywordsContainer.appendChild(li);
@@ -230,43 +243,26 @@ const onChangeKeywords = () => {
     }
   };
 
-  const getHighlightedKeyword = (
-    inputValue: string,
-    queryValue: string
-  ): string => {
+  const getHighlightedKeyword = (inputValue: string, queryValue: string): string => {
     const regex = new RegExp(inputValue, "gi");
-    const highlightedText = queryValue.replace(
-      regex,
-      (match) => `<span class="font-bold">${match}</span>`
-    );
-
-    return highlightedText;
-  }
+    return queryValue.replace(regex, (match) => `<span class="font-bold">${match}</span>`);
+  };
 
   const handleClickOutsideList = (event: any) => {
-    // If the click was outside the list and the input
-    if (
-      keywordsContainer &&
-      !keywordsContainer.contains(event.target) &&
-      inputKeyword &&
-      !inputKeyword.contains(event.target)
-    ) {
+    if (!event.target.matches("#hero-keywords-list *")) {
       closeListElement();
+    } else {
+      document.removeEventListener("click", handleClickOutsideList);
     }
-  }
-
-  const addOutsideClickListener = () => {
-    const listEl = document.querySelector("#hero-keywords-list")
-
-    if (listEl) {
-      document.addEventListener("click", handleClickOutsideList);
-    }
-  }
+  };
 
   const closeListElement = () => {
-    keywordsContainer.classList.remove("list-active")
-    document.removeEventListener("click", handleClickOutsideList);
-  }
+    keywordsContainer.classList.remove("list-active");
+    keywordsContainer.innerHTML = "";
+    renderedKeywords.clear();
+  };
+
+  document.addEventListener("click", handleClickOutsideList);
 </script>
 
 <style>
