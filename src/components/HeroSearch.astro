@@ -191,9 +191,10 @@ const onChangeKeywords = () => {
 
     if (value.length > 1) {
       fetchKeywords(value);
+      addOutsideClickListener();
       keywordsContainer.classList.add("list-active");
     } else {
-      keywordsContainer.classList.remove("list-active");
+      closeListElement();
       keywordsContainer.innerHTML = "";
       renderedKeywords.clear();
     }
@@ -211,7 +212,6 @@ const onChangeKeywords = () => {
           if (!renderedKeywords.has(queryValue)) {
             renderedKeywords.add(queryValue);
             const li = document.createElement("li");
-            
             const button = document.createElement("button");
             button.setAttribute("type", "button");
             button.innerHTML = getHighlightedKeyword(value, queryValue);
@@ -223,7 +223,7 @@ const onChangeKeywords = () => {
 
         keywordsContainer.classList.add("list-active");
       } else {
-        keywordsContainer.classList.remove("list-active");
+        closeListElement();
       }
     } catch (error) {
       console.log("error", error);
@@ -241,6 +241,31 @@ const onChangeKeywords = () => {
     );
 
     return highlightedText;
+  }
+
+  const handleClickOutsideList = (event: any) => {
+    // If the click was outside the list and the input
+    if (
+      keywordsContainer &&
+      !keywordsContainer.contains(event.target) &&
+      inputKeyword &&
+      !inputKeyword.contains(event.target)
+    ) {
+      closeListElement();
+    }
+  }
+
+  const addOutsideClickListener = () => {
+    const listEl = document.querySelector("#hero-keywords-list")
+
+    if (listEl) {
+      document.addEventListener("click", handleClickOutsideList);
+    }
+  }
+
+  const closeListElement = () => {
+    keywordsContainer.classList.remove("list-active")
+    document.removeEventListener("click", handleClickOutsideList);
   }
 </script>
 
