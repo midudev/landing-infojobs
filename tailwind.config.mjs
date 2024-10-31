@@ -19,7 +19,7 @@ export default {
         "4xl": "3rem",
       },
       backgroundSize: {
-        'auto-height': 'auto 100%', 
+        "auto-height": "auto 100%",
       },
       letterSpacing: {
         separated: "0.35px",
@@ -32,8 +32,22 @@ export default {
       },
       screens: {
         xs: "480px",
-      }
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    ({ addUtilities }) => {
+      const newUtilities = {
+        ".no-scrollbar::-webkit-scrollbar": {
+          display: "none",
+        },
+        ".no-scrollbar": {
+          "-ms-overflow-style": "none",
+          "scrollbar-width": "none",
+        },
+      };
+
+      addUtilities(newUtilities);
+    },
+  ],
 };
