@@ -1,5 +1,5 @@
 const DEFAULT_SEARCH_URL = "https://ms-autocomplete.spain.advgo.net/v1/search"
-const MAX_RESULTS = "10"
+const MAX_RESULTS = "5"
 
 export const generateInfoJobsKeywordsURL = ({ prefix }: { prefix: string }) => {
     const searchURL = new URL(DEFAULT_SEARCH_URL)
