@@ -147,7 +147,7 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
     const formData = new FormData(form)
     const level = formData.get("study-level")?.toString() ?? ""
     const keyword = formData.get("keywords")?.toString() ?? ""
-    const provinceIds = formData.get("geolocation")?.toString() ?? ""
+    const provinceIds = form.querySelector('input[name="geolocation"]')?.getAttribute('value') ?? ""
 
     const searchURL = generateInfoJobsURL({
       keyword,
@@ -156,5 +156,14 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
     })
 
     window.location.href = searchURL
+  })
+</script>
+
+<script>
+  import { getProvinceId } from "@lib/list-provinces-ids"
+  const geolocationInput = document.querySelector('input[name="geolocation"]') as HTMLInputElement | null
+
+  geolocationInput?.addEventListener("input", function() {
+    getProvinceId(this)
   })
 </script>
