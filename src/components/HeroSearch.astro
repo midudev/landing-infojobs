@@ -165,11 +165,11 @@ const onChangeKeywords = () => {
   const form = document.querySelector("#hero-form") as HTMLFormElement;
 
   form?.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const formData = new FormData(form);
-    const level = formData.get("study-level")?.toString() ?? "";
-    const keyword = formData.get("keywords")?.toString() ?? "";
-    const provinceIds = formData.get("geolocation")?.toString() ?? "";
+    event.preventDefault()
+    const formData = new FormData(form)
+    const level = formData.get("study-level")?.toString() ?? ""
+    const keyword = formData.get("keywords")?.toString() ?? ""
+    const provinceIds = form.querySelector('input[name="geolocation"]')?.getAttribute('value') ?? ""
 
     const searchURL = generateInfoJobsURL({
       keyword,
@@ -339,3 +339,12 @@ const onChangeKeywords = () => {
     display: none;
   }
 </style>
+
+<script>
+  import { getProvinceId } from "@lib/list-provinces-ids"
+  const geolocationInput = document.querySelector('input[name="geolocation"]') as HTMLInputElement | null
+
+  geolocationInput?.addEventListener("input", function() {
+    getProvinceId(this)
+  })
+</script>
