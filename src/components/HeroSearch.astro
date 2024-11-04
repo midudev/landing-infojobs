@@ -44,7 +44,7 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
     </h1>
 
     <search class="bg-white rounded-3xl p-4 lg:mx-10">
-      <form id="hero-form" class="mx-5 lg:flex lg:justify-between">
+      <form id="hero-form" class="mx-5 lg:flex lg:justify-between lg:items-center">
         <div
           id="study-level-container"
           class="flex items-center border-b border-gray-300 lg:border-none relative cursor-pointer lg:w-full lg:px-4 lg:mr-2"
@@ -283,5 +283,17 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
     studyLevelContainer?.setAttribute('aria-expanded', 'false')
     studyLevelChevron?.classList.remove('rotate-180')
     studyLevelOptions?.classList.add('hidden')
+  })
+
+  studyLevelOptions?.addEventListener('wheel', (event) => {
+    const { deltaY } = event
+    const { scrollTop, scrollHeight, offsetHeight } = studyLevelOptions
+
+    if (
+      (deltaY < 0 && scrollTop === 0) ||
+      (deltaY > 0 && scrollTop + offsetHeight >= scrollHeight)
+    ) {
+      event.preventDefault()
+    }
   })
 </script>
