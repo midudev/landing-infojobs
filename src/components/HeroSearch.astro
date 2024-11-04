@@ -47,7 +47,7 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
       <form id="hero-form" class="mx-5 lg:flex lg:justify-between lg:items-center">
         <div
           id="study-level-container"
-          class="flex items-center border-b border-gray-300 lg:border-none relative cursor-pointer select-none lg:w-full lg:px-4 lg:mr-2"
+          class="flex items-center border-b border-gray-300 lg:border-none relative cursor-pointer select-none outline-none focus-visible:outline-gray-300 rounded-md lg:w-full lg:px-4 lg:mr-2"
           tabindex="0"
           aria-haspopup="listbox"
           aria-expanded="false"
@@ -64,7 +64,7 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
             <ChevronDown id="study-level-chevron" width="24" height="24" />
           </div>
 
-          <div id="study-level-options" role="listbox" class="absolute top-full rounded-lg left-0 max-h-80 w-full bg-white border border-gray-300 hidden overflow-auto no-scrollbar z-20">
+          <div id="study-level-options" role="listbox" class="absolute top-full mt-2 rounded-lg left-0 max-h-80 w-full bg-white border border-gray-300 shadow-md hidden overflow-auto no-scrollbar z-20">
             {sortedStudies.map(({ id, value }) => {
               const isDefault = id === 0
               const literal = isDefault ? "Nivel de estudios" : value
@@ -73,7 +73,7 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
                 <div
                   id="study-level-option"
                   role="option"
-                  class={`p-3 transition-colors duration-200 ease-in-out hover:bg-gray-100 ${isDefault ? "text-gray-400 bg-gray-100 pointer-events-none" : "text-gray-600"}`}
+                  class={`p-3 transition-colors duration-200 ease-in-out focus-visible:outline-gray-300 hover:bg-gray-100 ${isDefault ? "text-gray-400 bg-gray-100 pointer-events-none" : "text-gray-600"}`}
                   data-value={id}
                   aria-disabled={isDefault}
                   aria-selected={isDefault}
@@ -256,6 +256,12 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
       if (index >= 0 && index < options.length) options[index]?.focus()
 
       event.preventDefault()
+    }
+
+    if (isExpanded && event.key === 'Escape') {
+      studyLevelContainer?.setAttribute('aria-expanded', 'false')
+      studyLevelChevron?.classList.remove('rotate-180')
+      studyLevelOptions?.classList.add('hidden')
     }
   })
 
