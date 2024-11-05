@@ -49,10 +49,10 @@ const onChangeKeywords = () => {
     </h1>
 
     <search class="bg-white rounded-3xl p-4 lg:mx-10">
-      <form id="hero-form" class="mx-5 lg:flex lg:justify-between lg:items-center">
+      <form id="hero-form" class="mx-5 lg:flex lg:justify-between lg:items-center lg:gap-2">
         <div
           id="study-level-container"
-          class="flex items-center border-b border-gray-300 lg:border-none relative cursor-pointer select-none outline-none focus-visible:outline-gray-300 rounded-md lg:w-full lg:px-4 lg:mr-2"
+          class="flex items-center border-b border-gray-300 lg:border-none relative select-none outline-none lg:focus-visible:outline lg:focus-visible:outline-[#167DB7] lg:focus-visible:outline-1 lg:focus-visible:outline-offset-0 lg:focus-visible:rounded-lg rounded-md lg:w-full lg:px-4"
           tabindex="0"
           aria-haspopup="listbox"
           aria-expanded="false"
@@ -69,26 +69,26 @@ const onChangeKeywords = () => {
             <ChevronDown id="study-level-chevron" width="24" height="24" />
           </div>
 
-          <div id="study-level-options" role="listbox" class="absolute top-full mt-2 rounded-lg left-0 max-h-80 w-full bg-white border border-gray-300 shadow-md hidden overflow-auto no-scrollbar z-20">
+          <ul id="study-level-options" role="listbox" class="absolute top-full mt-2 space-y-1 rounded-lg left-0 p-1 max-h-80 w-full border border-gray-300 bg-white shadow-md hidden overflow-auto no-scrollbar z-20">
             {sortedStudies.map(({ id, value }) => {
               const isDefault = id === 0
               const literal = isDefault ? "Nivel de estudios" : value
 
               return (
-                <div
+                <li
                   id="study-level-option"
                   role="option"
-                  class={`p-3 transition-colors duration-200 ease-in-out focus-visible:outline-gray-300 hover:bg-gray-100 ${isDefault ? "text-gray-400 bg-gray-100 pointer-events-none" : "text-gray-600"}`}
+                  class={`p-3 transition-colors duration-200 ease-in-out rounded-md outline-none cursor-pointer hover:bg-[#F3F9FB] focus-visible:bg-[#F3F9FB] ${isDefault ? "text-gray-400 bg-none pointer-events-none" : "text-gray-600"}`}
                   data-value={id}
                   aria-disabled={isDefault}
                   aria-selected={isDefault}
                   tabindex={isDefault ? -1 : 0}
                 >
                   {literal}
-                </div>
+                </li>
               )
             })}
-          </div>
+          </ul>
         </div>
 
         <div class="lg:w-full relative">
@@ -106,7 +106,7 @@ const onChangeKeywords = () => {
 
           <ul
             id="hero-keywords-list"
-            class="bg-white w-full mx-auto absolute inset-0 top-14 min-h-[224px] h-full max-h-[224px] z-[999] flex flex-col gap-1 py-1 px-2 rounded-lg [&>li]:rounded-lg [&>li]:transition-colors [&>li]:duration-300 [&>li]:text-ij-black [&>li:hover]:bg-[#F3F9FB] [&>li]:p-2 [&>li]:cursor-pointer [&>li:focus]:bg-[#F3F9FB] [&>li:focus]:outline-none"
+            class="bg-white w-full mx-auto absolute inset-0 top-14 min-h-[224px] h-full max-h-[224px] z-[999] flex flex-col gap-1 p-1 rounded-lg border border-gray-300 shadow-md no-scrollbar [&>li]:rounded-md [&>li]:transition-colors [&>li]:duration-300 [&>li]:text-ij-black [&>li:hover]:bg-[#F3F9FB] [&>li]:p-3 [&>li]:cursor-pointer [&>li:focus]:bg-[#F3F9FB] [&>li:focus]:outline-none"
             role="listbox"
             aria-label="Lista de sugerencias"
             tabindex="0"
@@ -341,7 +341,6 @@ const onChangeKeywords = () => {
   #hero-keywords-list {
     visibility: hidden;
     opacity: 0;
-    box-shadow: 0px 3px 8px 0px #00000029;
     overflow-y: scroll;
     scrollbar-width: none;
   }
@@ -349,10 +348,6 @@ const onChangeKeywords = () => {
   #hero-keywords-list.list-active {
     visibility: visible;
     opacity: 1;
-  }
-
-  #hero-keywords-list::-webkit-scrollbar {
-    display: none;
   }
 </style>
 
@@ -415,9 +410,9 @@ const onChangeKeywords = () => {
           }
 
           studyLevelOptions?.querySelectorAll('[data-value]').forEach(option => {
-            option.classList.remove('bg-gray-100')
+            option.classList.remove('bg-[#F3F9FB]')
           })
-          selectedOption.classList.add('bg-gray-100')
+          selectedOption.classList.add('bg-[#F3F9FB]')
 
           studyLevelContainer?.setAttribute('aria-expanded', 'false');
           studyLevelChevron?.classList.remove('rotate-180')
@@ -460,9 +455,9 @@ const onChangeKeywords = () => {
       }
 
       studyLevelOptions.querySelectorAll('[data-value]').forEach(option => {
-        option.classList.remove('bg-gray-100')
+        option.classList.remove('bg-[#F3F9FB]')
       })
-      selectedOption.classList.add('bg-gray-100')
+      selectedOption.classList.add('bg-[#F3F9FB]')
     }
   })
 
