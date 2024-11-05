@@ -1,18 +1,17 @@
 ---
 type Props = {
-
   bentoInfoModalCards?: readonly BentoInfoModalCard[]; // Ahora es opcional
   bentoInfoModalCardsBig?: BentoInfoModalCardBig[];
 };
 
 type BentoInfoModalCard = {
-  image: string
-  title: string
-  description: string
-  firstBgColor: string
-  secondBgColor: string
-  textColor: string
-}
+  image: string;
+  title: string;
+  description: string;
+  firstBgColor: string;
+  secondBgColor: string;
+  textColor: string;
+};
 
 type BentoInfoModalCardBig = {
   title: string;
@@ -31,7 +30,7 @@ const { bentoInfoModalCards = [], bentoInfoModalCardsBig = [] } =
 ---
 
 <section
-  class="grid gap-[48px] md:justify-between grid-cols-1 lg:grid-cols-2 overflow-hidden"
+  class='grid gap-[48px] md:justify-between grid-cols-1 lg:grid-cols-2 overflow-hidden'
 >
   {
     bentoInfoModalCards.map(
@@ -44,28 +43,28 @@ const { bentoInfoModalCards = [], bentoInfoModalCardsBig = [] } =
         textColor,
       }) => (
         <article
-          class="file-card w-auto h-full mx-auto max-h-[456px] max-w-[330px] md:max-w-[600px] md:max-h-[630px] lg:min-h-[700px]"
+          class='file-card w-auto h-full mx-auto max-h-[456px] max-w-[330px] md:max-w-[600px] md:max-h-[630px] lg:min-h-[700px]'
           style={{
             background: `linear-gradient(to bottom right, ${firstBgColor}, ${secondBgColor})`,
           }}
         >
-          <div class="w-full h-full p-2 my-7">
+          <div class='w-full h-full p-2 my-7'>
             <img
               src={image}
               alt={`${title} Card`}
-              class="min-h-[115px] max-h-[115px] lg:min-h-[210px] lg:max-h-[210px] w-auto mx-auto my-7"
+              class='min-h-[115px] max-h-[115px] lg:min-h-[210px] lg:max-h-[210px] w-auto mx-auto my-7'
             />
 
-            <div class="py-10 px-15 flex flex-col gap-6 items-center">
+            <div class='py-10 px-15 flex flex-col gap-6 items-center'>
               <h4
-                class="text-[26px] leading-[26px] md:text-5xl md:leading-[48px] text-center"
+                class='text-[26px] leading-[26px] md:text-5xl md:leading-[48px] text-center'
                 style={{ color: textColor }}
               >
                 {title}
               </h4>
 
               <p
-                class="text-[15px] leading-[15px] md:text-[28px] md:leading-7 text-center"
+                class='text-[15px] leading-[15px] md:text-[28px] md:leading-7 text-center'
                 style={{ color: textColor }}
               >
                 {description}
@@ -78,33 +77,33 @@ const { bentoInfoModalCards = [], bentoInfoModalCardsBig = [] } =
   }
 </section>
 
-<section class="w-auto h-auto">
+<section class='w-auto h-auto'>
   {
     bentoInfoModalCardsBig.map((card) => (
       <article
         class={`${card.backgroundColor} p-5 mb-20 rounded-3xl `}
-        style="background-size: 100% 100%;"
+        style='background-size: 100% 100%;'
       >
         <h5
           class={` ${card.backgroundColor3} uppercase py-2 px-4 w-fit  md:w-fit rounded-lg text-white text-sm lg:text-xl md:text-xs leading-5 text-center tracking-[2%] `}
         >
           {card.title}
         </h5>
-        <p class=" lg:text-[3.5rem] lg:my-9 text-2xl my-3">
+        <p class=' lg:text-[3.5rem] lg:my-9 text-2xl my-3'>
           {card.description}
         </p>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 sm:grid-cols-2 gap-6 mb-6">
+        <div class='grid grid-cols-1 md:grid-cols-2 sm:grid-cols-2 gap-6 mb-6'>
           {card.requirements.map((requirement) => (
             <div
               class={`flex flex-col gap-3 ${card.backgroundColor2} rounded-[1.25rem] px-5 py-5 `}
             >
-              <h6 class="rounded-md text-base md:text-2xl bg-white text-black w-fit py-2 px-3">
+              <h6 class='rounded-xl text-base md:text-2xl bg-white text-black w-fit py-2 px-3'>
                 {requirement.label}
               </h6>
-              <div class=" flex flex-wrap gap-2 md:gap-5">
+              <div class=' flex flex-wrap gap-2 md:gap-5 mt-2'>
                 {requirement.tag.map((tag) => (
-                  <span class="text-black sm:text-base md:text-2xl lg:text-3xl px-2 py-1 rounded-[2rem] border-[1px] border-[#5B666C80]  w-auto">
+                  <span class='text-black sm:text-base md:text-2xl lg:text-3xl px-5 py-1 rounded-[2rem] border-[1px] border-[#5B666C80]  w-auto'>
                     {tag}
                   </span>
                 ))}
@@ -116,24 +115,26 @@ const { bentoInfoModalCards = [], bentoInfoModalCardsBig = [] } =
         <div>
           {card.location.map((location) => (
             <div
-              class={`flex flex-col md:flex-row lg:flex-row gap-2 justify-between ${card.backgroundColor2} rounded-[20px] px-5 py-6 `}
+              class={`flex flex-col gap-2 justify-between ${card.backgroundColor2} rounded-[20px] px-5 py-6 `}
             >
-              <h6 class="rounded-md sm:text-base lg:text-2xl md:text-xl  bg-white text-black w-fit md:min-w-32 h-fit px-2">
+              <h6 class='rounded-xl text-base md:text-2xl bg-white text-black w-fit py-2 px-3'>
                 {location.label}
               </h6>
-              <div
-                class={`rounded-md ${card.image1} pl-4 pt-2 w-auto md:w-[43%]`}
-              >
-                <span class="text-black text-base md:text-xl  w-full uppercase">
-                  {location.tag1}
-                </span>
-              </div>
-              <div
-                class={`rounded-md ${card.image2} pl-4 p-2 w-auto md:w-[43%] `}
-              >
-                <span class="text-black text-base md:text-xl w-full uppercase">
-                  {location.tag2}
-                </span>
+              <div class='flex flex-col md:flex-row justify-around gap-2 mt-2'>
+                <div
+                  class={`rounded-xl ${card.image1} pl-4 pt-2 w-auto md:w-[48%]`}
+                >
+                  <span class='text-black text-base md:text-xl  w-full uppercase'>
+                    {location.tag1}
+                  </span>
+                </div>
+                <div
+                  class={`rounded-xl ${card.image2} pl-4 p-2 w-auto md:w-[48%] `}
+                >
+                  <span class='text-black text-base md:text-xl w-full uppercase'>
+                    {location.tag2}
+                  </span>
+                </div>
               </div>
             </div>
           ))}
@@ -145,68 +146,21 @@ const { bentoInfoModalCards = [], bentoInfoModalCardsBig = [] } =
 
 <style>
   .file-card {
+    border-radius: 2rem;
     clip-path: polygon(
-      0px 30.617px,
-      0px 30.617px,
-      0.394697px 25.738043px,
-      1.537216px 21.110984px,
-      3.365199px 16.797941px,
-      5.816288px 12.861032px,
-      8.828125px 9.362375px,
-      12.338352px 6.364088px,
-      16.284611px 3.928289px,
-      20.604544px 2.117096px,
-      25.235793px 0.992627px,
-      30.116px 0.617px,
-      calc(100% - 118.951px) 2.368px,
-      calc(100% - 118.951px) 2.368px,
-      calc(100% - 116.585804px) 2.470571px,
-      calc(100% - 114.250632px) 2.756928px,
-      calc(100% - 111.955408px) 3.222937px,
-      calc(100% - 109.710056px) 3.864464px,
-      calc(100% - 107.5245px) 4.677375px,
-      calc(100% - 105.408664px) 5.657536px,
-      calc(100% - 103.372472px) 6.800813px,
-      calc(100% - 101.425848px) 8.103072px,
-      calc(100% - 99.578716px) 9.560179px,
-      calc(100% - 97.841px) 11.168px,
-      calc(100% - 8.773px) 100.346px,
-      calc(100% - 8.773px) 100.346px,
-      calc(100% - 7.162182px) 102.091825px,
-      calc(100% - 5.7032959999998px) 103.9476px,
-      calc(100% - 4.400494px) 105.903275px,
-      calc(100% - 3.2579279999999px) 107.9488px,
-      calc(100% - 2.2797499999999px) 110.074125px,
-      calc(100% - 1.470112px) 112.2692px,
-      calc(100% - 0.83316600000001px) 114.523975px,
-      calc(100% - 0.373064px) 116.8284px,
-      calc(100% - 0.09395799999993px) 119.172425px,
-      calc(100% - 1.1368683772162e-13px) 121.546px,
-      calc(100% - 0px) calc(100% - 30px),
-      calc(100% - 0px) calc(100% - 30px),
-      calc(100% - 0.39432499999987px) calc(100% - 25.123311px),
-      calc(100% - 1.5357999999999px) calc(100% - 20.498208px),
-      calc(100% - 3.3621750000001px) calc(100% - 16.186737px),
-      calc(100% - 5.8112px) calc(100% - 12.250944px),
-      calc(100% - 8.8206249999999px) calc(100% - 8.752875px),
-      calc(100% - 12.3282px) calc(100% - 5.7545759999999px),
-      calc(100% - 16.271675px) calc(100% - 3.318093px),
-      calc(100% - 20.5888px) calc(100% - 1.5054719999999px),
-      calc(100% - 25.217325px) calc(100% - 0.37875900000006px),
-      calc(100% - 30.095px) calc(100% - 1.1368683772162e-13px),
-      29.904px calc(100% - 1.724px),
-      29.904px calc(100% - 1.724px),
-      25.049898px calc(100% - 2.130542px),
-      20.446464px calc(100% - 3.2773759999998px),
-      16.155006px calc(100% - 5.103014px),
-      12.236832px calc(100% - 7.545968px),
-      8.75325px calc(100% - 10.54475px),
-      5.765568px calc(100% - 14.037872px),
-      3.335094px calc(100% - 17.963846px),
-      1.523136px calc(100% - 22.261184px),
-      0.391002px calc(100% - 26.868398px),
-      4.9454183186371e-31px calc(100% - 31.724px),
-      0px 30.617px
+      0% 0%,
+      calc(100% - 116.6px) 0.3px,
+      calc(100% - 112px) 1.2px,
+      calc(100% - 107.5px) 2.7px,
+      calc(100% - 103.4px) 4.8px,
+      calc(100% - 99.6px) 7.6px,
+      calc(100% - 7.2px) 102.1px,
+      calc(100% - 4.4px) 105.9px,
+      calc(100% - 2.3px) 110.1px,
+      calc(100% - 0.8px) 114.5px,
+      100% 121.5px,
+      100% 100%,
+      0% 100%
     );
   }
 </style>
