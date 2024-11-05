@@ -22,11 +22,16 @@ const SHORTCUTS = [
     label: "💼  Prácticas",
     href: "https://www.infojobs.net/ofertas-trabajo/practicas",
   },
-] as const
+] as const;
 
-const studies = await getStudies()
-const sortedStudies = studies.sort((a, b) => a.order - b.order)
+const studies = await getStudies();
+const sortedStudies = studies.sort((a, b) => a.order - b.order);
+
+const onChangeKeywords = () => {
+  console.log("change input");
+};
 ---
+
 <SectionContainer>
   <section
     class="bg-hero-pattern rounded-3xl px-4 py-6 md:w-full md:max-w-7xl md:mx-auto"
@@ -86,19 +91,34 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
           </div>
         </div>
 
-        <div class="lg:w-full">
+        <div class="lg:w-full relative">
           <input
+            autocomplete="off"
+            id="hero-keywords"
             name="keywords"
             placeholder="Estudios, puesto, empresa..."
-            class="w-full py-4 border-b border-gray-300 text-gray-600 focus:outline-none lg:border-none"
+            class="w-full py-3 lg:px-3 border-b border-gray-300 lg:border-none text-gray-600 focus:outline-none lg:focus-visible:bg-[#E8F2F8] lg:focus-visible:outline lg:focus-visible:outline-[#167DB7] lg:focus-visible:outline-1 lg:focus-visible:outline-offset-0 lg:focus-visible:rounded-lg"
+            role="combobox"
+            aria-expanded="false"
+            aria-controls="hero-keywords-list"
+            aria-autocomplete="list"
           />
+
+          <ul
+            id="hero-keywords-list"
+            class="bg-white w-full mx-auto absolute inset-0 top-14 min-h-[224px] h-full max-h-[224px] z-[999] flex flex-col gap-1 py-1 px-2 rounded-lg [&>li]:rounded-lg [&>li]:transition-colors [&>li]:duration-300 [&>li]:text-ij-black [&>li:hover]:bg-[#F3F9FB] [&>li]:p-2 [&>li]:cursor-pointer [&>li:focus]:bg-[#F3F9FB] [&>li:focus]:outline-none"
+            role="listbox"
+            aria-label="Lista de sugerencias"
+            tabindex="0"
+          >
+          </ul>
         </div>
 
         <div class="mb-8 lg:mb-0 lg:w-full">
           <input
             name="geolocation"
             placeholder="Provincia o población"
-            class="w-full py-4 text-gray-600 focus:outline-none"
+            class="w-full py-3 lg:px-3 border-b border-gray-300 lg:border-none text-gray-600 focus:outline-none lg:focus-visible:bg-[#E8F2F8] lg:focus-visible:outline lg:focus-visible:outline-[#167DB7] lg:focus-visible:outline-1 lg:focus-visible:outline-offset-0 lg:focus-visible:rounded-lg"
           />
         </div>
         <Button
@@ -117,8 +137,10 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
     </search>
 
     <footer>
-      <p class="text-center pt-8 pb-4">Explora trabajos que se adaptan a ti</h5>
-      <div class="max-xs:grid-cols-1 max-sm:grid max-sm:grid-cols-2 flex flex-wrap gap-4 justify-center">
+      <p class="text-center pt-8 pb-4">Explora trabajos que se adaptan a ti</p>
+      <div
+        class="max-xs:grid-cols-1 max-sm:grid max-sm:grid-cols-2 flex flex-wrap gap-4 justify-center"
+      >
         {
           SHORTCUTS.map(({ label, href }) => (
             <Button
@@ -141,22 +163,22 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
 </SectionContainer>
 
 <script>
-  const select = document.querySelector("select")
+  const select = document.querySelector("select");
 
   function updateColors() {
     if (select?.value !== "indicar-nivel") {
-      select?.classList.add("text-gray-600")
+      select?.classList.add("text-gray-600");
     }
   }
 
-  document.addEventListener("DOMContentLoaded", updateColors)
-  select?.addEventListener("change", updateColors)
+  document.addEventListener("DOMContentLoaded", updateColors);
+  select?.addEventListener("change", updateColors);
 </script>
 
 <script>
-  import { generateInfoJobsURL } from "@lib/generate-infojobs-url"
+  import { generateInfoJobsURL } from "@lib/generate-infojobs-url";
 
-  const form = document.querySelector("#hero-form") as HTMLFormElement
+  const form = document.querySelector("#hero-form") as HTMLFormElement;
 
   form?.addEventListener("submit", (event) => {
     event.preventDefault()
@@ -169,11 +191,170 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
       keyword,
       level,
       provinceIds,
-    })
+    });
 
-    window.location.href = searchURL
-  })
+    window.location.href = searchURL;
+  });
 </script>
+
+<script>
+  import { queryKeywords } from "@lib/queryKeywords";
+
+  const inputKeyword = document.querySelector("#hero-keywords") as HTMLInputElement;
+  const keywordsContainer = document.querySelector("#hero-keywords-list") as HTMLUListElement;
+
+  const renderedKeywords = new Set();
+
+  // debounce para retrasar el fetch hacia la API que devuelve las keywords.
+  const debounce = (func: Function, delay: number) => {
+    let timeoutId: ReturnType<typeof setTimeout>;
+    return (...args: any[]) => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => func(...args), delay);
+    };
+  };
+
+  const debouncedFetchKeywords = debounce((value: string) => {
+    fetchKeywords(value);
+  }, 300);
+
+  inputKeyword?.addEventListener("input", (event) => {
+    const value = (event.target as HTMLInputElement).value;
+
+    if (value.length > 1) {
+      debouncedFetchKeywords(value);
+      openListElement();
+    } else {
+      closeListElement();
+    }
+  });
+
+  const fetchKeywords = async (value: string) => {
+    try {
+      const keywordsList: [] = await queryKeywords(value);
+
+      keywordsContainer.innerHTML = "";
+      renderedKeywords.clear();
+
+      if (keywordsList.length > 0) {
+        keywordsList.forEach(({ value: queryValue }) => {
+          if (!renderedKeywords.has(queryValue)) {
+            renderedKeywords.add(queryValue);
+
+            const li = document.createElement("li");
+            li.setAttribute("role", "option");
+            li.tabIndex = 0;
+            li.id = `keyword-${queryValue}`; 
+            li.innerHTML = getHighlightedKeyword(value, queryValue);
+
+            li.addEventListener("click", () => {
+              inputKeyword.value = li.textContent!;
+              closeListElement();
+            });
+
+            keywordsContainer.appendChild(li);
+          }
+        });
+
+        openListElement();
+      } else {
+        closeListElement();
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+
+  const getHighlightedKeyword = (inputValue: string, queryValue: string): string => {
+    const regex = new RegExp(inputValue, "gi");
+    return queryValue.replace(regex, (match) => `<mark class="font-bold bg-transparent">${match}</mark>`);
+  };
+
+  const handleClickOutsideList = (event: any) => {
+    if (!event.target.matches("#hero-keywords-list *")) {
+      closeListElement();
+    } else {
+      document.removeEventListener("click", handleClickOutsideList);
+    }
+  };
+
+  const openListElement = () => {
+    keywordsContainer.classList.add("list-active");
+    inputKeyword.ariaExpanded = "true";
+    document.addEventListener("keydown", handleKeyPress);
+  }
+
+  const closeListElement = () => {
+    keywordsContainer.classList.remove("list-active");
+    keywordsContainer.ariaExpanded = "false";
+    keywordsContainer.innerHTML = "";
+    renderedKeywords.clear();
+    document.removeEventListener("keydown", handleKeyPress);
+  };
+
+
+  const handleKeyPress = (event: KeyboardEvent) => {
+    if (event.code === "ArrowDown" || event.code === "ArrowUp") {
+      event.preventDefault();
+      const activeElement = document.activeElement;
+
+      if (activeElement?.tagName !== "LI") {
+        const firstElement = keywordsContainer.firstElementChild as HTMLLIElement;
+        firstElement.tabIndex = 0;
+        firstElement.focus();
+        return;
+      }
+
+      const nextElement =
+        event.code === "ArrowDown"
+          ? (activeElement.nextElementSibling as HTMLLIElement)
+          : (activeElement.previousElementSibling as HTMLLIElement);
+
+      if (nextElement) {
+        activeElement.setAttribute("tabindex", "-1");
+        nextElement.setAttribute("tabindex", "0");
+        nextElement.focus();
+      }
+    }
+
+    if (event.code === "Enter" || event.code === "Space") {
+      event.preventDefault();
+      const activeElement = document.activeElement;
+
+      if (activeElement?.tagName === "LI") {
+        inputKeyword.value = activeElement.textContent!;
+        closeListElement();
+      }
+    }
+
+    if (event.code === "Escape") {
+      event.preventDefault();
+      closeListElement();
+    }
+  }
+
+
+  document.addEventListener("click", handleClickOutsideList);
+</script>
+
+<style>
+  #hero-keywords-list {
+    visibility: hidden;
+    opacity: 0;
+    box-shadow: 0px 3px 8px 0px #00000029;
+    overflow-y: scroll;
+    scrollbar-width: none;
+  }
+
+  #hero-keywords-list.list-active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  #hero-keywords-list::-webkit-scrollbar {
+    display: none;
+  }
+</style>
 
 <script>
   import { getProvinceId } from "@lib/list-provinces-ids"
