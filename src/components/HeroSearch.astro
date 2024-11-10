@@ -1,8 +1,9 @@
 ---
-import SearchIcon from "@icons/Search.astro";
-import { getStudies } from "@lib/get-ij-studies";
-import SectionContainer from "@components/SectionContainer.astro";
-import Button from "@ui/Button.astro";
+import SearchIcon from "@icons/Search.astro"
+import { getStudies } from "@lib/get-ij-studies"
+import SectionContainer from "@components/SectionContainer.astro"
+import Button from "@ui/Button.astro"
+import ChevronDown from "@icons/ChevronDown.astro"
 
 const SHORTCUTS = [
   {
@@ -48,31 +49,46 @@ const onChangeKeywords = () => {
     </h1>
 
     <search class="bg-white rounded-3xl p-4 lg:mx-10">
-      <form id="hero-form" class="mx-5 lg:flex lg:justify-between lg:items-center gap-x-4">
-        <div class="lg:w-full lg:pr-10 flex items-center">
-          <select
-            name="study-level"
-            class="w-full py-4 border-b border-gray-300 text-gray-400 bg-transparent cursor-pointer lg:border-none"
+      <form id="hero-form" class="mx-5 lg:flex lg:justify-between lg:items-center lg:gap-2">
+        <div
+          id="study-level-container"
+          class="flex items-center border-b border-gray-300 lg:border-none relative select-none outline-none lg:focus-visible:outline lg:focus-visible:outline-[#167DB7] lg:focus-visible:outline-1 lg:focus-visible:outline-offset-0 lg:focus-visible:rounded-lg rounded-md lg:w-full lg:px-4"
+          tabindex="0"
+          aria-haspopup="listbox"
+          aria-expanded="false"
+          aria-labelledby="study-level-container"
+        >
+          <div
+            class="w-full py-4 text-gray-600 bg-transparent cursor-pointer flex justify-between items-center"
             aria-label="Selecciona tu nivel de estudios"
           >
-            {
-              sortedStudies.map(({ id, value }) => {
-                const isDefault = id === 0;
-                const literal = isDefault ? "Nivel de estudios" : value;
+            <span id="study-level-text">
+              Nivel de estudios
+            </span>
 
-                return (
-                  <option
-                    class={isDefault ? "" : "text-gray-600"}
-                    value={id}
-                    disabled={isDefault}
-                    selected={isDefault}
-                  >
-                    {literal}
-                  </option>
-                );
-              })
-            }
-          </select>
+            <ChevronDown id="study-level-chevron" width="24" height="24" />
+          </div>
+
+          <ul id="study-level-options" role="listbox" class="absolute top-full mt-2 space-y-1 rounded-lg left-0 p-1 max-h-80 w-full border border-gray-300 bg-white shadow-md hidden overflow-auto no-scrollbar z-20">
+            {sortedStudies.map(({ id, value }) => {
+              const isDefault = id === 0
+              const literal = isDefault ? "Nivel de estudios" : value
+
+              return (
+                <li
+                  id="study-level-option"
+                  role="option"
+                  class={`p-3 transition-colors duration-200 ease-in-out rounded-md outline-none cursor-pointer hover:bg-[#F3F9FB] focus-visible:bg-[#F3F9FB] ${isDefault ? "text-gray-400 bg-none pointer-events-none" : "text-gray-600"}`}
+                  data-value={id}
+                  aria-disabled={isDefault}
+                  aria-selected={isDefault}
+                  tabindex={isDefault ? -1 : 0}
+                >
+                  {literal}
+                </li>
+              )
+            })}
+          </ul>
         </div>
 
         <div class="lg:w-full relative">
@@ -90,7 +106,7 @@ const onChangeKeywords = () => {
 
           <ul
             id="hero-keywords-list"
-            class="bg-white w-full mx-auto absolute inset-0 top-14 min-h-[224px] h-full max-h-[224px] z-[999] flex flex-col gap-1 py-1 px-2 rounded-lg [&>li]:rounded-lg [&>li]:transition-colors [&>li]:duration-300 [&>li]:text-ij-black [&>li:hover]:bg-[#F3F9FB] [&>li]:p-2 [&>li]:cursor-pointer [&>li:focus]:bg-[#F3F9FB] [&>li:focus]:outline-none"
+            class="bg-white w-full mx-auto absolute inset-0 top-14 min-h-[224px] h-full max-h-[224px] z-[999] flex flex-col gap-1 p-1 rounded-lg border border-gray-300 shadow-md no-scrollbar [&>li]:rounded-md [&>li]:transition-colors [&>li]:duration-300 [&>li]:text-ij-black [&>li:hover]:bg-[#F3F9FB] [&>li]:p-3 [&>li]:cursor-pointer [&>li:focus]:bg-[#F3F9FB] [&>li:focus]:outline-none"
             role="listbox"
             aria-label="Lista de sugerencias"
             tabindex="0"
@@ -325,7 +341,6 @@ const onChangeKeywords = () => {
   #hero-keywords-list {
     visibility: hidden;
     opacity: 0;
-    box-shadow: 0px 3px 8px 0px #00000029;
     overflow-y: scroll;
     scrollbar-width: none;
   }
@@ -333,10 +348,6 @@ const onChangeKeywords = () => {
   #hero-keywords-list.list-active {
     visibility: visible;
     opacity: 1;
-  }
-
-  #hero-keywords-list::-webkit-scrollbar {
-    display: none;
   }
 </style>
 
@@ -346,5 +357,125 @@ const onChangeKeywords = () => {
 
   geolocationInput?.addEventListener("input", function() {
     getProvinceId(this)
+  })
+</script>
+
+<script>
+  const studyLevelContainer = document.getElementById('study-level-container')
+  const studyLevelOptions = document.getElementById('study-level-options')
+  const studyLevelOption = document.getElementById('study-level-option')
+  const studyLevelText = document.getElementById('study-level-text')
+  const studyLevelChevron = document.getElementById('study-level-chevron')
+  const hiddenSelect = document.createElement('input')
+
+  hiddenSelect.type = 'hidden'
+  hiddenSelect.name = 'study-level'
+  studyLevelContainer?.appendChild(hiddenSelect)
+
+  studyLevelContainer?.addEventListener('click', () => {
+    const isExpanded = studyLevelContainer?.getAttribute('aria-expanded') === 'true'
+    studyLevelContainer?.setAttribute('aria-expanded', `${!isExpanded}`)
+    studyLevelChevron?.classList.toggle('rotate-180')
+    studyLevelOptions?.classList.toggle('hidden')
+  })
+
+  document.addEventListener('click', (event) => {
+      if (!studyLevelContainer?.contains(event.target as Node)) {
+        studyLevelContainer?.setAttribute('aria-expanded', 'false')
+        studyLevelChevron?.classList.remove('rotate-180')
+        studyLevelOptions?.classList.add('hidden')
+      }
+  })
+
+  studyLevelContainer?.addEventListener('keydown', (event) => {
+    const isExpanded = studyLevelContainer.getAttribute('aria-expanded') === 'true'
+
+    if (event.key === 'Enter' || event.key === ' ') {
+      if (!isExpanded) {
+        studyLevelContainer.setAttribute('aria-expanded', 'true')
+        studyLevelChevron?.classList.toggle('rotate-180')
+        studyLevelOptions?.classList.toggle('hidden')
+        event.preventDefault()
+      } else {
+        const activeOption = document.activeElement as Element | null
+        const selectedOption = activeOption?.closest('[data-value]')
+
+        if (selectedOption && selectedOption.getAttribute('data-value') !== '0') {
+          const value = selectedOption.getAttribute('data-value')
+          const text = selectedOption.textContent?.trim()
+
+          if (studyLevelText && hiddenSelect) {
+            studyLevelText.textContent = text as string
+            hiddenSelect.value = value as string
+          }
+
+          studyLevelOptions?.querySelectorAll('[data-value]').forEach(option => {
+            option.classList.remove('bg-[#F3F9FB]')
+          })
+          selectedOption.classList.add('bg-[#F3F9FB]')
+
+          studyLevelContainer?.setAttribute('aria-expanded', 'false');
+          studyLevelChevron?.classList.remove('rotate-180')
+          studyLevelOptions?.classList.add('hidden')
+
+          event.preventDefault()
+        }
+      }
+    }
+
+    if (isExpanded && (event.key === 'ArrowDown' || event.key === 'ArrowUp')) {
+      const options = studyLevelOptions?.querySelectorAll('[data-value]') as NodeListOf<HTMLElement>
+      let index = Array.from(options).findIndex(option => option === document.activeElement)
+
+      if (event.key === 'ArrowDown') index++
+      if (event.key === 'ArrowUp') index--
+      if (index >= 0 && index < options.length) options[index]?.focus()
+
+      event.preventDefault()
+    }
+
+    if (isExpanded && event.key === 'Escape') {
+      studyLevelContainer?.setAttribute('aria-expanded', 'false')
+      studyLevelChevron?.classList.remove('rotate-180')
+      studyLevelOptions?.classList.add('hidden')
+    }
+  })
+
+  studyLevelOptions?.addEventListener('click', (event) => {
+    const target = event.target as Element | null
+    const selectedOption = target?.closest('[data-value]')
+
+    if (selectedOption && selectedOption.getAttribute('data-value') !== '0') {
+      const value = selectedOption.getAttribute('data-value')
+      const text = selectedOption.textContent?.trim()
+
+      if (studyLevelText && hiddenSelect) {
+        studyLevelText.textContent = text as string
+        hiddenSelect.value = value as string
+      }
+
+      studyLevelOptions.querySelectorAll('[data-value]').forEach(option => {
+        option.classList.remove('bg-[#F3F9FB]')
+      })
+      selectedOption.classList.add('bg-[#F3F9FB]')
+    }
+  })
+
+  studyLevelOption?.addEventListener('click', () => {
+    studyLevelContainer?.setAttribute('aria-expanded', 'false')
+    studyLevelChevron?.classList.remove('rotate-180')
+    studyLevelOptions?.classList.add('hidden')
+  })
+
+  studyLevelOptions?.addEventListener('wheel', (event) => {
+    const { deltaY } = event
+    const { scrollTop, scrollHeight, offsetHeight } = studyLevelOptions
+
+    if (
+      (deltaY < 0 && scrollTop === 0) ||
+      (deltaY > 0 && scrollTop + offsetHeight >= scrollHeight)
+    ) {
+      event.preventDefault()
+    }
   })
 </script>
