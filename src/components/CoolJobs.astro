@@ -1,8 +1,8 @@
 ---
-import CoolJobCard from "@components/CoolJobCard.astro";
-import type { CoolJobs } from "@types";
-import CoolJobBackground from "@components/CoolJobBackground.astro";
-import CoolJobBrand from "@components/CoolJobBrand.astro";
+import CoolJobCard from "@components/CoolJobCard.astro"
+import type { CoolJobs } from "@types"
+import CoolJobBackground from "@components/CoolJobBackground.astro"
+import CoolJobBrand from "@components/CoolJobBrand.astro"
 
 const coolJobs: CoolJobs[] = [
   {
@@ -47,7 +47,7 @@ const coolJobs: CoolJobs[] = [
     brand: "Visa",
     section_id: "lp-pom-box-598",
   },
-];
+]
 ---
 
 <section class="w-full mx-auto lg:max-w-7xl">
@@ -66,7 +66,7 @@ const coolJobs: CoolJobs[] = [
       class="flex items-center px-16 pb-6 -mx-4 overflow-x-auto no-scrollbar gap-7 snap-x snap-mandatory max-w-[1536px] md:overflow-visible md:grid md:grid-cols-2 lg:grid-cols-3 lg:p-0 lg:m-0 lg:z-10 md:justify-items-center xl:grid-cols-4"
     >
       {
-        coolJobs.map(({ image, title, brand, section_id }, index) => (
+        coolJobs.map(({ image, title, brand, section_id }) => (
           <CoolJobCard
             image={image}
             title={title}
