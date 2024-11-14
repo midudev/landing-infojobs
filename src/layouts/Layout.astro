@@ -78,15 +78,6 @@ const { title } = Astro.props
             }
             analytics.SNIPPET_VERSION = "4.15.3"
             analytics.load("I1QsIrOJ5GuAZZFGRCfN8USp89gdFD2u")
-            analytics.track("Landing Page Viewed", {
-              page_name: "landing_midudev_proyecto_jovenes",
-              site: "infojobs.net",
-              section: "candidate",
-              channel: "landing_captacion_ontarget",
-              platform: "web",
-              vertical: "jobs",
-              page_type: "landing",
-            })
           }
       })()
     </script>
@@ -94,6 +85,17 @@ const { title } = Astro.props
       defer
       src="https://unpkg.com/@s-ui/ij-segment-wrapper@2.6.0/umd/index.js"
     ></script>
+    <script is:inline defer>
+      analytics.track("Landing Page Viewed", {
+        page_name: "landing_midudev_proyecto_jovenes",
+        site: "infojobs.net",
+        section: "candidate",
+        channel: "landing_captacion_ontarget",
+        platform: "web",
+        vertical: "jobs",
+        page_type: "landing",
+      })
+    </script>
   </head>
 </html>
 <body>
@@ -103,6 +105,28 @@ const { title } = Astro.props
   </main>
   <Footer />
 </body>
+
+<script is:inline defer>
+  const DEFAULT_TRACKING = {
+    channel: "landing_captacion_ontarget",
+    page_detail: "landing_midudev_proyecto_jovenes",
+    platform: "web",
+    section: "candidate",
+    site: "infojobs.net",
+    vertical: "jobs",
+  }
+
+  const elementsToTrack = document.querySelectorAll("[data-track]")
+
+  elementsToTrack.forEach((el) => {
+    el.addEventListener("click", (event) => {
+      const { track } = event.target.dataset
+      console.log(track)
+      const trackingData = { ...DEFAULT_TRACKING, label: track }
+      window.analytics.track("Button Clicked", trackingData)
+    })
+  })
+</script>
 
 <style is:global>
   input:focus-visible,
