@@ -1,5 +1,5 @@
 ---
-const { image, brand, title, id } = Astro.props;
+const { image, brand, title, id } = Astro.props
 ---
 
 <a href=`https://cooljobs.infojobs.net/#${id}` target="_blank">
@@ -9,9 +9,9 @@ const { image, brand, title, id } = Astro.props;
     <div
       class="flex items-center justify-center gap-4 transition-transform group-hover:scale-105"
     >
-    <div class="flex items-center h-10">
-      <img src={image} alt={brand} class="w-20 h-auto" />
-    </div>
+      <div class="flex items-center h-10">
+        <img src={image} alt={brand} class="w-20 h-auto" loading="lazy" />
+      </div>
       <p class="font-medium md:font-semibold">
         {title}
       </p>
