@@ -2,7 +2,11 @@
 const { image, brand, title, id } = Astro.props
 ---
 
-<a href=`https://cooljobs.infojobs.net/#${id}` target="_blank">
+<a
+  href=`https://cooljobs.infojobs.net/#${id}`
+  target="_blank"
+  data-track="cool_jobs"
+>
   <article
     class="flex items-center p-4 group min-w-[274px] md:p-6 md:max-w-[312px] h-24 rounded-2xl border border-[#FE523052] overflow-hidden bg-white snap-center"
   >
