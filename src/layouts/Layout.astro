@@ -148,8 +148,7 @@ const { title } = Astro.props
 
   elementsToTrack.forEach((el) => {
     el.addEventListener("click", (event) => {
-      const { track } = event.target.dataset
-      console.log(track)
+      const { track } = event.currentTarget.dataset
       const trackingData = { ...DEFAULT_TRACKING, label: track }
       window.analytics.track("Button Clicked", trackingData)
     })
