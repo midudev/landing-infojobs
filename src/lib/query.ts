@@ -5,7 +5,7 @@ const INFOJOBS_API_ENDPOINT = "https://api.infojobs.net/api/1/"
 
 const TOKEN = import.meta.env.API_INFOJOBS_TOKEN
 
-export const query = (path: string) => {
+export const query = async (path: string) => {
   const url = `${INFOJOBS_API_ENDPOINT}${path}`
   return fetch(url, {
     headers: {
