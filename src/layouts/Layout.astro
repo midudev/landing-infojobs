@@ -13,12 +13,39 @@ const { title } = Astro.props
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <title>{title}</title>
     <meta
       name="description"
       content="Usa InfoJobs e impulsa tu carrera trabajando en una empresa líder"
     />
     <meta name="viewport" content="width=device-width" />
-    <title>{title}</title>
+
+    <meta
+      property="twitter:image"
+      content="https://primer-trabajo.infojobs.net/og.jpg"
+    />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:title"
+      content="Encuentra tu Primer Trabajo en InfoJobs"
+    />
+    <meta
+      property="twitter:description"
+      content="Usa InfoJobs e impulsa tu carrera trabajando en una empresa líder"
+    />
+
+    <meta
+      property="og:image"
+      content="https://primer-trabajo.infojobs.net/og.jpg"
+    />
+    <meta property="og:site_name" content="InfoJobs.net" />
+    <meta property="og:title" content={title} />
+    <meta
+      property="og:description"
+      content="Usa InfoJobs e impulsa tu carrera trabajando en una empresa líder"
+    />
+    <meta property="og:url" content="https://primer-trabajo.infojobs.net/" />
+
     <link rel="preload" as="image" href="/hero-pattern.webp" />
     <script is:inline>
       !(function () {
