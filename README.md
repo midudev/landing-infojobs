@@ -69,6 +69,13 @@ Este proyecto es una landing page para InfoJobs, diseñada para proporcionar una
         </a>
     </td>
     <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
+        <a href=https://github.com/Charlesss-0>
+            <img src=https://avatars.githubusercontent.com/u/132224776?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Charles404/>
+            <br />
+            <sub style="font-size:14px"><b>Charles404</b></sub>
+        </a>
+    </td>
+    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
         <a href=https://github.com/gusCreator>
             <img src=https://avatars.githubusercontent.com/u/147654561?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Luis Gustavo Sequeiros Condori/>
             <br />
@@ -96,6 +103,8 @@ Este proyecto es una landing page para InfoJobs, diseñada para proporcionar una
             <sub style="font-size:14px"><b>Raul J.</b></sub>
         </a>
     </td>
+</tr>
+<tr>
     <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
         <a href=https://github.com/OctaEDLP00>
             <img src=https://avatars.githubusercontent.com/u/42822581?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=DevMetal00/>
@@ -103,8 +112,6 @@ Este proyecto es una landing page para InfoJobs, diseñada para proporcionar una
             <sub style="font-size:14px"><b>DevMetal00</b></sub>
         </a>
     </td>
-</tr>
-<tr>
     <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
         <a href=https://github.com/AlbertLnz>
             <img src=https://avatars.githubusercontent.com/u/120119395?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=AlbertLnz/>
@@ -140,6 +147,8 @@ Este proyecto es una landing page para InfoJobs, diseñada para proporcionar una
             <sub style="font-size:14px"><b>Felipe Rodriguez</b></sub>
         </a>
     </td>
+</tr>
+<tr>
     <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
         <a href=https://github.com/juanjk24>
             <img src=https://avatars.githubusercontent.com/u/147955917?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Juan Cuellar/>
@@ -147,8 +156,6 @@ Este proyecto es una landing page para InfoJobs, diseñada para proporcionar una
             <sub style="font-size:14px"><b>Juan Cuellar</b></sub>
         </a>
     </td>
-</tr>
-<tr>
     <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
         <a href=https://github.com/vicvenpet>
             <img src=https://avatars.githubusercontent.com/u/74773810?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Víctor, P./>
@@ -178,77 +185,19 @@ Este proyecto es una landing page para InfoJobs, diseñada para proporcionar una
         </a>
     </td>
     <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
-        <a href=https://github.com/saulChavin>
-            <img src=https://avatars.githubusercontent.com/u/48201023?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=saulChavin/>
+        <a href=https://github.com/jeremiasgiorgi>
+            <img src=https://avatars.githubusercontent.com/u/117943583?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Jeremías Giorgi/>
             <br />
-            <sub style="font-size:14px"><b>saulChavin</b></sub>
-        </a>
-    </td>
-    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
-        <a href=https://github.com/juanqui-art>
-            <img src=https://avatars.githubusercontent.com/u/56309315?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=juanqui/>
-            <br />
-            <sub style="font-size:14px"><b>juanqui</b></sub>
+            <sub style="font-size:14px"><b>Jeremías Giorgi</b></sub>
         </a>
     </td>
 </tr>
 <tr>
     <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
-        <a href=https://github.com/astrobot-houston>
-            <img src=https://avatars.githubusercontent.com/u/108291165?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Houston (Bot)/>
+        <a href=https://github.com/jdmg-it>
+            <img src=https://avatars.githubusercontent.com/u/78799535?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=José David Montoya Gallardo/>
             <br />
-            <sub style="font-size:14px"><b>Houston (Bot)</b></sub>
-        </a>
-    </td>
-    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
-        <a href=https://github.com/grabieh>
-            <img src=https://avatars.githubusercontent.com/u/123573944?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Gabriel Sánchez/>
-            <br />
-            <sub style="font-size:14px"><b>Gabriel Sánchez</b></sub>
-        </a>
-    </td>
-    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
-        <a href=https://github.com/flendoh>
-            <img src=https://avatars.githubusercontent.com/u/51726730?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=mhallasi/>
-            <br />
-            <sub style="font-size:14px"><b>mhallasi</b></sub>
-        </a>
-    </td>
-    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
-        <a href=https://github.com/WachoCode>
-            <img src=https://avatars.githubusercontent.com/u/130874756?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Nicolas/>
-            <br />
-            <sub style="font-size:14px"><b>Nicolas</b></sub>
-        </a>
-    </td>
-    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
-        <a href=https://github.com/Vctorqui>
-            <img src=https://avatars.githubusercontent.com/u/108197038?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Víctor Quiñones/>
-            <br />
-            <sub style="font-size:14px"><b>Víctor Quiñones</b></sub>
-        </a>
-    </td>
-    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
-        <a href=https://github.com/SantiagoManchola>
-            <img src=https://avatars.githubusercontent.com/u/155041787?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=SantiagoManchola/>
-            <br />
-            <sub style="font-size:14px"><b>SantiagoManchola</b></sub>
-        </a>
-    </td>
-</tr>
-<tr>
-    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
-        <a href=https://github.com/KoenigDev>
-            <img src=https://avatars.githubusercontent.com/u/160176319?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Nunu/>
-            <br />
-            <sub style="font-size:14px"><b>Nunu</b></sub>
-        </a>
-    </td>
-    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
-        <a href=https://github.com/NicolasMunozC>
-            <img src=https://avatars.githubusercontent.com/u/84532538?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Nicolas Muñoz/>
-            <br />
-            <sub style="font-size:14px"><b>Nicolas Muñoz</b></sub>
+            <sub style="font-size:14px"><b>José David Montoya Gallardo</b></sub>
         </a>
     </td>
     <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
@@ -259,24 +208,75 @@ Este proyecto es una landing page para InfoJobs, diseñada para proporcionar una
         </a>
     </td>
     <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
-        <a href=https://github.com/jdmg-it>
-            <img src=https://avatars.githubusercontent.com/u/78799535?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=José David Montoya Gallardo/>
+        <a href=https://github.com/NicolasMunozC>
+            <img src=https://avatars.githubusercontent.com/u/84532538?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Nicolas Muñoz/>
             <br />
-            <sub style="font-size:14px"><b>José David Montoya Gallardo</b></sub>
+            <sub style="font-size:14px"><b>Nicolas Muñoz</b></sub>
         </a>
     </td>
     <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
-        <a href=https://github.com/jeremiasgiorgi>
-            <img src=https://avatars.githubusercontent.com/u/117943583?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Jeremías Giorgi/>
+        <a href=https://github.com/KoenigDev>
+            <img src=https://avatars.githubusercontent.com/u/160176319?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Nunu/>
             <br />
-            <sub style="font-size:14px"><b>Jeremías Giorgi</b></sub>
+            <sub style="font-size:14px"><b>Nunu</b></sub>
         </a>
     </td>
     <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
-        <a href=https://github.com/Charlesss-0>
-            <img src=https://avatars.githubusercontent.com/u/132224776?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Charles404/>
+        <a href=https://github.com/SantiagoManchola>
+            <img src=https://avatars.githubusercontent.com/u/155041787?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=SantiagoManchola/>
             <br />
-            <sub style="font-size:14px"><b>Charles404</b></sub>
+            <sub style="font-size:14px"><b>SantiagoManchola</b></sub>
+        </a>
+    </td>
+    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
+        <a href=https://github.com/Vctorqui>
+            <img src=https://avatars.githubusercontent.com/u/108197038?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Víctor Quiñones/>
+            <br />
+            <sub style="font-size:14px"><b>Víctor Quiñones</b></sub>
+        </a>
+    </td>
+</tr>
+<tr>
+    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
+        <a href=https://github.com/WachoCode>
+            <img src=https://avatars.githubusercontent.com/u/130874756?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Nicolas/>
+            <br />
+            <sub style="font-size:14px"><b>Nicolas</b></sub>
+        </a>
+    </td>
+    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
+        <a href=https://github.com/flendoh>
+            <img src=https://avatars.githubusercontent.com/u/51726730?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=mhallasi/>
+            <br />
+            <sub style="font-size:14px"><b>mhallasi</b></sub>
+        </a>
+    </td>
+    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
+        <a href=https://github.com/grabieh>
+            <img src=https://avatars.githubusercontent.com/u/123573944?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Gabriel Sánchez/>
+            <br />
+            <sub style="font-size:14px"><b>Gabriel Sánchez</b></sub>
+        </a>
+    </td>
+    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
+        <a href=https://github.com/astrobot-houston>
+            <img src=https://avatars.githubusercontent.com/u/108291165?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Houston (Bot)/>
+            <br />
+            <sub style="font-size:14px"><b>Houston (Bot)</b></sub>
+        </a>
+    </td>
+    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
+        <a href=https://github.com/juanqui-art>
+            <img src=https://avatars.githubusercontent.com/u/56309315?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=juanqui/>
+            <br />
+            <sub style="font-size:14px"><b>juanqui</b></sub>
+        </a>
+    </td>
+    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
+        <a href=https://github.com/saulChavin>
+            <img src=https://avatars.githubusercontent.com/u/48201023?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=saulChavin/>
+            <br />
+            <sub style="font-size:14px"><b>saulChavin</b></sub>
         </a>
     </td>
 </tr>
