@@ -1,17 +1,21 @@
 ---
-const { image, brand, title, id } = Astro.props;
+const { image, brand, title, id } = Astro.props
 ---
 
-<a href=`https://cooljobs.infojobs.net/#${id}` target="_blank">
+<a
+  href=`https://cooljobs.infojobs.net/#${id}`
+  target="_blank"
+  data-track="cool_jobs"
+>
   <article
     class="flex items-center p-4 group min-w-[274px] md:p-6 md:max-w-[312px] h-24 rounded-2xl border border-[#FE523052] overflow-hidden bg-white snap-center"
   >
     <div
       class="flex items-center justify-center gap-4 transition-transform group-hover:scale-105"
     >
-    <div class="flex items-center h-10">
-      <img src={image} alt={brand} class="w-20 h-auto" />
-    </div>
+      <div class="flex items-center h-10">
+        <img src={image} alt={brand} class="w-20 h-auto" loading="lazy" />
+      </div>
       <p class="font-medium md:font-semibold">
         {title}
       </p>

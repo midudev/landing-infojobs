@@ -1,6 +1,6 @@
 ---
-import SectionContainer from "@components/SectionContainer.astro";
-import Subtitle from "@components/Subtitle.astro";
+import SectionContainer from "@components/SectionContainer.astro"
+import Subtitle from "@components/Subtitle.astro"
 
 const ARTICLES = [
   {
@@ -12,15 +12,18 @@ const ARTICLES = [
     imageClass:
       "w-full h-auto object-contain object-bottom md:h-auto md:w-auto md:object-right md:max-h-none",
     action: "modal",
+    track: "blog_selection_process",
   },
   {
     title: "Los puestos emergentes que van a petarlo",
     contentId: "emergent-positions",
-    class: "bg-gradient-to-r from-[#ffd2d2] to-[#f9b395] text-ij-red md:col-start-3 md:row-span-2 md:h-full",
+    class:
+      "bg-gradient-to-r from-[#ffd2d2] to-[#f9b395] text-ij-red md:col-start-3 md:row-span-2 md:h-full",
     image: "/bento-info/emergent-positions.webp",
     imageClass:
       "w-full h-full object-cover object-[center_30%] md:object-center",
     action: "modal",
+    track: "blog_emerging_jobs",
   },
   {
     title: "Las opinión de las empresas",
@@ -30,6 +33,7 @@ const ARTICLES = [
     imageClass: "w-full h-full object-cover",
     action: "link",
     link: "https://www.tiktok.com/@infojobs/video/7291016517217520928?_r=1&amp%3B_t=8oUBsz4let7",
+    track: "blog_companies_opinions",
   },
   {
     title: "¿Sin experiencia? Destaca en las entrevistas",
@@ -39,8 +43,9 @@ const ARTICLES = [
     image: "/bento-info/no-experience.webp",
     imageClass: "w-3/4 h-auto object-contain mb-4",
     action: "modal",
+    track: "blog_interview_tips",
   },
-];
+]
 ---
 
 <SectionContainer>
@@ -56,6 +61,7 @@ const ARTICLES = [
           imageClass,
           action,
           link,
+          track,
         }) =>
           action === "link" ? (
             <a
@@ -65,6 +71,7 @@ const ARTICLES = [
                 "aspect-square w-full h-full rounded-2xl overflow-hidden relative group",
                 className,
               ]}
+              data-track={track}
             >
               <div
                 class:list={[
@@ -94,6 +101,7 @@ const ARTICLES = [
                 className,
               ]}
               data-content-id={contentId}
+              data-track={track}
             >
               <div
                 class:list={[
@@ -135,57 +143,57 @@ const ARTICLES = [
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    //modal
-    const $modal = document.getElementById("infographic-modal");
-    const $modalBody = document.getElementById("infographic-modal-body");
-    const $btnModal = document.getElementById("btn-modal");
+    // modal
+    const $modal = document.getElementById("infographic-modal")
+    const $modalBody = document.getElementById("infographic-modal-body")
+    const $btnModal = document.getElementById("btn-modal")
     const $body = document.body
 
-    //buttons bento
-    const $buttons = document.querySelectorAll("button[data-content-id]");
+    // buttons bento
+    const $buttons = document.querySelectorAll("button[data-content-id]")
 
     const openModal = (id: string) => {
-      const contentId = `infographic-${id}`;
-      const content = document.getElementById(contentId);
+      const contentId = `infographic-${id}`
+      const content = document.getElementById(contentId)
 
       if (content && $modalBody) {
-        $modal?.classList.add("modal-active");
-        $modalBody.replaceChildren(content.cloneNode(true));
+        $modal?.classList.add("modal-active")
+        $modalBody.replaceChildren(content.cloneNode(true))
 
-        $modalBody.firstElementChild?.classList.replace("hidden", "flex");
+        $modalBody.firstElementChild?.classList.replace("hidden", "flex")
 
-        $body.style.overflow = 'hidden';
+        $body.style.overflow = "hidden"
       }
-    };
+    }
 
     const closeModal = () => {
       if ($modal?.classList.contains("modal-active")) {
-        $modal?.classList.remove("modal-active");
+        $modal?.classList.remove("modal-active")
       }
 
-      const currentContent = $modalBody?.firstChild;
+      const currentContent = $modalBody?.firstChild
 
       if (currentContent) {
-        $modalBody?.removeChild(currentContent);
+        $modalBody?.removeChild(currentContent)
       }
 
-      $body.style.overflow = "";
-    };
+      $body.style.overflow = ""
+    }
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        closeModal();
+        closeModal()
       }
-    };
+    }
 
     $buttons.forEach((button) => {
       button.addEventListener("click", () => {
-        const id = button.getAttribute("data-content-id");
-        if (id) openModal(id);
-      });
-    });
+        const id = button.getAttribute("data-content-id")
+        if (id) openModal(id)
+      })
+    })
 
-    $btnModal?.addEventListener("click", () => closeModal());
-    document.addEventListener("keydown", handleKeyDown);
-  });
+    $btnModal?.addEventListener("click", () => closeModal())
+    document.addEventListener("keydown", handleKeyDown)
+  })
 </script>
