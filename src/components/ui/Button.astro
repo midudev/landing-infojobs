@@ -1,24 +1,25 @@
 ---
-import Icon from "@ui/Icon.astro";
+import Icon from "@ui/Icon.astro"
 
 interface ButtonProps {
-  variant?: 'solid' | 'bordered' | 'light' | 'ghost' | 'flat';
-  color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
-  size?: 'default' | 'sm' | 'lg'| 'full' | 'icon';
-  radius?: 'none' | 'lg' | 'xl' | 'xxl' | 'full' | string;
-  class?: string;
-  type?: 'button' | 'submit' | 'reset';
-  href?: string;
-  as?: 'button' | 'link';
-  role?: 'button' | 'link';
-  disabled?: boolean;
-  icon?: string;
-  iconPosition?: 'left' | 'right';
-  block?: boolean;
-  iconOnly?: boolean;
-  loading?: boolean;
-  ariaLabel?: string;
-  disableSaturateHover?: boolean;
+  variant?: "solid" | "bordered" | "light" | "ghost" | "flat"
+  color?: "default" | "primary" | "secondary" | "success" | "warning" | "danger"
+  size?: "default" | "sm" | "lg" | "full" | "icon"
+  radius?: "none" | "lg" | "xl" | "xxl" | "full" | string
+  class?: string
+  type?: "button" | "submit" | "reset"
+  href?: string
+  as?: "button" | "link"
+  role?: "button" | "link"
+  disabled?: boolean
+  icon?: string
+  iconPosition?: "left" | "right"
+  block?: boolean
+  iconOnly?: boolean
+  loading?: boolean
+  ariaLabel?: string
+  track?: string
+  disableSaturateHover?: boolean
 }
 
 // Estilos por variante
@@ -30,7 +31,7 @@ const solid = {
   warning: "bg-ij-yellow text-white",
   danger: "bg-red-500 text-white",
   foreground: "bg-black text-white",
-};
+}
 
 const bordered = {
   default: "border-2 border-neutral-300 text-neutral-900",
@@ -40,7 +41,7 @@ const bordered = {
   warning: "border-2 border-ij-yellow text-yellow-500",
   danger: "border-2 border-red-500 text-red-500",
   foreground: "border-2 border-black text-black",
-};
+}
 
 const light = {
   default: "border-transparent text-black hover:bg-neutral-300",
@@ -50,17 +51,21 @@ const light = {
   warning: "border-transparent text-ij-yellow hover:bg-ij-yellow/20",
   danger: "border-transparent text-red-500 hover:bg-ij-red/20",
   foreground: "border-transparent text-black hover:bg-black/20",
-};
+}
 
 const ghost = {
   default: "border-2 border-neutral-300 text-neutral-900 hover:bg-neutral-300",
-  primary: "border-2 border-primary text-primary hover:bg-primary hover:text-white",
+  primary:
+    "border-2 border-primary text-primary hover:bg-primary hover:text-white",
   secondary: "border-2 border-gray-500 text-gray-500 hover:bg-accent",
-  success: "border-2 border-ij-green text-ij-green hover:bg-ij-green hover:text-white",
-  warning: "border-2 border-ij-yellow text-ij-yellow hover:bg-ij-yellow hover:text-white",
+  success:
+    "border-2 border-ij-green text-ij-green hover:bg-ij-green hover:text-white",
+  warning:
+    "border-2 border-ij-yellow text-ij-yellow hover:bg-ij-yellow hover:text-white",
   danger: "border-2 border-ij-red text-ij-red hover:bg-ij-red hover:text-white",
-  foreground: "border-2 border-black text-black hover:bg-black hover:text-white",
-};
+  foreground:
+    "border-2 border-black text-black hover:bg-black hover:text-white",
+}
 
 const flat = {
   default: "bg-neutral-300/40 text-neutral-900",
@@ -70,7 +75,7 @@ const flat = {
   warning: "bg-ij-yellow/20 text-ij-yellow",
   danger: "bg-ij-red/20 text-ij-red",
   foreground: "bg-black/20 text-black",
-};
+}
 
 const variants = {
   solid,
@@ -78,59 +83,63 @@ const variants = {
   light,
   ghost,
   flat,
-};
+}
 
 // Función para obtener clases por variante y color
-function getVariantClasses(variant: keyof typeof variants, color: keyof typeof solid) {
-  const variantGroup = variants[variant] || variants.solid; // fallback a 'solid'
-  return variantGroup[color] ?? variantGroup.default;
+function getVariantClasses(
+  variant: keyof typeof variants,
+  color: keyof typeof solid
+) {
+  const variantGroup = variants[variant] || variants.solid // fallback a 'solid'
+  return variantGroup[color] ?? variantGroup.default
 }
 // Clases por tamaño
 const sizeClasses = {
-  default: 'px-4 py-2 text-lg gap-x-2 font-medium',
-  sm: 'px-3 min-w-16 h-8 text-sm gap-x-2',
-  md: 'px-4 min-w-20 h-10 text-base gap-x-2',
-  lg: 'px-6 min-w-24 h-12 text-lg gap-3 font-medium',
-  full: 'px-6 w-full py-2.5 text-lg gap-x-3 font-medium',
-  icon: 'h-10 w-10',
-};
+  default: "px-4 py-2 text-lg gap-x-2 font-medium",
+  sm: "px-3 min-w-16 h-8 text-sm gap-x-2",
+  md: "px-4 min-w-20 h-10 text-base gap-x-2",
+  lg: "px-6 min-w-24 h-12 text-lg gap-3 font-medium",
+  full: "px-6 w-full py-2.5 text-lg gap-x-3 font-medium",
+  icon: "h-10 w-10",
+}
 
 // Clases por radio
 const radiusClasses = {
-  none: 'rounded-none',
-  lg: 'rounded-xl',
-  xl: 'rounded-2xl',
-  xxl: 'rounded-4xl',
-  full: 'rounded-full',
-};
-
+  none: "rounded-none",
+  lg: "rounded-xl",
+  xl: "rounded-2xl",
+  xxl: "rounded-4xl",
+  full: "rounded-full",
+}
 
 // Desestructuración de props
 const {
-  variant = 'solid',
-  color = 'primary',
-  size = 'default',
-  radius = 'xl',
-  class: extraClasses = '',
-  type = 'button',
+  variant = "solid",
+  color = "primary",
+  size = "default",
+  radius = "xl",
+  class: extraClasses = "",
+  type = "button",
   href,
-  as = 'button',
-  role = 'button',
+  as = "button",
+  role = "button",
   disabled = false,
   icon,
-  iconPosition = 'left',
+  iconPosition = "left",
   iconOnly = false,
   loading = false,
   ariaLabel,
   disableSaturateHover = false,
-} = Astro.props as ButtonProps;
+  track,
+} = Astro.props as ButtonProps
 
 // Definición de clases
-const customRadiusClass = typeof radius === 'string' && radius.startsWith('rounded-')
-  ? radius
-  : radiusClasses[radius as keyof typeof radiusClasses] || '';
-  
-const variantClasses = getVariantClasses(variant, color);
+const customRadiusClass =
+  typeof radius === "string" && radius.startsWith("rounded-")
+    ? radius
+    : radiusClasses[radius as keyof typeof radiusClasses] || ""
+
+const variantClasses = getVariantClasses(variant, color)
 
 const baseClasses = [
   "z-0 group relative inline-flex items-center justify-center",
@@ -141,66 +150,65 @@ const baseClasses = [
   "disabled:opacity-75 disabled:select-none disabled:cursor-not-allowed",
   "disabled:active:scale-100",
   "active:scale-[0.99]",
-  disableSaturateHover ? '' : 'hover:saturate-150',
-  "transition-transform-colors-opacity motion-reduce:transition-none"
-].filter(Boolean).join(' ');
+  disableSaturateHover ? "" : "hover:saturate-150",
+  "transition-transform-colors-opacity motion-reduce:transition-none",
+]
+  .filter(Boolean)
+  .join(" ")
 
 const buttonClasses = [
   baseClasses,
   variantClasses,
   sizeClasses[size],
   customRadiusClass,
-  iconOnly ? 'p-2' : '',
+  iconOnly ? "p-2" : "",
   extraClasses,
-  loading ? 'loading' : ''
-].filter(Boolean).join(' ');
-
-
+  loading ? "loading" : "",
+]
+  .filter(Boolean)
+  .join(" ")
 ---
-{as === 'button' ? (
-  <button
-    class={buttonClasses}
-    type={type}
-    disabled={disabled || loading}
-    role={role}
-    aria-label={ariaLabel || (iconOnly ? `${icon} button` : undefined)}
-    aria-busy={loading}
-    aria-hidden={iconOnly ? 'true' : undefined}
-  >
-    {loading ? (
-      <>
-        <Icon name="Spinner" class="animate-spin w-5 h-5" />
-        <span>Processing...</span>
-      </>
-    ) : (
-      <>
-        {icon && iconPosition === 'left' && (
-          <Icon name={icon} />
-        )}
-        <slot />
-        {icon && iconPosition === 'right' && (
-          <Icon name={icon} />
-        )}
-      </>
-    )}
-  </button>
-) : as === 'link' && href ? (
-  <a
-    class={buttonClasses}
-    href={href}
-    role={role || 'link'}
-    aria-label={ariaLabel || (iconOnly ? `${icon} button` : undefined)}
-    aria-hidden={iconOnly ? 'true' : undefined}
-  >
-    {icon && iconPosition === 'left' && (
-      <Icon name={icon} />
-    )}
-    <slot />
-    {icon && iconPosition === 'right' && (
-      <Icon name={icon} />
-    )}
-  </a>
-) : null}
+
+{
+  as === "button" ? (
+    <button
+      class={buttonClasses}
+      type={type}
+      disabled={disabled || loading}
+      role={role}
+      aria-label={ariaLabel || (iconOnly ? `${icon} button` : undefined)}
+      aria-busy={loading}
+      aria-hidden={iconOnly ? "true" : undefined}
+      data-track={track}
+    >
+      {loading ? (
+        <>
+          <Icon name="Spinner" class="animate-spin w-5 h-5" />
+          <span>Processing...</span>
+        </>
+      ) : (
+        <>
+          {icon && iconPosition === "left" && <Icon name={icon} />}
+          <slot />
+          {icon && iconPosition === "right" && <Icon name={icon} />}
+        </>
+      )}
+    </button>
+  ) : as === "link" && href ? (
+    <a
+      class={buttonClasses}
+      href={href}
+      role={role || "link"}
+      aria-label={ariaLabel || (iconOnly ? `${icon} button` : undefined)}
+      aria-hidden={iconOnly ? "true" : undefined}
+      data-track={track}
+    >
+      {icon && iconPosition === "left" && <Icon name={icon} />}
+      <slot />
+      {icon && iconPosition === "right" && <Icon name={icon} />}
+    </a>
+  ) : null
+}
 
 <style>
   .tap-highlight-transparent {

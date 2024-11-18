@@ -8,6 +8,7 @@ const cardsOportunidades = [
     colorTitle: "text-[#0E8247]",
     imageClass: "p-4 sm:p-8 md:p-4 lg:p-8 !pb-0",
     href: "https://www.infojobs.net/",
+    track: "job_offers",
   },
   {
     title1: "InfoJobs en TikTok",
@@ -17,6 +18,7 @@ const cardsOportunidades = [
     colorTitle: "text-[#EFA500]",
     imageClass: "",
     href: "https://www.tiktok.com/@infojobs/playlist/Encontrar%20trabajo-7401023016819378977 ",
+    track: "tik_tok",
   },
 ] as const
 ---
@@ -25,17 +27,13 @@ const cardsOportunidades = [
   {
     cardsOportunidades.map((card) => (
       <a
-
         class={`group flex flex-col rounded-[16px] pt-4 px-4 md:px-12 lg:px-15 lg:pt-6 xl:pt-10 aspect-[328/436] md:aspect-square w-full overflow-hidden ${card.gradient}`}
         href={card.href}
         target="_blank"
+        data-track={card.track}
       >
-        <p class="mt-4 text-2xl font-semibold text-gray-900">
-          {card.title1}
-        </p>
-        <p
-          class={`mt-2 text-3xl lg:text-5xl font-semibold ${card.colorTitle}`}
-        >
+        <p class="mt-4 text-2xl font-semibold text-gray-900">{card.title1}</p>
+        <p class={`mt-2 text-3xl lg:text-5xl font-semibold ${card.colorTitle}`}>
           {card.title2}
         </p>
 

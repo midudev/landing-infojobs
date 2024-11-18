@@ -1,5 +1,3 @@
-import type { DictionaryId } from '@types'
-
 export const dictionaries: Record<string, { id: number, value: string, order: number, key: string }[]> = {
   'study': [
     { id: 0, value: '(Indicar Nivel)', order: 0, key: 'indicar-nivel' },

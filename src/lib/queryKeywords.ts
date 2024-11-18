@@ -1,6 +1,6 @@
 import { generateInfoJobsKeywordsURL } from "./generate-infojobs-keywords-url";
 
-export const queryKeywords = (prefix: string) => {
+export const queryKeywords = async (prefix: string) => {
   const url = generateInfoJobsKeywordsURL({ prefix });
 
   if (!url) return;
