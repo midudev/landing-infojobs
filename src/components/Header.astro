@@ -4,7 +4,7 @@ import Button from "./ui/Button.astro"
 
 <header
   id="header"
-  class="py-4 px-8 flex justify-between items-center md:max-w-[1400px] md:mx-auto sticky top-0 right-0 left-0 bg-white/70 z-50 mb-3 backdrop-blur-xl transition-all duration-300 ease-in-out"
+  class="py-4 px-8 flex justify-between items-center md:max-w-[1400px] md:mx-auto sticky top-0 right-0 left-0 bg-white/70 z-50 mb-4 backdrop-blur-xl transition-all duration-300 ease-in-out"
 >
   <a href="#" aria-label="Regresar a la página de inicio"
     ><img src="/logo.svg" alt="Logo InfoJobs" class="w-auto h-[30px]" /></a
@@ -21,20 +21,3 @@ import Button from "./ui/Button.astro"
     Crea tu cuenta
   </Button>
 </header>
-
-<script>
-  const header = document.getElementById("header")
-  let lastScrollY = 0
-
-  window.addEventListener("scroll", () => {
-    const currentScrollY = window.scrollY
-
-    if (currentScrollY > lastScrollY) {
-      header?.classList.add("-translate-y-full")
-    } else {
-      header?.classList.remove("-translate-y-full")
-    }
-
-    lastScrollY = currentScrollY
-  })
-</script>
