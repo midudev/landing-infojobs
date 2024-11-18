@@ -382,7 +382,7 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
 <script>
   const $ = document.querySelector.bind(document)
   const studyLevelContainer = $("#study-level-container")
-  const studyLevelOptions = $("#study-level-options")
+  const studyLevelOptions = $("#study-level-options") as HTMLUListElement
   const studyLevelOption = $("#study-level-option")
   const studyLevelText = $("#study-level-text")
   const studyLevelChevron = $("#study-level-chevron")
@@ -408,7 +408,9 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
     }
   })
 
-  studyLevelContainer?.addEventListener("keydown", (event) => {
+  studyLevelContainer?.addEventListener("keydown", (evt) => {
+    const event = evt as KeyboardEvent
+
     const isExpanded =
       studyLevelContainer.getAttribute("aria-expanded") === "true"
 
@@ -498,7 +500,8 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
     studyLevelOptions?.classList.add("hidden")
   })
 
-  studyLevelOptions?.addEventListener("wheel", (event) => {
+  studyLevelOptions?.addEventListener("wheel", (evt) => {
+    const event = evt as WheelEvent
     const { deltaY } = event
     const { scrollTop, scrollHeight, offsetHeight } = studyLevelOptions
 
