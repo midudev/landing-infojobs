@@ -246,38 +246,34 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
   })
 
   const fetchKeywords = async (value: string) => {
-    try {
-      const keywordsList: [] = await queryKeywords(value)
+    const keywordsList: [] = await queryKeywords(value)
 
-      keywordsContainer.innerHTML = ""
-      renderedKeywords.clear()
+    keywordsContainer.innerHTML = ""
+    renderedKeywords.clear()
 
-      if (keywordsList.length > 0) {
-        keywordsList.forEach(({ value: queryValue }) => {
-          if (!renderedKeywords.has(queryValue)) {
-            renderedKeywords.add(queryValue)
+    if (keywordsList.length > 0) {
+      keywordsList.forEach(({ value: queryValue }) => {
+        if (!renderedKeywords.has(queryValue)) {
+          renderedKeywords.add(queryValue)
 
-            const li = document.createElement("li")
-            li.setAttribute("role", "option")
-            li.tabIndex = 0
-            li.id = `keyword-${queryValue}`
-            li.innerHTML = getHighlightedKeyword(value, queryValue)
+          const li = document.createElement("li")
+          li.setAttribute("role", "option")
+          li.tabIndex = 0
+          li.id = `keyword-${queryValue}`
+          li.innerHTML = getHighlightedKeyword(value, queryValue)
 
-            li.addEventListener("click", () => {
-              inputKeyword.value = li.textContent!
-              closeListElement()
-            })
+          li.addEventListener("click", () => {
+            inputKeyword.value = li.textContent!
+            closeListElement()
+          })
 
-            keywordsContainer.appendChild(li)
-          }
-        })
+          keywordsContainer.appendChild(li)
+        }
+      })
 
-        openListElement()
-      } else {
-        closeListElement()
-      }
-    } catch (error) {
-      console.log("error", error)
+      openListElement()
+    } else {
+      closeListElement()
     }
   }
 
@@ -384,11 +380,12 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
 </script>
 
 <script>
-  const studyLevelContainer = document.getElementById("study-level-container")
-  const studyLevelOptions = document.getElementById("study-level-options")
-  const studyLevelOption = document.getElementById("study-level-option")
-  const studyLevelText = document.getElementById("study-level-text")
-  const studyLevelChevron = document.getElementById("study-level-chevron")
+  const $ = document.querySelector.bind(document)
+  const studyLevelContainer = $("#study-level-container")
+  const studyLevelOptions = $("#study-level-options")
+  const studyLevelOption = $("#study-level-option")
+  const studyLevelText = $("#study-level-text")
+  const studyLevelChevron = $("#study-level-chevron")
   const hiddenSelect = document.createElement("input")
 
   hiddenSelect.type = "hidden"
