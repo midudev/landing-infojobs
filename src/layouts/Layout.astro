@@ -117,9 +117,6 @@ const { title } = Astro.props
       })()
     </script>
 
-    <script defer src="https://components.infojobs.com/widgets/downloader.js"
-    ></script>
-
     <script is:inline>
       !(function () {
         var analytics = (window.analytics = window.analytics || [])
@@ -181,6 +178,12 @@ const { title } = Astro.props
           }
       })()
     </script>
+
+    <script
+      is:inline
+      defer
+      src="https://components.infojobs.com/widgets/downloader.js"></script>
+
     <script
       defer
       is:inline
