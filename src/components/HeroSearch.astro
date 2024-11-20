@@ -126,7 +126,7 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
           <input
             name="geolocation"
             placeholder="Provincia o población"
-            class="w-full py-3 lg:px-3 border-b border-gray-300 lg:border-none !text-gray-600 focus:outline-none lg:focus-visible:bg-[#E8F2F8] lg:focus-visible:outline lg:focus-visible:outline-[#167DB7] lg:focus-visible:outline-1 lg:focus-visible:outline-offset-0 lg:focus-visible:rounded-lg"
+            class="w-full py-3 lg:px-3 border-b border-gray-300 lg:border-none text-gray-600 focus:outline-none lg:focus-visible:bg-[#E8F2F8] lg:focus-visible:outline lg:focus-visible:outline-[#167DB7] lg:focus-visible:outline-1 lg:focus-visible:outline-offset-0 lg:focus-visible:rounded-lg"
           />
         </div>
         <Button
@@ -246,38 +246,34 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
   })
 
   const fetchKeywords = async (value: string) => {
-    try {
-      const keywordsList: [] = await queryKeywords(value)
+    const keywordsList: [] = await queryKeywords(value)
 
-      keywordsContainer.innerHTML = ""
-      renderedKeywords.clear()
+    keywordsContainer.innerHTML = ""
+    renderedKeywords.clear()
 
-      if (keywordsList.length > 0) {
-        keywordsList.forEach(({ value: queryValue }) => {
-          if (!renderedKeywords.has(queryValue)) {
-            renderedKeywords.add(queryValue)
+    if (keywordsList.length > 0) {
+      keywordsList.forEach(({ value: queryValue }) => {
+        if (!renderedKeywords.has(queryValue)) {
+          renderedKeywords.add(queryValue)
 
-            const li = document.createElement("li")
-            li.setAttribute("role", "option")
-            li.tabIndex = 0
-            li.id = `keyword-${queryValue}`
-            li.innerHTML = getHighlightedKeyword(value, queryValue)
+          const li = document.createElement("li")
+          li.setAttribute("role", "option")
+          li.tabIndex = 0
+          li.id = `keyword-${queryValue}`
+          li.innerHTML = getHighlightedKeyword(value, queryValue)
 
-            li.addEventListener("click", () => {
-              inputKeyword.value = li.textContent!
-              closeListElement()
-            })
+          li.addEventListener("click", () => {
+            inputKeyword.value = li.textContent!
+            closeListElement()
+          })
 
-            keywordsContainer.appendChild(li)
-          }
-        })
+          keywordsContainer.appendChild(li)
+        }
+      })
 
-        openListElement()
-      } else {
-        closeListElement()
-      }
-    } catch (error) {
-      console.log("error", error)
+      openListElement()
+    } else {
+      closeListElement()
     }
   }
 
@@ -384,11 +380,12 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
 </script>
 
 <script>
-  const studyLevelContainer = document.getElementById("study-level-container")
-  const studyLevelOptions = document.getElementById("study-level-options")
-  const studyLevelOption = document.getElementById("study-level-option")
-  const studyLevelText = document.getElementById("study-level-text")
-  const studyLevelChevron = document.getElementById("study-level-chevron")
+  const $ = document.querySelector.bind(document)
+  const studyLevelContainer = $("#study-level-container")
+  const studyLevelOptions = $("#study-level-options") as HTMLUListElement
+  const studyLevelOption = $("#study-level-option")
+  const studyLevelText = $("#study-level-text")
+  const studyLevelChevron = $("#study-level-chevron")
   const hiddenSelect = document.createElement("input")
 
   hiddenSelect.type = "hidden"
@@ -411,7 +408,9 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
     }
   })
 
-  studyLevelContainer?.addEventListener("keydown", (event) => {
+  studyLevelContainer?.addEventListener("keydown", (evt) => {
+    const event = evt as KeyboardEvent
+
     const isExpanded =
       studyLevelContainer.getAttribute("aria-expanded") === "true"
 
@@ -501,7 +500,8 @@ const sortedStudies = studies.sort((a, b) => a.order - b.order)
     studyLevelOptions?.classList.add("hidden")
   })
 
-  studyLevelOptions?.addEventListener("wheel", (event) => {
+  studyLevelOptions?.addEventListener("wheel", (evt) => {
+    const event = evt as WheelEvent
     const { deltaY } = event
     const { scrollTop, scrollHeight, offsetHeight } = studyLevelOptions
 

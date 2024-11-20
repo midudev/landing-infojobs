@@ -49,6 +49,76 @@ const { title } = Astro.props
     <link rel="preload" as="image" href="/hero-pattern.webp" />
     <script is:inline>
       !(function () {
+        try {
+          !(function () {
+            var a = "__tcfapi",
+              t = a + "Locator"
+            if (!window.frames[t]) {
+              var n = window,
+                e = n.document,
+                r = 999,
+                c = setInterval(function () {
+                  if (e.body || 0 === r) {
+                    clearInterval(c)
+                    var a = e.createElement("iframe")
+                    ;(a.style.display = "none"),
+                      (a.name = t),
+                      e.body.appendChild(a)
+                  }
+                  r -= 1
+                }, 5)
+              n.addEventListener(
+                "message",
+                function (t) {
+                  if (null != t && t.data) {
+                    var e
+                    try {
+                      e =
+                        "string" == typeof t.data ? JSON.parse(t.data) : t.data
+                    } catch (a) {}
+                    var r = e && e.__tcfapiCall
+                    r &&
+                      n[a](
+                        r.command,
+                        r.version,
+                        function (a, n) {
+                          var e,
+                            c =
+                              (((e = {}).__tcfapiReturn = {
+                                returnValue: a,
+                                success: n,
+                                callId: r.callId,
+                              }),
+                              e)
+                          t.source.postMessage(c, "*")
+                        },
+                        r.parameter
+                      )
+                  }
+                },
+                !1
+              ),
+                (n[a] = function (t, e, r, c) {
+                  "ping" === t && r
+                    ? r({ gdprApplies: !0, cmpLoaded: !1, cmpStatus: "stub" })
+                    : n[a].Q.push(function () {
+                        return n[a](t, e, r, c)
+                      })
+                }),
+                (n[a].Q = []),
+                (n.__borosTcf = {
+                  push: function (t) {
+                    return n[a](t)
+                  },
+                })
+            }
+          })()
+        } catch (a) {}
+      })()
+    </script>
+
+    <script is:inline>
+      !(function () {
         var analytics = (window.analytics = window.analytics || [])
         if (!analytics.initialize)
           if (analytics.invoked)
@@ -108,6 +178,12 @@ const { title } = Astro.props
           }
       })()
     </script>
+
+    <script
+      is:inline
+      defer
+      src="https://components.infojobs.com/widgets/downloader.js"></script>
+
     <script
       defer
       is:inline
@@ -131,6 +207,7 @@ const { title } = Astro.props
   <main class="flex flex-col gap-20 md:gap-24">
     <slot />
   </main>
+  <div id="cmpContainer"></div>
   <Footer />
 </body>
 

@@ -55,11 +55,8 @@ const listProvincesIds = {
 }
 
 export function getProvinceId(input: HTMLInputElement): void {
-  if (!input.value) return void (input.style.color = "")
-
   const provinceId = listProvincesIds[input.value as keyof typeof listProvincesIds]
   input.setAttribute("value", provinceId !== undefined ? provinceId.toString() : "0")
-  input.style.color = provinceId ? "" : "red"
 
   if (!provinceId) input.setAttribute("value", "0")
 }
