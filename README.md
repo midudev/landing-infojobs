@@ -196,4 +196,3 @@ Las contribuciones son siempre bienvenidas.
 Consulta `contributing.md` para saber cómo empezar.
 
 Por favor, respete el `código de conducta` de este proyecto.
-
