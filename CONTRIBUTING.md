@@ -24,7 +24,7 @@ Se anima y valora todo tipo de contribuciones. Consulta la [Tabla de Contenidos]
 
 ## Código de Conducta
 
-Este proyecto y todos los que participan en él están regidos por el [Código de Conducta de Landing de InfoJobs](https://github.com/midudev/landing-infojobs/blob/master/CODE_OF_CONDUCT.md). Al participar, se espera que cumplas con este código. Por favor, reporta cualquier comportamiento inaceptable a <miduga@gmail.com>.
+Este proyecto y todos los que participan en él están regidos por el [Código de Conducta de Landing de InfoJobs](https://github.com/midudev/landing-infojobs/blob/main/CODE_OF_CONDUCT.md). Al participar, se espera que cumplas con este código. Por favor, reporta cualquier comportamiento inaceptable a <miduga@gmail.com>.
 
 ## Tengo una Pregunta
 
